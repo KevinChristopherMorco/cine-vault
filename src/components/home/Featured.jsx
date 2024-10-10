@@ -61,7 +61,7 @@ const Feautred = ({ title, subtext, link }) => {
         <MovieModal
           movieData={modalData}
           setModal={setModal}
-          setModalData={setModalData}
+          isLoading={isLoading}
         />
       )}
     </section>

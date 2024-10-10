@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  --bg-neutral: #1a1a1a;
+
   --brand-color-100: #e6d6f2;
   --brand-color-200: #d1b2e3;
   --brand-color-300: #bc8ed4;

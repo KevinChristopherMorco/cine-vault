@@ -2,6 +2,7 @@ import React from "react";
 
 import HomeHero from "../../components/home/HomeHero";
 import Featured from "../../components/home/Featured";
+import FAQ from "../../components/home/FAQ";
 
 const Home = () => {
   const trendingLink = `https://api.themoviedb.org/3/trending/movie/week?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates&language=en-US&page=1
@@ -31,6 +32,7 @@ api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates
         subtext={"Showtimes near you"}
         link={nowShowingLink}
       />
+      <FAQ />
     </>
   );
 };

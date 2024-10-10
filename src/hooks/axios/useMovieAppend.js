@@ -16,6 +16,7 @@ const useMovieAppend = (movieId) => {
         console.error(error);
         setAppendLoading(false);
       } finally {
+        // setTimeout(() => setAppendLoading(false), 5000);
         setAppendLoading(false);
       }
     })();

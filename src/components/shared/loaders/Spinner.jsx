@@ -1,6 +1,6 @@
 import React from "react";
 
-const spinner = () => {
+const Spinner = () => {
   return (
     <div className="flex items-center gap-2" role="status">
       <svg
@@ -24,4 +24,4 @@ const spinner = () => {
   );
 };
 
-export default spinner;
+export default Spinner;

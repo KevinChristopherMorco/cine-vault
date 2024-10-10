@@ -8,7 +8,7 @@ const useModalControls = () => {
     if (isModalOpen) {
       document.body.classList.add("overflow-hidden");
     } else {
-      document.body.classList = "";
+      document.body.classList.remove("overflow-hidden");
     }
   }, [isModalOpen]);
   return { isModalOpen, setModal, modalData, setModalData };

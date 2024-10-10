@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-color-100: #e6d6f2;
+  --brand-color-200: #d1b2e3;
+  --brand-color-300: #bc8ed4;
+  --brand-color-400: #a86abf;
+  --brand-color-500: #7440a8;
+  --brand-color-600: #5f3383;
+  --brand-color-700: #4a2460;
+  --brand-color-800: #371940;
+  --brand-color-900: #08050c;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    @apply h-screen min-h-full;
+  }
+  body {
+    @apply h-full min-h-full bg-[var(--brand-color-900)];
+  }
+
+  #root {
+    @apply relative flex h-full min-h-full flex-col bg-[var(--brand-color-900)] text-white;
+  }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1.5px white;
+    text-stroke: 2px white;
+  }
+}
+
+.scrollable {
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+/* For WebKit browsers */
+.scrollable::-webkit-scrollbar {
+  display: none;
+}

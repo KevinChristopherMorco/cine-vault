@@ -12,18 +12,8 @@ import useMovieTrailer from "../../../hooks/shared/useMovieTrailer";
 import useMovieCertification from "../../../hooks/shared/useMovieCertification";
 
 const MovieModal = ({ movieData, setModal, setModalData }) => {
-  const {
-    backdrop_path,
-    id,
-    title,
-    overview,
-    poster_path,
-    genre_ids,
-    popularity,
-    release_date,
-    video,
-    vote_average,
-  } = movieData;
+  const { backdrop_path, id, title, overview, release_date, vote_average } =
+    movieData;
 
   const { appendDetails, isAppendLoading } = useMovieAppend(id);
   const { trailer: trailerKey } = useMovieTrailer(

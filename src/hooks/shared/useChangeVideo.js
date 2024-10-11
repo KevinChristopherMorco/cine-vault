@@ -24,7 +24,7 @@ const useChangeVideo = (details, isAppendLoading) => {
   }, [isAppendLoading]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   }, [video]);
 
   return { video, videoList, setVideo };

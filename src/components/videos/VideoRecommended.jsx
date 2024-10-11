@@ -1,9 +1,18 @@
 import React from "react";
 import IconPlayerPlayFilled from "@tabler/icons-react/dist/esm/icons/IconPlayerPlayFilled.mjs";
+import IconChevronLeft from "@tabler/icons-react/dist/esm/icons/IconChevronLeft.mjs";
+import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
 
 const VideoRecommended = ({ videoList, isAppendLoading, setVideo }) => {
   return (
-    <div className="flex w-full flex-col gap-4 bg-[var(--bg-neutral)] py-4 lg:col-span-2 lg:h-full lg:justify-center lg:gap-6 lg:bg-transparent lg:px-0">
+    <div className="relative flex w-full flex-col gap-4 bg-[var(--bg-neutral)] py-4 lg:col-span-2 lg:h-full lg:justify-center lg:gap-6 lg:bg-transparent lg:px-0">
+      <div className="absolute left-2 top-[50%] z-[999] flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-md border-2 border-white p-2">
+        <IconChevronLeft className="font-bold" />
+      </div>
+      <div className="absolute right-2 top-[50%] z-[999] flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-md border-2 border-white p-2">
+        <IconChevronRight className="font-bold" />
+      </div>
+
       <p className="mx-4 border-l-4 border-[var(--brand-color-500)] px-4 text-lg font-bold lg:text-2xl">
         Related Videos
       </p>

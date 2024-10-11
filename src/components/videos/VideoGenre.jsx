@@ -8,7 +8,7 @@ const VideoGenre = ({
   isAppendLoading,
 }) => {
   return (
-    <div className="flex flex-wrap items-center gap-1 px-4 lg:px-0">
+    <div className="flex flex-wrap items-center gap-1 px-4 text-gray-300 lg:px-0">
       {(usCertification || phCertification) && (
         <div className="flex items-center gap-1">
           <img

@@ -1,5 +1,5 @@
 import React from "react";
-import Trailer from "../../components/videos/Trailer";
+import Trailer from "../../components/videos/TrailerContainer";
 
 const VideoContainer = () => {
   return (

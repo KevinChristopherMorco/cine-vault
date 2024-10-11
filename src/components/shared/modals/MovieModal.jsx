@@ -37,10 +37,10 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
 
   return (
     <div className="fixed top-0 z-[999] flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50">
-      <div className="animate-modalScale flex flex-col gap-2 rounded-md bg-black">
-        {!isAppendLoading ? (
+      {!isAppendLoading ? (
+        <div className="flex animate-modalScale flex-col gap-2 rounded-md bg-black md:h-[50%] md:w-[70%]">
           <>
-            <div className="relative h-[40%] rounded-md before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-violet-900 before:bg-opacity-20">
+            <div className="relative h-[45%] animate-fadeIn rounded-md before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-violet-900 before:bg-opacity-20 md:h-[55%]">
               <img
                 src={`http://image.tmdb.org/t/p/w500${backdrop_path}`}
                 alt={title}
@@ -54,7 +54,7 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
                 {title}
               </p>
             </div>
-            <div className="flex flex-col gap-6 p-4">
+            <div className="flex grow flex-col justify-between px-4 py-4">
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
                   <div className="flex items-center gap-1 rounded-full bg-gray-900 px-2 py-1">
@@ -82,7 +82,7 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
                   )}
                 </div>
 
-                <p className="line-clamp-4">{overview}</p>
+                <p className="line-clamp-2">{overview}</p>
               </div>
               <div className="flex justify-between">
                 {!isAppendLoading ? (
@@ -103,10 +103,10 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
               </div>
             </div>
           </>
-        ) : (
-          <Spinner />
-        )}
-      </div>
+        </div>
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };

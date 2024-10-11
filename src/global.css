@@ -25,14 +25,14 @@
 
 @layer base {
   html {
-    @apply h-screen min-h-full;
+    @apply h-full;
   }
   body {
-    @apply h-full min-h-full bg-[var(--brand-color-900)];
+    @apply flex min-h-full flex-col bg-[var(--brand-color-900)];
   }
 
   #root {
-    @apply relative flex h-full min-h-full flex-col bg-[var(--brand-color-900)] text-white;
+    @apply relative flex grow flex-col bg-[var(--brand-color-900)] text-white;
   }
 }
 
@@ -43,12 +43,11 @@
   }
 }
 
-.scrollable {
-  overflow-x: scroll;
+.scrollable-content {
   scrollbar-width: none;
 }
 
 /* For WebKit browsers */
-.scrollable::-webkit-scrollbar {
+.scrollable-content::-webkit-scrollbar {
   display: none;
 }

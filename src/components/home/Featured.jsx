@@ -14,7 +14,7 @@ const Feautred = ({ title, subtext, link }) => {
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
   return (
-    <section className="flex flex-col gap-6 py-10">
+    <section className="flex flex-col gap-6 py-5">
       <div className="mx-4 flex flex-col gap-1 border-l-4 border-[var(--brand-color-500)] px-3">
         <Link className="flex items-center gap-1">
           <p className="text-2xl font-bold">{title}</p>
@@ -22,13 +22,13 @@ const Feautred = ({ title, subtext, link }) => {
         </Link>
         <p className="text-sm text-gray-400">{subtext}</p>
       </div>
-      <div className="flex gap-x-6 overflow-x-scroll px-4 py-2">
+      <div className="scrollable-content flex gap-x-6 overflow-x-scroll px-4 py-2">
         {!isLoading ? (
           movieData.results.map((movie, index) => {
             return (
               <div
                 key={index}
-                className="flex h-fit w-[40%] shrink-0 animate-fadeIn flex-col gap-2"
+                className="flex h-fit w-[40%] shrink-0 animate-fadeIn flex-col gap-2 md:w-[25%]"
                 onClick={() => {
                   setModal(true);
                   setModalData(movie);

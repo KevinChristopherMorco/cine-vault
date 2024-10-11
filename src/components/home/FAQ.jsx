@@ -7,7 +7,7 @@ import movie from "../../assets/images/action-movie.png";
 const FAQ = () => {
   return (
     <div className="mb-[2rem] flex flex-col gap-6 px-4">
-      <p className="text-lg font-bold">Why Flicknest?</p>
+      <p className="text-lg font-bold md:text-xl">Why Flicknest?</p>
       <div className="flex flex-col gap-5 rounded-lg bg-gradient-to-br from-[#1A2145] via-[#1D172D] to-[#1E1425] p-4">
         <div className="text-lg font-medium md:text-xl">
           Film Discovery Awaits!

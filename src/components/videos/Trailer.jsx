@@ -12,6 +12,7 @@ import getMovieCertification from "../../helpers/movie/getMovieCertification";
 import getMovieTrailer from "../../helpers/movie/getMovieTrailer";
 import useChangeVideo from "../../hooks/shared/useChangeVideo";
 import useModalControls from "../../hooks/shared/useModalControls";
+import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
 
 const Trailer = () => {
   const { movieID } = useParams();
@@ -30,13 +31,19 @@ const Trailer = () => {
     isAppendLoading,
   );
 
+  const {
+    screenSize: { lg, xl },
+  } = useScreenResponsiveness();
+
+  console.log(lg);
+
   //   useModalControls();
 
   return (
-    <section className="flex flex-col gap-8 py-[5rem]">
-      <div className="flex flex-col gap-4">
+    <section className="flex grow flex-col gap-8 pb-[1rem] pt-[5rem] lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-6 lg:px-8 xl:grid-rows-[35rem_auto] xl:gap-20">
+      <div className="flex flex-col lg:col-span-2 lg:flex-row">
         {!isAppendLoading ? (
-          <div>
+          <div className="h-full lg:basis-[70%]">
             <div className="w-full bg-black px-4 py-2">
               <Link to={"/"} className="flex items-center gap-2">
                 Close
@@ -44,7 +51,7 @@ const Trailer = () => {
               </Link>
             </div>
             <iframe
-              className="h-[20rem] w-full bg-black"
+              className="h-[20rem] w-full bg-black md:h-[25rem] lg:h-[90%] xl:h-[90%]"
               src={`https://www.youtube.com/embed/${video}`}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -57,9 +64,9 @@ const Trailer = () => {
           </div>
         )}
 
-        <div className="flex flex-col gap-1">
+        <div className="flex h-full flex-col gap-1 bg-[var(--bg-neutral)] py-4 md:gap-2 lg:basis-[30%]">
           <div className="flex items-center gap-2 px-4">
-            <p className="text-lg font-medium">{title}</p>
+            <p className="text-lg font-medium md:text-xl">{title}</p>
             <p className="text-sm">({formatYear(release_date)})</p>
           </div>
           <div className="flex items-center gap-1 px-4">
@@ -73,7 +80,7 @@ const Trailer = () => {
                   }
                   className="h-4 w-4"
                 />
-                <p className="text-[.75rem]">
+                <p className="text-[.75rem] md:text-sm">
                   {usCertification || phCertification}
                 </p>
               </div>
@@ -83,7 +90,7 @@ const Trailer = () => {
               getMovieGenre(appendDetails).length > 1 &&
               getMovieGenre(appendDetails).map((genre, index) => {
                 return (
-                  <p key={index} className="text-[.75rem]">
+                  <p key={index} className="text-[.75rem] md:text-sm">
                     {genre}
                     {index === getMovieGenre(appendDetails).length - 1
                       ? ""
@@ -93,22 +100,25 @@ const Trailer = () => {
               })}
           </div>
           <div className="px-4">
-            <p className="text-[.85rem]">{overview}</p>
+            <p className="text-[.85rem] text-[.9rem]">{overview}</p>
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-8 px-4">
-        <p className="border-l-4 border-[var(--brand-color-500)] px-2 text-lg font-medium">
+      <div className="flex w-full flex-col gap-4 bg-[var(--bg-neutral)] px-4 py-4 lg:col-span-2 lg:h-full lg:justify-center lg:gap-6 lg:bg-transparent lg:px-0">
+        <p className="border-l-4 border-[var(--brand-color-500)] px-2 text-lg font-bold lg:px-4 lg:text-xl">
           Related Videos
         </p>
         {!isAppendLoading && (
-          <div className="flex gap-4 overflow-x-scroll">
+          <div className="scrollable-content flex gap-6 overflow-x-scroll">
             {videoList.map((video) => {
               return (
-                <div className="flex w-[85%] shrink-0 flex-col gap-2">
+                <div
+                  key={video.key}
+                  className="flex w-[85%] shrink-0 flex-col gap-2 md:w-[55%] lg:w-[40%] xl:w-[30%] 2xl:w-[20%]"
+                >
                   <div
                     onClick={() => setVideo(video.key)}
-                    className="relative before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-violet-900 before:bg-opacity-20"
+                    className="relative before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-20"
                   >
                     <img
                       src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}

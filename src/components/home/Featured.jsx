@@ -9,14 +9,14 @@ import MovieModal from "../shared/modals/MovieModal";
 import RatingProgress from "../shared/RatingProgress";
 import Spinner from "../shared/loaders/Spinner";
 
-const Feautred = ({ title, subtext, link }) => {
+const Feautred = ({ title, subtext, link, list }) => {
   const { response: movieData, isLoading } = useMovieData(link);
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
   return (
     <section className="flex flex-col gap-6 py-5">
       <div className="mx-4 flex flex-col gap-1 border-l-4 border-[var(--brand-color-500)] px-3">
-        <Link className="flex items-center gap-1">
+        <Link to={`/movies-list/${list}`} className="flex items-center gap-1">
           <p className="text-2xl font-bold">{title}</p>
           <IconChevronRight className="h-5 w-5" />
         </Link>
@@ -28,7 +28,7 @@ const Feautred = ({ title, subtext, link }) => {
             return (
               <div
                 key={index}
-                className="flex h-fit w-[40%] shrink-0 animate-fadeIn flex-col gap-2 md:w-[25%]"
+                className="flex h-fit w-[40%] shrink-0 animate-fadeIn cursor-pointer flex-col gap-2 md:w-[25%]"
                 onClick={() => {
                   setModal(true);
                   setModalData(movie);

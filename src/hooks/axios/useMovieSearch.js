@@ -32,7 +32,6 @@ const useMovieSearch = (query) => {
       }
     })();
   }, [query]);
-  console.log(searchResults);
 
   return { searchResults, searchLoading };
 };

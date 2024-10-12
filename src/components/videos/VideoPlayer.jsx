@@ -23,7 +23,6 @@ const VideoPlayer = ({ video, isAppendLoading, appendDetails }) => {
     screenSize: { lg, xl, xxl },
   } = useScreenResponsiveness();
 
-  console.log(lg);
 
   return (
     <div className="flex flex-col lg:col-span-2 lg:flex-row lg:px-8">

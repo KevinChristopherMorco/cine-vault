@@ -4,6 +4,7 @@ import "typeface-inter";
 import Layout from "./pages/Layout";
 import HomeContainer from "./pages/home/HomeContainer";
 import VideoContainer from "./pages/videos/VideoContainer";
+import MoviesListContainer from "./pages/movies-list/MoviesListContainer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomeContainer />} />
           <Route path="/video/:movieID" element={<VideoContainer />} />
+          <Route path="/movies-list/:list" element={<MoviesListContainer />} />
         </Route>
       </Routes>
     </BrowserRouter>

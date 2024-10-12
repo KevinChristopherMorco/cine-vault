@@ -2,13 +2,11 @@ import React from "react";
 
 import IconStarFilled from "@tabler/icons-react/dist/esm/icons/IconStarFilled.mjs";
 
-import getMovieCertification from "../../../helpers/movie/getMovieCertification";
 import formatVoteAverage from "../../../helpers/format/formatVoteAverage";
 import formatYear from "../../../helpers/format/formatYear";
 import formatRuntime from "../../../helpers/format/formatRuntime";
 
 const GridView = ({ allMovieList, isLoading }) => {
-  console.log(allMovieList);
   return (
     <div className="grid grid-cols-2 gap-x-3 gap-y-10 px-4">
       {allMovieList.map((movie, index) => {
@@ -21,7 +19,10 @@ const GridView = ({ allMovieList, isLoading }) => {
           runtime,
         } = movie.data;
         return (
-          <div className="flex flex-col gap-2 rounded-md border border-[var(--bg-neutral)]">
+          <div
+            key={index}
+            className="flex flex-col gap-2 rounded-md border border-[var(--bg-neutral)]"
+          >
             <div className="relative w-full before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15">
               <img
                 src={`http://image.tmdb.org/t/p/w500${poster_path}`}

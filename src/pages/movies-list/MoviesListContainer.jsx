@@ -1,17 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import useMoviePages from "../../hooks/axios/useMoviePages";
 
 import ListView from "../../components/movies-list/ListView";
-import CompactView from "./grid/CompactView";
-import GridView from "./grid/GridView";
-import DetailedView from "./grid/DetailedView";
+import Spinner from "../../components/shared/loaders/Spinner";
 
 const MoviesListContainer = () => {
   const { list } = useParams();
   const { isLoading, allMovieList } = useMoviePages("top_rated", 10);
-  //   console.log(allMovieList);
 
   const handleTitle = () => {
     if (list === "trending-movies") {
@@ -26,7 +23,7 @@ const MoviesListContainer = () => {
     }
   };
   return (
-    <section className="mt-[5rem] flex flex-col gap-8">
+    <section className="mt-[5rem] flex animate-fadeIn flex-col gap-8">
       <div className="flex flex-col gap-4 px-4 pt-4">
         <div>
           <p className="text-2xl font-bold">TMDB Charts</p>
@@ -41,11 +38,14 @@ const MoviesListContainer = () => {
         </div>
       </div>
       <div>
-        <ListView />
+        {!isLoading ? (
+          <ListView isLoading={isLoading} allMovieList={allMovieList} />
+        ) : (
+          <div className="flex flex-col items-center">
+            <Spinner />
+          </div>
+        )}
       </div>
-      {/* <CompactView allMovieList={allMovieList} isLoading={isLoading} /> */}
-      {/* <GridView allMovieList={allMovieList} isLoading={isLoading} /> */}
-      <DetailedView allMovieList={allMovieList} isLoading={isLoading} />
     </section>
   );
 };

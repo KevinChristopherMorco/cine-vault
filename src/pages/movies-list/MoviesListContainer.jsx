@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 
 import useMoviePages from "../../hooks/axios/useMoviePages";
 import usePageData from "../../hooks/movies-list/usePageData";
 
 import ListView from "../../components/movies-list/ListView";
 import Spinner from "../../components/shared/loaders/Spinner";
+import RecommendPage from "../../components/movies-list/recommended-pages/RecommendPage";
 
 const MoviesListContainer = () => {
   const { isLoading, allMovieList, handleEndpoint } = useMoviePages();
@@ -14,7 +14,7 @@ const MoviesListContainer = () => {
   } = usePageData(handleEndpoint);
 
   return (
-    <section className="mt-[5rem] flex animate-fadeIn flex-col gap-8">
+    <section className="flex animate-fadeIn flex-col gap-8">
       <div className="flex flex-col gap-4 px-4 pt-4">
         <div>
           <p className="text-2xl font-bold">TMDB Charts</p>
@@ -37,6 +37,7 @@ const MoviesListContainer = () => {
           </div>
         )}
       </div>
+      <RecommendPage isLoading={isLoading} />
     </section>
   );
 };

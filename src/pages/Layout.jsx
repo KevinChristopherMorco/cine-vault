@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main className="flex grow flex-col">
+      <main className="mt-[6rem] flex grow flex-col">
         <Outlet />
       </main>
       <Footer />

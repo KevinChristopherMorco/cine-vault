@@ -97,9 +97,12 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
                   <LoadingButton text={"Loading Trailer..."} />
                 )}
 
-                <button className="w-[40%] cursor-pointer rounded-md border border-[var(--brand-color-500)] p-2 font-medium text-[var(--brand-color-300)]">
+                <Link
+                  to={`/movies-summary/${id}`}
+                  className="w-[40%] cursor-pointer rounded-md border border-[var(--brand-color-500)] p-2 text-center font-medium text-[var(--brand-color-300)]"
+                >
                   More Details
-                </button>
+                </Link>
               </div>
             </div>
           </>

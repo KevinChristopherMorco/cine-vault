@@ -20,7 +20,7 @@ const useMovieAppend = (movieId) => {
         setAppendLoading(false);
       }
     })();
-  }, []);
+  }, [appendDetails]);
 
   return { appendDetails, isAppendLoading };
 };

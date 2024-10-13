@@ -8,6 +8,7 @@ import MovieHero from "../../components/movies-summary/MovieHero";
 const MoviesSummaryContainer = () => {
   const { id } = useParams();
   const { appendDetails, isAppendLoading } = useMovieAppend(id);
+  console.log(appendDetails);
   return (
     <section className="px-4">
       <MovieHero

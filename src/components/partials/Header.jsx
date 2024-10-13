@@ -58,9 +58,13 @@ const Header = () => {
                   } = search;
 
                   return (
-                    <div
+                    <Link
+                      to={`/movies-summary/${id}`}
                       key={id}
                       className="flex gap-4 border-b border-[var(--brand-color-700)] py-2 font-medium"
+                      onClick={() =>
+                        setSearch(() => ({ toggle: false, view: false }))
+                      }
                     >
                       <img
                         src={
@@ -85,7 +89,7 @@ const Header = () => {
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
             </div>

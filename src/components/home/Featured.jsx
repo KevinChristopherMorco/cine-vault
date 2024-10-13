@@ -9,7 +9,7 @@ import MovieModal from "../shared/modals/MovieModal";
 import RatingProgress from "../shared/RatingProgress";
 import Spinner from "../shared/loaders/Spinner";
 
-const Feautred = ({ title, subtext, link, list }) => {
+const Feautred = ({ title, subtext, link, list, numbering }) => {
   const { response: movieData, isLoading } = useMovieData(link);
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
@@ -40,9 +40,12 @@ const Feautred = ({ title, subtext, link, list }) => {
                     alt=""
                     className="h-full min-h-[13rem] w-full rounded-md"
                   />
-                  <p className="text-stroke absolute -left-4 bottom-0 text-6xl font-bold text-black">
-                    {index + 1}
-                  </p>
+                  {numbering && (
+                    <p className="text-stroke absolute -left-4 bottom-0 text-6xl font-bold text-black">
+                      {index + 1}
+                    </p>
+                  )}
+
                   <div className="absolute bottom-0 right-1">
                     <RatingProgress />
                   </div>

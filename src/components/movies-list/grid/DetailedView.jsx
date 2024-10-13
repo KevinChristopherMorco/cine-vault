@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import IconStarFilled from "@tabler/icons-react/dist/esm/icons/IconStarFilled.mjs";
 
@@ -28,23 +29,25 @@ const DetailedView = ({ allMovieList, isLoading }) => {
         return (
           <div
             key={index}
-            className="flex flex-col gap-4 border-b border-[var(--brand-color-500)] py-6"
+            className="flex animate-fadeIn flex-col gap-4 border-b border-[var(--brand-color-500)] py-6"
           >
-            <div className="flex">
-              <div className="relative w-fit before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15">
+            <div className="flex gap-2">
+              <div className="relative w-fit cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15">
                 <img
                   src={`http://image.tmdb.org/t/p/w500${poster_path}`}
                   alt=""
-                  className="max-h-[6rem] max-w-[5rem] rounded-md"
+                  className="h-[6rem] w-[5rem] rounded-md md:h-[7rem] md:w-[5rem]"
                 />
-                <p className="text-stroke absolute bottom-0 right-0 text-2xl font-bold text-black">
+                <p className="text-stroke absolute bottom-0 right-0 text-2xl font-bold text-black md:text-4xl">
                   {index + 1}
                 </p>
               </div>
               <div className="flex flex-col gap-4 px-2">
                 <div className="flex flex-col gap-2">
-                  <p className="text-sm font-bold">{title}</p>
-                  <ul className="flex gap-2 text-[.8rem] text-gray-300">
+                  <p className="cursor-pointer text-sm font-bold transition-colors hover:text-[var(--brand-color-500)] md:text-base">
+                    {title}
+                  </p>
+                  <ul className="flex gap-2 text-[.8rem] text-gray-300 md:text-[.9rem]">
                     <li>{formatYear(release_date)}</li>
                     <li>{formatRuntime(runtime)}</li>
                     <li>
@@ -58,9 +61,7 @@ const DetailedView = ({ allMovieList, isLoading }) => {
                             }
                             className="h-3 w-3"
                           />
-                          <p className="text-[.75rem]">
-                            {usCertification || phCertification}
-                          </p>
+                          <p>{usCertification || phCertification}</p>
                         </div>
                       )}
                     </li>
@@ -80,10 +81,14 @@ const DetailedView = ({ allMovieList, isLoading }) => {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="line-clamp-4 text-[.75rem]">{overview}</p>
+              <p className="line-clamp-4 text-[.75rem] md:text-sm">
+                {overview}
+              </p>
               <div className="flex gap-2">
                 <div className="flex flex-wrap gap-1">
-                  <p className="text-[.75rem] font-bold">Directed By:</p>
+                  <p className="text-[.75rem] font-bold md:text-sm">
+                    Directed By:
+                  </p>
                   {crew.slice(0, 1).map((crew, index) => (
                     <p key={index} className="text-[.75rem] text-gray-300">
                       {crew.name}

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-import useSearch from "../../hooks/search/useSearch";
-
 import IconSearch from "@tabler/icons-react/dist/esm/icons/IconSearch.mjs";
 import IconMenu2 from "@tabler/icons-react/dist/esm/icons/IconMenu2.mjs";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
+
+import useSearch from "../../hooks/search/useSearch";
 import useMovieSearch from "../../hooks/axios/useMovieSearch";
 import formatYear from "../../helpers/format/formatYear";
 
@@ -28,9 +27,6 @@ const Header = () => {
     }
   };
 
-  // if (!searchLoading) {
-  //   console.log(searchResults);
-  // }
   return (
     <nav className="fixed z-[999] flex h-[4.5rem] w-full items-center border-b border-b-[var(--brand-color-600)] bg-[var(--bg-neutral)] px-2 py-3">
       {toggle ? (
@@ -101,15 +97,15 @@ const Header = () => {
             <p className="text-5xl text-[var(--brand-color-500)]">C</p>
             <p className="text-white">INEVAULT</p>
           </Link>
-          <div className="flex gap-2">
+          <div className="flex gap-4">
             <div>
               <IconSearch
-                className="h-5 w-5 animate-iconScale cursor-pointer"
+                className="h-6 w-6 animate-iconScale cursor-pointer"
                 onClick={() => setSearch((prev) => ({ ...prev, toggle: true }))}
               />
             </div>
             <div>
-              <IconMenu2 className="h-5 w-5 animate-iconScale cursor-pointer" />
+              <IconMenu2 className="h-6 w-6 animate-iconScale cursor-pointer" />
             </div>
           </div>
         </>

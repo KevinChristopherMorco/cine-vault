@@ -51,3 +51,7 @@
 .scrollable-content::-webkit-scrollbar {
   display: none;
 }
+
+.test .list-image:hover + .flex .list-title {
+  color: var(--brand-color-500);
+}

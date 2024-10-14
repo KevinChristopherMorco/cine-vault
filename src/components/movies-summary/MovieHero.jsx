@@ -198,14 +198,14 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
           </>
         )}
 
-        <div className="p-4 md:col-start-1 md:row-start-1 md:p-0">
+        <div className="px-4 py-6 md:col-start-1 md:row-start-1 md:px-0 md:py-0">
           <img
             src={`http://image.tmdb.org/t/p/w500${poster_path}`}
             alt=""
             className="w-full rounded-md"
           />
         </div>
-        <div className="flex flex-col gap-4 py-4 pr-4 md:col-span-2 md:px-0 md:px-4 md:py-0 md:pr-0">
+        <div className="flex flex-col gap-4 py-6 pr-4 md:col-span-2 md:px-0 md:py-4 md:pr-0">
           {!isAppendLoading && (
             <ul className="scrollable-content flex w-full gap-2 overflow-x-scroll">
               {getMovieGenre(appendDetails).map((x) => (
@@ -218,7 +218,7 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
 
           <p className="text-sm">{overview}</p>
         </div>
-        <div className="flex items-center gap-6 px-4 text-[.8rem] md:px-0">
+        <div className="col-span-2 flex items-center gap-6 px-4 text-[.8rem] md:px-0">
           <div className="flex items-center gap-2">
             <IconStarFilled className="h-5 w-5 text-[var(--brand-color-500)]" />
             <div className="flex items-center gap-2">
@@ -231,6 +231,48 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
               <IconTrendingUp className="h-4 w-4 text-green-300" />
             </div>
             <p className="font-medium">{popularity}</p>
+          </div>
+        </div>
+
+        <div className="col-span-2 flex flex-col px-4 py-6 text-sm md:px-0">
+          <div className="flex border-b border-t py-4">
+            <p className="w-[30%] font-bold md:w-[15%]">Director:</p>
+            <ul className="flex w-full flex-wrap gap-2">
+              {crew
+                .filter((crew) => crew.job === "Director")
+                .map((crew, index) => (
+                  <li>
+                    {crew.name} {index !== 1 && <span>,</span>}
+                  </li>
+                ))}
+            </ul>
+          </div>
+          <div>
+            <div className="flex border-b py-4">
+              <p className="w-[30%] font-bold md:w-[15%]">Writer:</p>
+              <ul className="flex w-full flex-wrap gap-2">
+                {crew
+                  .filter((crew) => crew.known_for_department === "Writing")
+                  .slice(0, 2)
+                  .map((crew, index) => (
+                    <li>
+                      {crew.name}
+                      {index !== 1 && <span>,</span>}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            <div className="flex border-b py-4">
+              <p className="w-[30%] font-bold md:w-[15%]">Stars:</p>
+              <ul className="flex w-full flex-wrap gap-2">
+                {cast.slice(0, 5).map((cast, index) => (
+                  <li>
+                    {cast.name}
+                    {index !== 1 && <span>,</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

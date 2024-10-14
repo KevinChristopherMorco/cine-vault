@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const useMovieAppend = (movieId) => {
+  const { id } = useParams();
   const [appendDetails, setAppendDetails] = useState([]);
   const [isAppendLoading, setAppendLoading] = useState(true);
 
@@ -20,7 +22,11 @@ const useMovieAppend = (movieId) => {
         setAppendLoading(false);
       }
     })();
-  }, [isAppendLoading]);
+  }, [isAppendLoading, id]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  });
 
   return { appendDetails, isAppendLoading };
 };

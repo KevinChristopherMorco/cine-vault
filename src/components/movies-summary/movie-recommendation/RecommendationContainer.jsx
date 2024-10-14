@@ -9,7 +9,7 @@ const RecommendationContainer = ({ appendDetails, isAppendLoading }) => {
   } = appendDetails;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 lg:row-start-3">
       <div className="flex w-fit flex-col gap-4 border-l-4 border-[var(--brand-color-500)] px-2">
         <p className="text-xl font-bold">More like this</p>
       </div>

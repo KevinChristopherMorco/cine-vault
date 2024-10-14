@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="fixed z-[999] flex h-[4.5rem] w-full items-center border-b border-b-[var(--brand-color-600)] bg-[var(--bg-neutral)] px-2 py-3">
+    <nav className="fixed z-[999] flex h-[4.5rem] w-full items-center justify-between border-b border-b-[var(--brand-color-600)] bg-[var(--bg-neutral)] p-4">
       {toggle ? (
         <div className="w-full">
           <div className="flex w-full items-center justify-between">
@@ -97,7 +97,7 @@ const Header = () => {
         </div>
       ) : (
         <>
-          <Link to={"/"} className="flex w-full items-center font-bold">
+          <Link to={"/"} className="flex w-fit items-center font-bold">
             <p className="text-5xl text-[var(--brand-color-500)]">C</p>
             <p className="text-white">INEVAULT</p>
           </Link>

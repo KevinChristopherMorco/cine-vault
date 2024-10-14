@@ -21,7 +21,7 @@ const MoviePhotoContainer = ({ appendDetails, isAppendLoading }) => {
   };
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 lg:row-start-1">
       <div className="group flex w-fit cursor-pointer items-center gap-2 border-l-4 border-[var(--brand-color-500)] px-2 transition-colors">
         <p className="text-xl font-bold">Photos</p>
         <IconChevronRight className="h-5 w-5 group-hover:text-[var(--brand-color-500)]" />

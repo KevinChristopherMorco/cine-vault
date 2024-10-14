@@ -1,6 +1,7 @@
 import React from "react";
 
 const formatRuntime = (runtime) => {
+  if (isNaN(runtime) || runtime < 1) return false;
   const hours = Math.floor(runtime / 60);
   const minutes = runtime % 60;
 

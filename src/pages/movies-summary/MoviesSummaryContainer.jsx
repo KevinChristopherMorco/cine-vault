@@ -8,27 +8,29 @@ import RecommendationContainer from "../../components/movies-summary/movie-recom
 import MoviePhotoContainer from "../../components/movies-summary/movie-photos/MoviePhotoContainer";
 import MovieCastCrewContainer from "../../components/movies-summary/movies-cast-crew/MovieCastCrewContainer";
 
+import falsy from "../../json/falsy.json";
+
 const MoviesSummaryContainer = () => {
   const { id } = useParams();
   const { appendDetails, isAppendLoading } = useMovieAppend(id);
+
   return (
-    <section className="flex flex-col gap-8 px-4">
-      <MovieHero
-        appendDetails={appendDetails}
-        isAppendLoading={isAppendLoading}
-      />
-      <MoviePhotoContainer
-        appendDetails={appendDetails}
-        isAppendLoading={isAppendLoading}
-      />
-      <MovieCastCrewContainer
-        appendDetails={appendDetails}
-        isAppendLoading={isAppendLoading}
-      />
-      <RecommendationContainer
-        appendDetails={appendDetails}
-        isAppendLoading={isAppendLoading}
-      />
+    <section className="flex flex-col gap-8 px-4 lg:gap-12 lg:px-10">
+      <MovieHero appendDetails={falsy} isAppendLoading={isAppendLoading} />
+      <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[70%_30%] lg:gap-16">
+        <MoviePhotoContainer
+          appendDetails={appendDetails}
+          isAppendLoading={isAppendLoading}
+        />
+        <MovieCastCrewContainer
+          appendDetails={appendDetails}
+          isAppendLoading={isAppendLoading}
+        />
+        <RecommendationContainer
+          appendDetails={appendDetails}
+          isAppendLoading={isAppendLoading}
+        />
+      </div>
     </section>
   );
 };

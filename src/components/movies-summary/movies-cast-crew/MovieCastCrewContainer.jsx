@@ -10,21 +10,21 @@ const MovieCastCrewContainer = ({ appendDetails, isAppendLoading }) => {
   console.log(cast);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 lg:row-start-2">
       <div className="group flex w-fit cursor-pointer items-center gap-2 border-l-4 border-[var(--brand-color-500)] px-2 transition-colors">
         <p className="text-xl font-bold">Top Casts</p>
         <IconChevronRight className="h-5 w-5 group-hover:text-[var(--brand-color-500)]" />
       </div>
       {cast.length > 0 && (
-        <div className="scrollable-content flex gap-4 overflow-x-scroll">
+        <div className="scrollable-content flex gap-4 overflow-x-scroll lg:grid lg:grid-cols-2">
           {cast.slice(0, 10).map((cast, index) => {
             return (
               <div key={index} className="shrink-0">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col items-center gap-4 lg:flex-row">
                   {cast.profile_path ? (
                     <div
                       alt={cast.name}
-                      className="h-[10rem] w-[10rem] rounded-full bg-cover bg-center"
+                      className="h-[10rem] w-[10rem] rounded-full bg-cover bg-center lg:h-[7rem] lg:w-[7rem]"
                       style={{
                         backgroundImage: `url(http://image.tmdb.org/t/p/w500${cast.profile_path})`,
                       }}
@@ -38,7 +38,7 @@ const MovieCastCrewContainer = ({ appendDetails, isAppendLoading }) => {
                     </div>
                   )}
 
-                  <div className="flex flex-col gap-1 text-center">
+                  <div className="flex flex-col gap-1 text-center lg:text-left">
                     <p className="font-medium">{cast.name}</p>
                     <p className="font-light text-gray-400">{cast.character}</p>
                   </div>

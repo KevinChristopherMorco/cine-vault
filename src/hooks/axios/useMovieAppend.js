@@ -9,7 +9,7 @@ const useMovieAppend = (movieId) => {
     (async () => {
       try {
         const res =
-          await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates
+          await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images
 `);
         setAppendDetails(res.data);
       } catch (error) {
@@ -20,7 +20,7 @@ const useMovieAppend = (movieId) => {
         setAppendLoading(false);
       }
     })();
-  }, [appendDetails]);
+  }, [isAppendLoading]);
 
   return { appendDetails, isAppendLoading };
 };

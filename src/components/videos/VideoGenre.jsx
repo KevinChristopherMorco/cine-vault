@@ -30,7 +30,7 @@ const VideoGenre = ({
         getMovieGenre(appendDetails).map((genre, index) => {
           return (
             <p key={index} className="text-[.75rem] md:text-sm">
-              {genre}
+              {genre.name}
               {index === getMovieGenre(appendDetails).length - 1
                 ? ""
                 : ","}{" "}

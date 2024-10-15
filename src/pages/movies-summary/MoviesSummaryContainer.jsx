@@ -16,7 +16,10 @@ const MoviesSummaryContainer = () => {
 
   return (
     <section className="flex flex-col gap-8 px-4 lg:gap-12 lg:px-10">
-      <MovieHero appendDetails={falsy} isAppendLoading={isAppendLoading} />
+      <MovieHero
+        appendDetails={appendDetails}
+        isAppendLoading={isAppendLoading}
+      />
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[70%_30%] lg:gap-16">
         <MoviePhotoContainer
           appendDetails={appendDetails}

@@ -11,11 +11,14 @@ import IconVideoOff from "@tabler/icons-react/dist/esm/icons/IconVideoOff.mjs";
 import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
 import formatYear from "../../helpers/format/formatYear";
 import formatRuntime from "../../helpers/format/formatRuntime";
+import formatTwoDecimal from "../../helpers/format/formatTwoDecimal";
 import getMovieCertification from "../../helpers/movie/getMovieCertification";
 import getMovieTrailer from "../../helpers/movie/getMovieTrailer";
 import getMovieGenre from "../../helpers/movie/getMovieGenre";
-import formatTwoDecimal from "../../helpers/format/formatTwoDecimal";
+import getCastCrew from "../../helpers/movie/getCastCrew";
+
 import Empty from "../alerts/Empty";
+import { Link } from "react-router-dom";
 
 const MovieHero = ({ appendDetails, isAppendLoading }) => {
   const { PH: phCertification, US: usCertification } = getMovieCertification(
@@ -23,9 +26,9 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
     isAppendLoading,
   );
 
-  console.log(appendDetails);
-
-  const { trailerKey } = getMovieTrailer(appendDetails, isAppendLoading);
+  const {
+    screenSize: { sm, md, lg, xl, xxl },
+  } = useScreenResponsiveness();
 
   if (isAppendLoading) return;
 
@@ -40,13 +43,13 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
     popularity,
     images: { backdrops, logos, posters },
 
-    credits: { cast, crew },
+    credits,
     videos: { results: movieVideos },
   } = appendDetails;
 
-  const {
-    screenSize: { sm, md, lg, xl, xxl },
-  } = useScreenResponsiveness();
+  const { trailerKey } = getMovieTrailer(appendDetails, isAppendLoading);
+
+  const { acting: actor, director, writer } = getCastCrew(credits);
 
   return (
     <div className="flex flex-col gap-8 md:px-5 xl:px-8">
@@ -204,20 +207,22 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
         </div>
         <div className="flex flex-col gap-4 py-6 pr-4 md:col-span-2 md:px-0 md:py-4 md:pr-0 lg:col-span-3 lg:row-start-3">
           {!isAppendLoading && (
-            <ul className="scrollable-content flex w-full gap-2 overflow-x-scroll">
+            <ul className="scrollable-content flex w-full gap-2 overflow-x-scroll py-1">
               {getMovieGenre(appendDetails).map((genre, index) => (
-                <li
-                  key={index}
-                  className="w-fit shrink-0 rounded-full border border-gray-500 px-5 py-1 text-[.75rem] font-medium"
-                >
-                  {genre}
+                <li key={index} className="shrink-0">
+                  <Link
+                    to={`/genre/${genre.id}`}
+                    className="cursor-pointer rounded-full border border-gray-500 px-5 py-1 text-[.75rem] font-medium transition-colors hover:bg-[var(--bg-neutral)]"
+                  >
+                    {genre.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           )}
 
           <p className="text-sm">
-            {overview ? overview : "Cannot generate a movie summary"}
+            {overview ? overview : "* Cannot generate a movie summary"}
           </p>
         </div>
         {(sm || md) && (
@@ -247,45 +252,47 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
         )}
 
         <div className="col-span-2 flex flex-col px-4 py-6 text-sm md:px-0 lg:row-start-4">
-          <div className="flex border-b border-t py-4">
-            <p className="w-[30%] font-bold md:w-[15%]">Director:</p>
-            <ul className="flex w-full flex-wrap gap-2">
-              {crew
-                .filter((crew) => crew.job === "Director")
-                .map((crew, index) => (
+          {director && (
+            <div className="flex border-b border-t py-4">
+              <p className="w-[30%] font-bold md:w-[15%]">Director:</p>
+              <ul className="flex w-full flex-wrap gap-2">
+                {director.map((crew, index) => (
                   <li key={index}>
-                    {crew.name} {index !== 1 && <span>,</span>}
+                    {crew.name} {index > 0 && <span>,</span>}
                   </li>
                 ))}
-            </ul>
-          </div>
-          <div>
-            <div className="flex border-b py-4">
+              </ul>
+            </div>
+          )}
+          {writer && (
+            <div className="flex border-b border-t py-4">
               <p className="w-[30%] font-bold md:w-[15%]">Writer:</p>
               <ul className="flex w-full flex-wrap gap-2">
-                {crew
-                  .filter((crew) => crew.known_for_department === "Writing")
-                  .slice(0, 2)
-                  .map((crew, index) => (
-                    <li key={index}>
-                      {crew.name}
-                      {index !== 1 && <span>,</span>}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-            <div className="flex border-b py-4">
-              <p className="w-[30%] font-bold md:w-[15%]">Stars:</p>
-              <ul className="flex w-full flex-wrap gap-2">
-                {cast.slice(0, 5).map((cast, index) => (
+                {writer.map((crew, index) => (
                   <li key={index}>
-                    {cast.name}
-                    {index !== 1 && <span>,</span>}
+                    {crew.name}
+                    {index >= 0 && index !== writer.length - 1 && (
+                      <span>,</span>
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
+          )}
+
+          {actor && (
+            <div className="flex border-b border-t py-4">
+              <p className="w-[30%] font-bold md:w-[15%]">Stars:</p>
+              <ul className="flex w-full flex-wrap gap-2">
+                {actor.slice(0, 10).map((cast, index) => (
+                  <li key={index}>
+                    {cast.name}
+                    {index < 9 && <span>,</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

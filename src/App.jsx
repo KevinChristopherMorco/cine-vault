@@ -6,6 +6,7 @@ import HomeContainer from "./pages/home/HomeContainer";
 import VideoContainer from "./pages/videos/VideoContainer";
 import MoviesListContainer from "./pages/movies-list/MoviesListContainer";
 import MoviesSummaryContainer from "./pages/movies-summary/MoviesSummaryContainer";
+import GenreContainer from "./pages/genre/GenreContainer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             path="/movies-summary/:id"
             element={<MoviesSummaryContainer />}
           />
+          <Route path="/genre/:genreID" element={<GenreContainer />} />
         </Route>
       </Routes>
     </BrowserRouter>

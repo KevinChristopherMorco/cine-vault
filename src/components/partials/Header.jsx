@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="fixed z-[999] flex h-[4.5rem] w-full items-center justify-between border-b border-b-[var(--brand-color-600)] bg-[var(--bg-neutral)] p-4">
+    <nav className="fixed z-[999] flex h-[4rem] w-full items-center justify-between border-b border-b-[var(--brand-color-600)] bg-[var(--bg-neutral)] p-4 lg:h-[4.5rem]">
       {toggle ? (
         <div className="w-full">
           <div className="flex w-full items-center justify-between">

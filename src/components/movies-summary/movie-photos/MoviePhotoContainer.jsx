@@ -26,7 +26,7 @@ const MoviePhotoContainer = ({ appendDetails, isAppendLoading }) => {
         <p className="text-xl font-bold">Photos</p>
         <IconChevronRight className="h-5 w-5 group-hover:text-[var(--brand-color-500)]" />
       </div>
-      <div className="grid grid-cols-2 gap-1 md:auto-rows-auto md:gap-2 lg:grid-cols-3 lg:grid-rows-2">
+      <div className="grid grid-cols-2 gap-1 md:auto-rows-auto md:gap-2 lg:auto-rows-auto lg:grid-cols-3">
         {photoSlice().map((image) => {
           return (
             <img

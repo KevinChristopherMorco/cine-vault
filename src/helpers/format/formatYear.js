@@ -1,10 +1,14 @@
 const formatYear = (data) => {
-  if (Object.prototype.toString.call(data) !== "[object Date]") return false;
-  const year = new Date(data).toLocaleString("en-US", {
-    year: "numeric",
-  });
+  const chechDate = new Date(data);
+  if (chechDate instanceof Date && !isNaN(chechDate)) {
+    const year = new Date(data).toLocaleString("en-US", {
+      year: "numeric",
+    });
 
-  return year;
+    return year;
+  }
+
+  return false;
 };
 
 export default formatYear;

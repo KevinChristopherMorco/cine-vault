@@ -2,6 +2,7 @@ import React from "react";
 import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
 
 import useScreenResponsiveness from "../../../hooks/shared/useScreenResponsiveness";
+import MainHeading from "../../shared/headings/MainHeading";
 
 const MoviePhotoContainer = ({ appendDetails, isAppendLoading }) => {
   if (isAppendLoading) return;
@@ -22,10 +23,7 @@ const MoviePhotoContainer = ({ appendDetails, isAppendLoading }) => {
 
   return (
     <div className="flex flex-col gap-8 lg:row-start-1">
-      <div className="group flex w-fit cursor-pointer items-center gap-2 border-l-4 border-[var(--brand-color-500)] px-2 transition-colors">
-        <p className="text-xl font-bold">Photos</p>
-        <IconChevronRight className="h-5 w-5 group-hover:text-[var(--brand-color-500)]" />
-      </div>
+      <MainHeading title={"Photos"} isLink={true} />
       <div className="grid grid-cols-2 gap-1 md:auto-rows-auto md:gap-2 lg:auto-rows-auto lg:grid-cols-3">
         {photoSlice().map((image) => {
           return (

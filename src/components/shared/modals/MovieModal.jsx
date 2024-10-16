@@ -36,7 +36,7 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
   };
 
   return (
-    <div className="fixed top-0 z-[999] flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed top-0 z-[999] -mx-4 flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50">
       {!isAppendLoading ? (
         <div className="flex animate-modalScale flex-col gap-2 rounded-md bg-black md:h-[50%] md:w-[70%]">
           <>

@@ -8,21 +8,29 @@ import useModalControls from "../../hooks/shared/useModalControls";
 import MovieModal from "../shared/modals/MovieModal";
 import RatingProgress from "../shared/RatingProgress";
 import Spinner from "../shared/loaders/Spinner";
+import MainHeading from "../shared/headings/MainHeading";
 
 const Feautred = ({ title, subtext, link, list, numbering }) => {
   const { response: movieData, isLoading } = useMovieData(link);
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
   return (
-    <section className="flex flex-col gap-6 py-5">
-      <div className="mx-4 flex flex-col gap-1 border-l-4 border-[var(--brand-color-500)] px-3">
+    <section className="col-span-2 flex flex-col gap-6 bg-[var(--bg-neutral)] px-4 py-5">
+      {/* <div className="flex flex-col gap-1 border-l-4 border-[var(--brand-color-500)] px-3">
         <Link to={`/movies-list/${list}`} className="flex items-center gap-1">
           <p className="text-2xl font-bold">{title}</p>
           <IconChevronRight className="h-5 w-5" />
         </Link>
         <p className="text-sm text-gray-400">{subtext}</p>
-      </div>
-      <div className="scrollable-content flex gap-x-6 overflow-x-scroll px-4 py-2">
+      </div> */}
+      <MainHeading
+        title={title}
+        endpoint={list}
+        subtext={subtext}
+        isLink={true}
+        hasSubtext={true}
+      />
+      <div className="scrollable-content -mx-4 flex gap-x-6 overflow-x-scroll px-4 py-2">
         {!isLoading ? (
           movieData.results.map((movie, index) => {
             return (

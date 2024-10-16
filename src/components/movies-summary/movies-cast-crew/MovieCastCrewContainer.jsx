@@ -1,6 +1,7 @@
 import React from "react";
 import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
 import IconUserExclamation from "@tabler/icons-react/dist/esm/icons/IconUserExclamation.mjs";
+import MainHeading from "../../shared/headings/MainHeading";
 
 const MovieCastCrewContainer = ({ appendDetails, isAppendLoading }) => {
   if (isAppendLoading) return;
@@ -11,10 +12,7 @@ const MovieCastCrewContainer = ({ appendDetails, isAppendLoading }) => {
 
   return (
     <div className="flex flex-col gap-8 lg:row-start-2">
-      <div className="group flex w-fit cursor-pointer items-center gap-2 border-l-4 border-[var(--brand-color-500)] px-2 transition-colors">
-        <p className="text-xl font-bold">Top Casts</p>
-        <IconChevronRight className="h-5 w-5 group-hover:text-[var(--brand-color-500)]" />
-      </div>
+      <MainHeading title={"Top Cast"} isLink={true} />
       {cast.length > 0 && (
         <div className="scrollable-content flex gap-4 overflow-x-scroll lg:grid lg:grid-cols-2">
           {cast.slice(0, 10).map((cast, index) => {

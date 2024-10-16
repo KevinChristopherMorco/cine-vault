@@ -266,7 +266,7 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
           )}
           {writer && (
             <div className="flex border-b border-t py-4">
-              <p className="w-[30%] font-bold md:w-[15%]">Writer:</p>
+              <p className="w-[30%] font-bold md:w-[15%]">Writers:</p>
               <ul className="flex w-full flex-wrap gap-2">
                 {writer.map((crew, index) => (
                   <li key={index}>

@@ -4,114 +4,133 @@
       "id": 28,
       "name": "Action",
       "description": "Action films are marked by high-energy sequences, physical feats, and intense stunts. They typically feature heroes facing formidable challenges, with adrenaline-pumping moments such as chases, explosions, and large-scale battles. These films often highlight themes of bravery, sacrifice, and the triumph of good over evil, drawing audiences into exhilarating scenarios that keep them on the edge of their seats.",
+      "overview": "From epic stunts and mind-blowing effects to heart-racing stories and memorable characters, here's the latest in action movies and series.",
       "image": "/src/assets/images/genres/action.jpg"
     },
     {
       "id": 12,
       "name": "Adventure",
       "description": "Adventure films take audiences on thrilling journeys, often set in exotic or fantastical locations. These narratives typically involve quests or expeditions, with protagonists who face a series of obstacles and adventures along the way. Themes of exploration, bravery, and self-discovery are common, as characters navigate through unknown territories filled with wonder and danger, inspiring viewers to embrace the spirit of adventure.",
+      "overview": "Join brave heroes on thrilling quests through uncharted territories, facing challenges that test their courage and ingenuity.",
       "image": "/src/assets/images/genres/adventure.jpg"
     },
     {
       "id": 16,
       "name": "Animation",
       "description": "Animation films utilize various artistic techniques, including traditional hand-drawn methods and modern computer-generated imagery, to create vibrant and imaginative worlds. They cater to audiences of all ages, offering whimsical tales that blend humor, emotion, and striking visual artistry. From heartfelt stories about friendship and family to fantastical adventures featuring beloved characters, animated films often convey deeper messages while entertaining and captivating viewers.",
+      "overview": "Experience enchanting stories brought to life with vibrant visuals and memorable characters that appeal to both the young and the young at heart.",
       "image": "/src/assets/images/genres/animation.jpg"
     },
     {
       "id": 35,
       "name": "Comedy",
       "description": "Comedy films aim to entertain and elicit laughter through humor, employing a range of comedic styles such as slapstick, satire, and witty dialogue. These films often explore the complexities of human relationships and social situations, presenting relatable characters in absurd or humorous predicaments. By highlighting the lighter side of life, comedies create an enjoyable experience that uplifts audiences and encourages them to find joy in the everyday.",
+      "overview": "Laugh out loud with films that explore the humorous side of life, featuring relatable characters and situations that make us all smile.",
       "image": "/src/assets/images/genres/comedy.jpg"
     },
     {
       "id": 80,
       "name": "Crime",
       "description": "Crime films delve into the intricacies of criminal activities, offering a glimpse into the minds of criminals and law enforcement alike. These narratives often involve heists, investigations, and moral dilemmas, creating tension and intrigue. Themes of justice, betrayal, and redemption frequently surface as characters navigate the blurred lines between right and wrong. The genre invites viewers to ponder ethical questions while being captivated by suspenseful storytelling.",
+      "overview": "Explore the darker side of human nature through gripping stories of crime, justice, and moral complexity that keep you guessing.",
       "image": "/src/assets/images/genres/crime.jpg"
     },
     {
       "id": 99,
       "name": "Documentary",
       "description": "Documentary films provide insightful examinations of real-life subjects, events, or issues, aiming to inform and educate audiences. Through interviews, archival footage, and compelling narratives, documentaries illuminate diverse perspectives and raise awareness about significant topics. They can range from intimate character studies to sweeping historical overviews, engaging viewers with factual storytelling that often provokes thought and inspires action.",
+      "overview": "Discover real stories that educate and inspire, offering in-depth looks into various subjects and pressing issues of our time.",
       "image": "/src/assets/images/genres/documentary.jpg"
     },
     {
       "id": 18,
       "name": "Drama",
       "description": "Drama films focus on character-driven narratives that explore emotional themes, complex relationships, and personal struggles. They often depict realistic situations and the challenges that individuals face, eliciting empathy and deeper reflections from audiences. The genre covers a wide array of topics, from family dynamics to societal issues, offering profound insights into the human experience and the emotional truths that connect us all.",
+      "overview": "Engage with compelling stories that touch the heart and provoke thought, showcasing the rich tapestry of human emotions and experiences.",
       "image": "/src/assets/images/genres/drama.jpg"
     },
     {
       "id": 10751,
       "name": "Family",
       "description": "Family films are crafted to be suitable for all ages, emphasizing themes of togetherness, love, and adventure. These narratives often blend humor and heartfelt moments, making them enjoyable for both children and adults. They encourage family bonding and showcase the importance of relationships, often featuring relatable characters and positive messages about friendship, courage, and understanding.",
+      "overview": "Enjoy heartwarming stories that celebrate family bonds, adventure, and love, perfect for audiences of all ages.",
       "image": "/src/assets/images/genres/family.jpg"
     },
     {
       "id": 14,
       "name": "Fantasy",
       "description": "Fantasy films transport viewers to imaginative worlds filled with magical elements, mythical creatures, and extraordinary adventures. These stories often involve epic quests and the classic battle between good and evil. With richly constructed universes and characters, fantasy films inspire viewers to believe in the impossible and explore themes of heroism, sacrifice, and the power of imagination.",
+      "overview": "Enter magical realms where imagination knows no bounds, filled with extraordinary adventures and timeless tales of heroism.",
       "image": "/src/assets/images/genres/fantasy.jpg"
     },
     {
       "id": 36,
       "name": "History",
       "description": "Historical films portray significant events or periods in the past, emphasizing accuracy and authenticity in their storytelling. They aim to educate and entertain, bringing history to life through compelling narratives and character portrayals. These films often highlight the complexities of historical figures and events, inviting viewers to reflect on the past and its impact on the present and future.",
+      "overview": "Revisit pivotal moments in history through engaging narratives that educate and provoke thought about our past.",
       "image": "/src/assets/images/genres/history.jpg"
     },
     {
       "id": 27,
       "name": "Horror",
       "description": "Horror films seek to evoke fear, dread, and suspense, often featuring supernatural elements, monsters, or psychological terror. They explore the darker aspects of human nature, creating chilling atmospheres that keep audiences on edge. With themes of survival, isolation, and the unknown, horror films can provoke visceral reactions and stimulate conversations about fear and morality.",
+      "overview": "Face your fears with spine-chilling stories that delve into the supernatural and the psychological, leaving you on the edge of your seat.",
       "image": "/src/assets/images/genres/horror.jpg"
     },
     {
       "id": 10402,
       "name": "Music",
       "description": "Music films celebrate the art of music, showcasing performances, biographies of musicians, or fictional stories centered around the power of song. These films often feature vibrant soundtracks that enhance emotional connections and create memorable moments. They explore themes of creativity, passion, and the transformative nature of music, resonating with audiences through their universal appeal.",
+      "overview": "Immerse yourself in the world of music with captivating performances and heartfelt stories that resonate deeply.",
       "image": "/src/assets/images/genres/musical.jpg"
     },
     {
       "id": 9648,
       "name": "Mystery",
       "description": "Mystery films center around solving puzzles or crimes, featuring detectives or amateur sleuths who unravel secrets. With engaging plots filled with twists and turns, these films keep audiences guessing until the very end. Themes of truth, deception, and human nature often surface as characters navigate complex narratives, creating an atmosphere of intrigue that compels viewers to piece together the clues.",
+      "overview": "Unravel thrilling mysteries filled with suspense and unexpected twists that keep you guessing until the final reveal.",
       "image": "/src/assets/images/genres/mystery.jpg"
     },
     {
       "id": 10749,
       "name": "Romance",
       "description": "Romance films explore the complexities of love and relationships, often focusing on emotional connections and personal growth. These narratives can range from lighthearted tales to dramatic love stories, capturing the joys and challenges of romance. Through relatable characters and heartfelt moments, romance films inspire audiences to reflect on their own experiences with love, longing, and the beauty of connection.",
+      "overview": "Experience the ups and downs of love through heartfelt stories that capture the beauty and complexity of human relationships.",
       "image": "/src/assets/images/genres/romance.jpg"
     },
     {
       "id": 878,
       "name": "Science Fiction",
       "description": "Science fiction films imagine futuristic concepts, advanced technology, and alternative realities. They often explore themes of humanity, space exploration, and the impact of science on society, inviting viewers to ponder possibilities beyond the known world. With imaginative storytelling and thought-provoking scenarios, science fiction challenges our understanding of reality and encourages contemplation about the future.",
+      "overview": "Explore futuristic worlds and imaginative scenarios that challenge our understanding of science and humanity.",
       "image": "/src/assets/images/genres/science-fiction.jpg"
     },
     {
       "id": 10770,
       "name": "TV Movie",
       "description": "TV movies are films produced for television, often featuring self-contained stories and character arcs. They can span various genres, from romance to drama, and are typically designed to entertain audiences in a shorter format than traditional feature films. These films often explore relatable themes and emotional narratives, providing viewers with engaging content that fits conveniently into their schedules.",
+      "overview": "Enjoy engaging stories crafted for television, spanning various genres and offering relatable themes in a shorter format.",
       "image": "/src/assets/images/genres/tv-movie.jpg"
     },
     {
       "id": 53,
       "name": "Thriller",
       "description": "Thriller films are characterized by suspenseful plots, intense action, and psychological tension. They often involve crime, espionage, or dangerous situations, keeping audiences on the edge of their seats with unexpected twists. With themes of fear, moral ambiguity, and the pursuit of truth, thrillers engage viewers in a rollercoaster of emotions, often leading to shocking revelations and climactic confrontations.",
+      "overview": "Get ready for heart-pounding suspense and intense narratives that keep you guessing until the very end.",
       "image": "/src/assets/images/genres/thriller.jpg"
     },
     {
       "id": 10752,
       "name": "War",
       "description": "War films depict the harsh realities of armed conflict, exploring the experiences of soldiers, the impact of war on society, and the moral complexities of battle. These narratives often highlight themes of bravery, sacrifice, and the effects of war on human relationships. By portraying both the heroism and tragedy of conflict, war films provoke thought and reflection on the cost of war and the resilience of the human spirit.",
+      "overview": "Witness the raw realities of armed conflict and the resilience of the human spirit in powerful stories of war and sacrifice.",
       "image": "/src/assets/images/genres/war.jpg"
     },
     {
       "id": 37,
       "name": "Western",
       "description": "Western films are set in the American West during the late 19th to early 20th centuries, featuring cowboys, outlaws, and rugged landscapes. These narratives often explore themes of justice, honor, and the struggle between civilization and wilderness. With iconic tropes such as showdowns and saloons, Westerns capture the spirit of adventure and the moral dilemmas faced by their characters, resonating with audiences through their exploration of freedom and frontier life.",
+      "overview": "Ride into the rugged landscapes of the American West with stories of cowboys, outlaws, and epic showdowns.",
       "image": "/src/assets/images/genres/western.jpg"
     }
   ]

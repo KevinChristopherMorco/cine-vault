@@ -38,9 +38,9 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
   return (
     <div className="fixed top-0 z-[999] -mx-4 flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50">
       {!isAppendLoading ? (
-        <div className="flex animate-modalScale flex-col gap-2 rounded-md bg-black md:h-[50%] md:w-[70%]">
+        <div className="flex animate-modalScale flex-col gap-2 rounded-md bg-black md:h-[50%] md:w-[70%] xl:h-[75%] xl:w-[45%]">
           <>
-            <div className="relative h-[45%] animate-fadeIn rounded-md before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-violet-900 before:bg-opacity-20 md:h-[55%]">
+            <div className="relative h-[45%] animate-fadeIn rounded-md before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-violet-900 before:bg-opacity-20 md:h-[55%] xl:h-[60%]">
               <img
                 src={`http://image.tmdb.org/t/p/w500${backdrop_path}`}
                 alt={title}

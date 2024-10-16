@@ -4,7 +4,7 @@
 
 :root {
   --bg-neutral: #150e1f;
-  --neutral-hover: #31273f;
+  --bg-neutral-light: #221a2e;
 
   --brand-color-100: #e6d6f2;
   --brand-color-200: #d1b2e3;
@@ -15,6 +15,10 @@
   --brand-color-700: #4a2460;
   --brand-color-800: #371940;
   --brand-color-900: #08050c;
+
+  /* Icons */
+
+  --star-color: #f7d100;
 }
 
 * {

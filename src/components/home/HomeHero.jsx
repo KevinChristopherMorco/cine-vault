@@ -4,7 +4,7 @@ import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRigh
 
 const HomeHero = () => {
   return (
-    <section className="relative flex h-[80vh] flex-col items-center justify-center bg-[url('assets/images/cover-photo.jpg')] bg-cover before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-70 md:h-[50vh]">
+    <section className="relative flex h-[80vh] flex-col items-center justify-center bg-[url('assets/images/cover-photo.jpg')] bg-cover before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-70 md:h-[50vh] xl:h-[75vh]">
       <div className="relative flex flex-col items-center gap-8 text-center">
         <div className="flex flex-col gap-4">
           <p className="text-4xl font-bold md:text-5xl">

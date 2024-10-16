@@ -61,7 +61,7 @@ const CompactView = ({ allMovieList, isLoading }) => {
               <div className="flex items-center gap-2 text-[.75rem] md:text-[.9rem] lg:text-base">
                 <div className="flex items-center gap-1">
                   <span>
-                    <IconStarFilled className="h-3 w-3 text-[var(--brand-color-500)]" />
+                    <IconStarFilled className="h-3 w-3 text-[var(--star-color)]" />
                   </span>
                   <p className="">{formatVoteAverage(vote_average)}</p>
                 </div>

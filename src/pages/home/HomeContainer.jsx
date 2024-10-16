@@ -24,6 +24,7 @@ api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates
         endpoint={"trending-movies"}
         isNumbering={true}
         isRated={true}
+        isDetailed={false}
       />
       <Featured
         title={"All-Time Highest Rated Movie"}
@@ -32,6 +33,7 @@ api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates
         endpoint={"highest-rated-movies"}
         isNumbering={true}
         isRated={true}
+        isDetailed={false}
       />
       <Featured
         title={"In theaters"}
@@ -40,6 +42,7 @@ api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates
         endpoint={"in-theaters-movies"}
         isNumbering={false}
         isRated={false}
+        isDetailed={false}
       />
       <FAQ />
     </div>

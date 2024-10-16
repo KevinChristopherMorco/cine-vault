@@ -24,9 +24,9 @@ const useMovieAppend = (movieId) => {
     })();
   }, [isAppendLoading, id]);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  });
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0 });
+  // }, [id]);
 
   return { appendDetails, isAppendLoading };
 };

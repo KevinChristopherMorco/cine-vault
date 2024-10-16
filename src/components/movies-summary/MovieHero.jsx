@@ -166,24 +166,24 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
 
           <div className="col-span-2 flex font-bold uppercase lg:col-start-3 lg:row-start-2 lg:flex-col lg:gap-2">
             {movieVideos.length > 0 ? (
-              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--neutral-hover)] lg:flex-col">
+              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--bg-neutral-light)] lg:flex-col">
                 <IconVideo className="h-5 w-5" />
                 <p>{movieVideos.length} videos</p>
               </div>
             ) : (
-              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--neutral-hover)] lg:flex-col">
+              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--bg-neutral-light)] lg:flex-col">
                 <IconVideoOff className="h-5 w-5" />
                 <p>no videos found</p>
               </div>
             )}
 
             {backdrops.length > 0 || logos.length > 0 || posters.length > 0 ? (
-              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--neutral-hover)] lg:flex-col">
+              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--bg-neutral-light)] lg:flex-col">
                 <IconLibraryPhoto className="h-5 w-5" />
                 photos
               </div>
             ) : (
-              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--neutral-hover)] lg:flex-col">
+              <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full rounded-lg bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--bg-neutral-light)] lg:flex-col">
                 <IconPhotoOff className="h-5 w-5" />
                 no photos found
               </div>

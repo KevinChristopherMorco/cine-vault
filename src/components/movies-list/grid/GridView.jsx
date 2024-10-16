@@ -38,7 +38,7 @@ const GridView = ({ allMovieList, isLoading }) => {
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1">
                     <span>
-                      <IconStarFilled className="h-4 w-4 text-[var(--brand-color-500)]" />
+                      <IconStarFilled className="h-4 w-4 text-[var(--star-color)]" />
                     </span>
                     <p className="text-sm md:text-base">
                       {formatVoteAverage(vote_average)}

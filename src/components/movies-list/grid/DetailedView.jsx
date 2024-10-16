@@ -70,7 +70,7 @@ const DetailedView = ({ allMovieList, isLoading }) => {
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1">
                     <span>
-                      <IconStarFilled className="h-3 w-3 text-[var(--brand-color-500)]" />
+                      <IconStarFilled className="h-3 w-3 text-[var(--star-color)]" />
                     </span>
                     <p className="text-[.75rem]">
                       {formatVoteAverage(vote_average)}

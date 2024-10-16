@@ -58,12 +58,18 @@ const MovieCard = ({
             </Link>
             <div className="flex items-center justify-between">
               <Link
-                to={`/movies-summary/${data.id}`}
-                className="flex items-center gap-2 font-medium"
+                to={`/video/${data.id}`}
+                className="flex items-center gap-2 font-medium transition-colors hover:text-gray-300"
               >
                 <IconPlayerPlayFilled className="h-4 w-4" /> Trailer
               </Link>
-              <IconExclamationCircle className="h-5 w-5 cursor-pointer" />
+              <IconExclamationCircle
+                className="h-5 w-5 cursor-pointer transition-colors hover:text-gray-300"
+                onClick={() => {
+                  setModal(true);
+                  setModalData(data);
+                }}
+              />
             </div>
           </div>
         </div>

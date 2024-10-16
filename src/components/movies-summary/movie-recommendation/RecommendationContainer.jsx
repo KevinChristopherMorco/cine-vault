@@ -4,7 +4,12 @@ import RecommendationCard from "./RecommendationCard";
 import MainHeading from "../../shared/headings/MainHeading";
 import MovieCard from "../../shared/movie/MovieCard";
 
-const RecommendationContainer = ({ appendDetails, isAppendLoading }) => {
+const RecommendationContainer = ({
+  appendDetails,
+  isAppendLoading,
+  setModal,
+  setModalData,
+}) => {
   if (isAppendLoading) return;
   const {
     recommendations: { results: recommendationResults },
@@ -15,7 +20,13 @@ const RecommendationContainer = ({ appendDetails, isAppendLoading }) => {
       <MainHeading title={"More Like This"} isLink={true} />
       <div className="scrollable-content -mx-4 flex gap-4 overflow-x-scroll px-4">
         {recommendationResults.map((movie, index) => (
-          <MovieCard key={index} data={movie} isDetailed={true} />
+          <MovieCard
+            key={index}
+            data={movie}
+            isDetailed={true}
+            setModal={setModal}
+            setModalData={setModalData}
+          />
         ))}
       </div>
     </div>

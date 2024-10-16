@@ -1,0 +1,49 @@
+import React from "react";
+
+const HeroCastCrew = ({ director, writer, actor }) => {
+  return (
+    <div className="col-span-2 flex flex-col px-4 py-6 text-sm md:px-0 lg:row-start-4">
+      {director && director.length > 0 && (
+        <div className="flex border-b border-t py-4">
+          <p className="w-[30%] font-bold md:w-[15%]">Director:</p>
+          <ul className="flex w-full flex-wrap gap-2">
+            {director.map((crew, index) => (
+              <li key={index}>
+                {crew.name} {index > 0 && <span>,</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {writer && writer.length > 0 && (
+        <div className="flex border-b border-t py-4">
+          <p className="w-[30%] font-bold md:w-[15%]">Writers:</p>
+          <ul className="flex w-full flex-wrap gap-2">
+            {writer.map((crew, index) => (
+              <li key={index}>
+                {crew.name}
+                {index !== writer.length - 1 && <span>,</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {actor && actor.length > 0 && (
+        <div className="flex border-b border-t py-4">
+          <p className="w-[30%] font-bold md:w-[15%]">Stars:</p>
+          <ul className="flex w-full flex-wrap gap-2">
+            {actor.slice(0, 10).map((cast, index) => (
+              <li key={index}>
+                {cast.name}
+                {index < 9 && <span>,</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default HeroCastCrew;

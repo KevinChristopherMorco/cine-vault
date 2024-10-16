@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
 
 import getMovieCertification from "../../helpers/movie/getMovieCertification";
-import getMovieTrailer from "../../helpers/movie/getMovieTrailer";
 import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
 
 import Spinner from "../shared/loaders/Spinner";
@@ -11,8 +10,8 @@ import VideoTitle from "./VideoTitle";
 import VideoGenre from "./VideoGenre";
 
 const VideoPlayer = ({ video, isAppendLoading, appendDetails }) => {
+  const navigate = useNavigate();
   const { title, release_date, overview, poster_path } = appendDetails;
-  const { trailerKey } = getMovieTrailer(appendDetails, isAppendLoading);
 
   const { PH: phCertification, US: usCertification } = getMovieCertification(
     appendDetails,
@@ -23,16 +22,18 @@ const VideoPlayer = ({ video, isAppendLoading, appendDetails }) => {
     screenSize: { lg, xl, xxl },
   } = useScreenResponsiveness();
 
-
   return (
     <div className="flex flex-col lg:col-span-2 lg:flex-row lg:px-8">
       {!isAppendLoading ? (
         <div className="h-full lg:basis-[70%]">
           <div className="w-full bg-black px-4 py-2">
-            <Link to={"/"} className="flex items-center gap-2">
+            <div
+              onClick={() => navigate(-1)}
+              className="flex cursor-pointer items-center gap-2 hover:text-gray-200"
+            >
               Close
               <IconX className="h-4 w-4" />
-            </Link>
+            </div>
           </div>
           <iframe
             className="h-[20rem] w-full bg-black md:h-[25rem] lg:h-[90%] xl:h-[90%]"

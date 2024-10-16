@@ -30,9 +30,9 @@ const MovieCastCrewContainer = ({ appendDetails, isAppendLoading }) => {
                   ) : (
                     <div
                       alt={cast.name}
-                      className="flex h-[10rem] w-[10rem] items-center justify-center rounded-full bg-[var(--bg-neutral)] bg-cover bg-center"
+                      className="flex h-[10rem] w-[10rem] items-center justify-center rounded-full bg-[var(--bg-neutral)] bg-cover bg-center lg:h-[7rem] lg:w-[7rem]"
                     >
-                      <IconUserExclamation className="h-[5rem] w-[5rem]" />
+                      <IconUserExclamation className="h-[5rem] w-[5rem] lg:h-[3rem] lg:w-[3rem]" />
                     </div>
                   )}
 

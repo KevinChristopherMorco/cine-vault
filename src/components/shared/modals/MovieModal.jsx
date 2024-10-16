@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import IconPlayerPlayFilled from "@tabler/icons-react/dist/esm/icons/IconPlayerPlayFilled.mjs";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
@@ -17,6 +17,7 @@ import Spinner from "../loaders/Spinner";
 
 const MovieModal = ({ movieData, setModal, isLoading }) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const { backdrop_path, id, title, overview, release_date, vote_average } =
     movieData;
@@ -36,9 +37,9 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
   };
 
   return (
-    <div className="fixed top-0 z-[999] -mx-4 flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed top-0 z-[999] -mx-4 flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50 md:-mx-10">
       {!isAppendLoading ? (
-        <div className="flex animate-modalScale flex-col gap-2 rounded-md bg-black md:h-[50%] md:w-[70%] xl:h-[75%] xl:w-[45%]">
+        <div className="flex animate-modalScale flex-col gap-2 rounded-md bg-black md:w-[70%] xl:w-[45%]">
           <>
             <div className="relative h-[45%] animate-fadeIn rounded-md before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-violet-900 before:bg-opacity-20 md:h-[55%] xl:h-[60%]">
               <img
@@ -54,7 +55,8 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
                 {title}
               </p>
             </div>
-            <div className="flex grow flex-col justify-between px-4 py-4">
+
+            <div className="flex h-[55%] flex-col justify-between px-4 py-4 md:h-[45%] xl:h-[40%]">
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
                   <div className="flex items-center gap-1 rounded-full bg-gray-900 px-2 py-1">
@@ -84,26 +86,28 @@ const MovieModal = ({ movieData, setModal, isLoading }) => {
 
                 <p className="line-clamp-2">{overview}</p>
               </div>
-              <div className="flex justify-between">
-                {!isAppendLoading ? (
-                  <a
-                    onClick={handleModalRedirect}
-                    className="flex w-[55%] cursor-pointer items-center justify-center gap-2 rounded-md bg-[var(--brand-color-500)] p-2 font-medium"
-                  >
-                    <IconPlayerPlayFilled className="h-4 w-4" />
-                    Trailer
-                  </a>
-                ) : (
-                  <LoadingButton text={"Loading Trailer..."} />
-                )}
+              {pathname === "/" && (
+                <div className="flex justify-between">
+                  {!isAppendLoading ? (
+                    <a
+                      onClick={handleModalRedirect}
+                      className="flex w-[55%] cursor-pointer items-center justify-center gap-2 rounded-md bg-[var(--brand-color-500)] p-2 font-medium"
+                    >
+                      <IconPlayerPlayFilled className="h-4 w-4" />
+                      Trailer
+                    </a>
+                  ) : (
+                    <LoadingButton text={"Loading Trailer..."} />
+                  )}
 
-                <Link
-                  to={`/movies-summary/${id}`}
-                  className="w-[40%] cursor-pointer rounded-md border border-[var(--brand-color-500)] p-2 text-center font-medium text-[var(--brand-color-300)]"
-                >
-                  More Details
-                </Link>
-              </div>
+                  <Link
+                    to={`/movies-summary/${id}`}
+                    className="w-[40%] cursor-pointer rounded-md border border-[var(--brand-color-500)] p-2 text-center font-medium text-[var(--brand-color-300)]"
+                  >
+                    More Details
+                  </Link>
+                </div>
+              )}
             </div>
           </>
         </div>

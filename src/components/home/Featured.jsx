@@ -1,12 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
 
 import useMovieData from "../../hooks/axios/useMovieData";
 import useModalControls from "../../hooks/shared/useModalControls";
 
 import MovieModal from "../shared/modals/MovieModal";
-import RatingProgress from "../shared/RatingProgress";
 import Spinner from "../shared/loaders/Spinner";
 import MainHeading from "../shared/headings/MainHeading";
 import MovieCard from "../shared/movie/MovieCard";

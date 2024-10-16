@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import RecommendationCard from "./RecommendationCard";
 import MainHeading from "../../shared/headings/MainHeading";
+import MovieCard from "../../shared/movie/MovieCard";
 
 const RecommendationContainer = ({ appendDetails, isAppendLoading }) => {
   if (isAppendLoading) return;
@@ -14,7 +15,7 @@ const RecommendationContainer = ({ appendDetails, isAppendLoading }) => {
       <MainHeading title={"More Like This"} isLink={true} />
       <div className="scrollable-content -mx-4 flex gap-4 overflow-x-scroll">
         {recommendationResults.map((movie, index) => (
-          <RecommendationCard key={index} movie={movie} />
+          <MovieCard key={index} data={movie} isDetailed={true} />
         ))}
       </div>
     </div>

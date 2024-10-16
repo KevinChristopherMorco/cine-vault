@@ -9,8 +9,9 @@ import MovieModal from "../shared/modals/MovieModal";
 import RatingProgress from "../shared/RatingProgress";
 import Spinner from "../shared/loaders/Spinner";
 import MainHeading from "../shared/headings/MainHeading";
+import MovieCard from "../shared/movie/MovieCard";
 
-const Feautred = ({ title, subtext, link, list, numbering }) => {
+const Feautred = ({ title, subtext, link, endpoint, isNumbering, isRated }) => {
   const { response: movieData, isLoading } = useMovieData(link);
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
@@ -25,7 +26,7 @@ const Feautred = ({ title, subtext, link, list, numbering }) => {
       </div> */}
       <MainHeading
         title={title}
-        endpoint={list}
+        endpoint={endpoint}
         subtext={subtext}
         isLink={true}
         hasSubtext={true}
@@ -42,25 +43,34 @@ const Feautred = ({ title, subtext, link, list, numbering }) => {
                   setModalData(movie);
                 }}
               >
-                <div className="relative">
-                  <img
-                    src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt=""
-                    className="h-full min-h-[13rem] w-full rounded-md"
-                  />
-                  {numbering && (
-                    <p className="text-stroke absolute -left-4 bottom-0 text-6xl font-bold text-black">
-                      {index + 1}
-                    </p>
-                  )}
+                <MovieCard
+                  data={movie}
+                  numbering={index}
+                  isNumbering={isNumbering}
+                  isRated={isRated}
+                  isDetailed={false}
+                />
+                {/* <div className="flex flex-col gap-2">
+                  <div className="relative">
+                    <img
+                      src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      alt=""
+                      className="h-full min-h-[13rem] w-full rounded-md"
+                    />
+                    {numbering && (
+                      <p className="text-stroke absolute -left-4 bottom-0 text-6xl font-bold text-black">
+                        {index + 1}
+                      </p>
+                    )}
 
-                  <div className="absolute bottom-0 right-1">
-                    <RatingProgress />
+                    <div className="absolute bottom-0 right-1">
+                      <RatingProgress />
+                    </div>
                   </div>
-                </div>
-                <p className="line-clamp-1 text-center text-[.8rem] font-medium">
-                  {movie.title}
-                </p>
+                  <p className="line-clamp-1 text-center text-[.8rem] font-medium">
+                    {movie.title}
+                  </p>
+                </div> */}
               </div>
             );
           })

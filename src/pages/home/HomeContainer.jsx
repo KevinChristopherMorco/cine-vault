@@ -21,22 +21,25 @@ api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates
         title={"Trending this week"}
         subtext={"You don't want to miss this out."}
         link={trendingLink}
-        list={"trending-movies"}
-        numbering={true}
+        endpoint={"trending-movies"}
+        isNumbering={true}
+        isRated={true}
       />
       <Featured
         title={"All-Time Highest Rated Movie"}
         subtext={"The pinnacle of cinematic artistry."}
         link={highestRatingLink}
-        list={"highest-rated-movies"}
-        numbering={true}
+        endpoint={"highest-rated-movies"}
+        isNumbering={true}
+        isRated={true}
       />
       <Featured
         title={"In theaters"}
         subtext={"Showtimes near you"}
         link={nowShowingLink}
-        list={"in-theaters-movies"}
-        numbering={false}
+        endpoint={"in-theaters-movies"}
+        isNumbering={false}
+        isRated={false}
       />
       <FAQ />
     </div>

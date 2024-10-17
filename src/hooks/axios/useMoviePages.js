@@ -22,6 +22,8 @@ const useMoviePages = () => {
         );
 
         const results = await Promise.all(movieDetails);
+
+        console.log(results);
         allMovies.push(...results);
       }
 

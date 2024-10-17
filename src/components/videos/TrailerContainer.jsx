@@ -17,7 +17,7 @@ const Trailer = () => {
   );
 
   return (
-    <section className="flex grow flex-col gap-8 pb-[1rem] pt-[5rem] lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-6 xl:grid-rows-[35rem_auto] xl:gap-8">
+    <section className="flex grow flex-col gap-8 pb-[1rem] pt-[5rem] md:pt-0 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-6 xl:grid-rows-[35rem_auto] xl:gap-8">
       <VideoPlayer
         isAppendLoading={isAppendLoading}
         appendDetails={appendDetails}

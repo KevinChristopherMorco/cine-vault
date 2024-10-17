@@ -7,6 +7,7 @@ import VideoContainer from "./pages/videos/VideoContainer";
 import MoviesListContainer from "./pages/movies-list/MoviesListContainer";
 import MoviesSummaryContainer from "./pages/movies-summary/MoviesSummaryContainer";
 import GenreContainer from "./pages/genre/GenreContainer";
+import MoviesGenreListContainer from "./pages/movies-genre-list/MoviesGenreListContainer";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
             element={<MoviesSummaryContainer />}
           />
           <Route path="/genre/:genreID" element={<GenreContainer />} />
+          <Route
+            path="/list-of-movies/:genreID"
+            element={<MoviesGenreListContainer />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

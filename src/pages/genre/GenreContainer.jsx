@@ -5,8 +5,6 @@ import useMovieData from "../../hooks/axios/useMovieData";
 import genresList from "../../json/genresList.json";
 
 import Featured from "../../components/home/Featured";
-import MainHeading from "../../components/shared/headings/MainHeading";
-import GenreMoviesPreview from "../../components/genre/GenreMoviesPreview";
 import OverviewSection from "../../components/genre/OverviewSection";
 import GenreImage from "../../components/genre/GenreImage";
 import GenreDescription from "../../components/genre/GenreDescription";
@@ -28,13 +26,14 @@ const GenreContainer = () => {
   if (isLoading) return;
 
   return (
-    <div className="flex animate-fadeIn flex-col gap-10 md:grid md:grid-cols-2 md:grid-rows-[35vh] md:gap-x-1 md:gap-y-14 md:px-0 xl:grid-rows-[65vh]">
+    <div className="flex animate-fadeIn flex-col gap-10 md:grid md:grid-cols-2 md:gap-x-1 md:gap-y-14 md:px-0 xl:grid-rows-[65vh]">
       <GenreImage genreImage={genreImage} />
       <GenreDescription
         genreName={genreName}
         genreDescription={genreDescription}
       />
       <OverviewSection
+        genreID={genreID}
         genreName={genreName}
         genreOverview={genreOverview}
         movieData={movieData}

@@ -75,7 +75,7 @@ const MovieCard = ({
         </div>
       </div>
     ) : (
-      <div className="flex w-[10rem] shrink-0 animate-fadeIn cursor-pointer flex-col gap-2">
+      <div className="group flex w-[10rem] shrink-0 animate-fadeIn cursor-pointer flex-col gap-2">
         <div
           className="relative w-full"
           onClick={() => {
@@ -86,7 +86,7 @@ const MovieCard = ({
           <img
             src={`http://image.tmdb.org/t/p/w500${data.poster_path}`}
             alt=""
-            className="h-[14rem] w-full rounded-md"
+            className="h-[14rem] w-full rounded-md transition-transform group-hover:scale-105"
           />
           {isNumbering && (
             <p className="text-stroke absolute -left-4 bottom-0 text-6xl font-bold text-black">
@@ -99,7 +99,7 @@ const MovieCard = ({
             </div>
           )}
         </div>
-        <p className="line-clamp-1 text-center text-[.8rem] font-medium md:text-[.9rem]">
+        <p className="line-clamp-1 text-center text-[.8rem] font-medium transition-colors group-hover:text-[var(--brand-color-200)] md:text-[.9rem]">
           {data.title}
         </p>
       </div>

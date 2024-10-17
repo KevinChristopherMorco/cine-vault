@@ -10,23 +10,18 @@ const useMovieAppend = (movieId) => {
   useEffect(() => {
     (async () => {
       try {
-        const res =
-          await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images
-`);
+        const res = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images`,
+        );
         setAppendDetails(res.data);
       } catch (error) {
         console.error(error);
         setAppendLoading(false);
       } finally {
-        // setTimeout(() => setAppendLoading(false), 5000);
         setAppendLoading(false);
       }
     })();
   }, [isAppendLoading, id]);
-
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0 });
-  // }, [id]);
 
   return { appendDetails, isAppendLoading };
 };

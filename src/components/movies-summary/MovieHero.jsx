@@ -1,10 +1,8 @@
 import React from "react";
 
-
 import getMovieCertification from "../../helpers/movie/getMovieCertification";
 import getMovieTrailer from "../../helpers/movie/getMovieTrailer";
 import getCastCrew from "../../helpers/movie/getCastCrew";
-
 
 import HeroHeading from "./movie-hero/HeroHeading";
 import HeroTrailer from "./movie-hero/HeroTrailer";

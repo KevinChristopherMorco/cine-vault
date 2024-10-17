@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import useMovieAppend from "../../hooks/axios/useMovieAppend";
 import useModalControls from "../../hooks/shared/useModalControls";
 import falsy from "../../json/falsy.json";
 

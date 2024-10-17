@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import useMovieData from "../../hooks/axios/useMovieData";
+import useMovieApi from "../../hooks/axios/useMovieApi";
 import genresList from "../../json/genresList.json";
 
 import Featured from "../../components/home/Featured";
@@ -16,12 +16,13 @@ const GenreContainer = () => {
   const { genreName, genreDescription, genreImage, genreOverview } = findGenre;
 
   const trendingLink = `https://api.themoviedb.org/3/trending/movie/week?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates&language=en-US&page=1`;
-
   const nowShowingLink = `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates&language=en-US&page=1`;
 
-  const { response: movieData, isLoading } = useMovieData(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID}`,
-  );
+  const { movieData, isLoading, handleDiscoverEndpoint } = useMovieApi();
+
+  useEffect(() => {
+    handleDiscoverEndpoint(genreID);
+  }, [genreID]);
 
   if (isLoading) return;
 

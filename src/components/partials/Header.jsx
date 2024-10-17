@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import IconSearch from "@tabler/icons-react/dist/esm/icons/IconSearch.mjs";
 import IconMenu2 from "@tabler/icons-react/dist/esm/icons/IconMenu2.mjs";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
 
+import useMovieApi from "../../hooks/axios/useMovieApi";
 import useSearch from "../../hooks/search/useSearch";
-import useMovieSearch from "../../hooks/axios/useMovieSearch";
 import formatYear from "../../helpers/format/formatYear";
 
 const Header = () => {
@@ -14,7 +14,11 @@ const Header = () => {
     setSearch,
   } = useSearch();
   const [query, setQuery] = useState("");
-  const { searchResults, searchLoading } = useMovieSearch(query);
+  const { movieData, isLoading, handleSearchQueryEndpoint } = useMovieApi();
+
+  useEffect(() => {
+    handleSearchQueryEndpoint(query);
+  }, [query]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -45,8 +49,8 @@ const Header = () => {
           </div>
           {view && (
             <div className="fixed left-0 top-[4.5rem] h-screen w-full animate-fadeIn overflow-y-scroll bg-[var(--bg-neutral)] px-3 py-4 pb-[5rem]">
-              {!searchLoading &&
-                searchResults.map((search) => {
+              {!isLoading &&
+                movieData.map((search) => {
                   const {
                     data: {
                       id,

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-import useMovieData from "../../hooks/axios/useMovieData";
 import useModalControls from "../../hooks/shared/useModalControls";
 
 import MovieModal from "../shared/modals/MovieModal";

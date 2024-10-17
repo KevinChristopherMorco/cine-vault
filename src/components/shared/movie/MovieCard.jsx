@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import IconStarFilled from "@tabler/icons-react/dist/esm/icons/IconStarFilled.mjs";
 import IconPlayerPlayFilled from "@tabler/icons-react/dist/esm/icons/IconPlayerPlayFilled.mjs";
 import IconExclamationCircle from "@tabler/icons-react/dist/esm/icons/IconExclamationCircle.mjs";
+import IconPhotoOff from "@tabler/icons-react/dist/esm/icons/IconPhotoOff.mjs";
 
 import formatTwoDecimal from "../../../helpers/format/formatTwoDecimal";
 import RatingProgress from "../RatingProgress";
@@ -28,7 +29,7 @@ const MovieCard = ({
             />
           </div>
         ) : (
-          <div className="flex h-[10rem] w-full flex-col items-center justify-center gap-2 rounded-lg bg-[var(--bg-neutral)] text-center">
+          <div className="flex h-[14rem] w-full flex-col items-center justify-center gap-2 rounded-lg bg-[var(--bg-neutral)] text-center">
             <IconPhotoOff className="h-[3rem] w-[3rem]" />
             <p className="text-sm">No image available</p>
           </div>

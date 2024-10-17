@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
 
 import getMovieCertification from "../../helpers/movie/getMovieCertification";

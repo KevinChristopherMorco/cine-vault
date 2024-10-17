@@ -2,21 +2,21 @@ import React from "react";
 import IconPlayerPlayFilled from "@tabler/icons-react/dist/esm/icons/IconPlayerPlayFilled.mjs";
 import IconChevronLeft from "@tabler/icons-react/dist/esm/icons/IconChevronLeft.mjs";
 import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
+import MainHeading from "../shared/headings/MainHeading";
 
-const VideoRecommended = ({ videoList, isAppendLoading, setVideo }) => {
+const VideoRecommended = ({ videoList, isLoading, setVideo }) => {
   return (
-    <div className="relative flex w-full flex-col gap-4 bg-[var(--bg-neutral)] py-4 lg:col-span-2 lg:h-full lg:justify-center lg:gap-6 lg:bg-transparent lg:px-0">
+    <div className="relative flex w-full flex-col gap-6 bg-[var(--bg-neutral)] py-4 lg:col-span-2 lg:h-full lg:justify-center lg:gap-6 lg:bg-transparent lg:px-0">
       <div className="absolute left-2 top-[50%] z-[999] flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-md border-2 border-white p-2">
         <IconChevronLeft className="font-bold" />
       </div>
       <div className="absolute right-2 top-[50%] z-[999] flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-md border-2 border-white p-2">
         <IconChevronRight className="font-bold" />
       </div>
-
-      <p className="mx-4 border-l-4 border-[var(--brand-color-500)] px-4 text-lg font-bold lg:text-2xl">
-        Related Videos
-      </p>
-      {!isAppendLoading && (
+      <div className="px-4">
+        <MainHeading title={"Related Videos"} isLink={false} />
+      </div>
+      {!isLoading && (
         <div className="scrollable-content flex overflow-x-scroll">
           {videoList.map((video) => {
             return (

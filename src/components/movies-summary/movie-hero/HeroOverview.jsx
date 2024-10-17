@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 import getMovieGenre from "../../../helpers/movie/getMovieGenre";
 
-const HeroOverview = ({ isAppendLoading, appendDetails, overview }) => {
+const HeroOverview = ({ isLoading, movieData, overview }) => {
   return (
     <div className="flex flex-col gap-4 py-6 pr-4 md:col-span-2 md:px-0 md:py-4 md:pr-0 lg:col-span-3 lg:row-start-3">
-      {!isAppendLoading && (
+      {!isLoading && (
         <ul className="scrollable-content flex w-full gap-2 overflow-x-scroll py-1">
-          {getMovieGenre(appendDetails).map((genre, index) => (
+          {getMovieGenre(movieData).map((genre, index) => (
             <li key={index} className="shrink-0">
               <Link
                 to={`/genre/${genre.id}`}

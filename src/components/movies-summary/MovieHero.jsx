@@ -11,13 +11,13 @@ import HeroOverview from "./movie-hero/HeroOverview";
 import HeroStatCount from "./movie-hero/HeroStatCount";
 import HeroCastCrew from "./movie-hero/HeroCastCrew";
 
-const MovieHero = ({ appendDetails, isAppendLoading }) => {
+const MovieHero = ({ movieData, isLoading }) => {
   const { PH: phCertification, US: usCertification } = getMovieCertification(
-    appendDetails,
-    isAppendLoading,
+    movieData,
+    isLoading,
   );
 
-  if (isAppendLoading) return;
+  if (isLoading) return;
 
   const {
     title,
@@ -32,9 +32,9 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
 
     credits,
     videos: { results: movieVideos },
-  } = appendDetails;
+  } = movieData;
 
-  const { trailerKey } = getMovieTrailer(appendDetails, isAppendLoading);
+  const { trailerKey } = getMovieTrailer(movieData, isLoading);
 
   const { acting: actor, director, writer } = getCastCrew(credits);
 
@@ -63,8 +63,8 @@ const MovieHero = ({ appendDetails, isAppendLoading }) => {
         <HeroPoster poster_path={poster_path} />
 
         <HeroOverview
-          isAppendLoading={isAppendLoading}
-          appendDetails={appendDetails}
+          isLoading={isLoading}
+          movieData={movieData}
           overview={overview}
         />
 

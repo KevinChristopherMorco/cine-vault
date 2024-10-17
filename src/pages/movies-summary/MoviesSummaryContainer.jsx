@@ -11,11 +11,18 @@ import MoviePhotoContainer from "../../components/movies-summary/movie-photos/Mo
 import MovieCastCrewContainer from "../../components/movies-summary/movies-cast-crew/MovieCastCrewContainer";
 
 import MovieModal from "../../components/shared/modals/MovieModal";
+import useMovieApi from "../../hooks/axios/useMovieApi";
 
 const MoviesSummaryContainer = () => {
   const { id } = useParams();
-  const { appendDetails, isAppendLoading } = useMovieAppend(id);
+  const { movieData, isLoading, handleSpecificEndpoint } = useMovieApi();
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
+
+  useEffect(() => {
+    handleSpecificEndpoint(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images`,
+    );
+  }, [id]);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -24,22 +31,19 @@ const MoviesSummaryContainer = () => {
 
   return (
     <section className="flex animate-fadeIn flex-col gap-8 px-4 lg:gap-12 lg:px-10">
-      <MovieHero
-        appendDetails={appendDetails}
-        isAppendLoading={isAppendLoading}
-      />
+      <MovieHero movieData={movieData} isLoading={isLoading} />
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[2fr_1fr] lg:gap-16">
         <MoviePhotoContainer
-          appendDetails={appendDetails}
-          isAppendLoading={isAppendLoading}
+          appendDetails={movieData}
+          isAppendLoading={isLoading}
         />
         <MovieCastCrewContainer
-          appendDetails={appendDetails}
-          isAppendLoading={isAppendLoading}
+          appendDetails={movieData}
+          isAppendLoading={isLoading}
         />
         <RecommendationContainer
-          appendDetails={appendDetails}
-          isAppendLoading={isAppendLoading}
+          appendDetails={movieData}
+          isAppendLoading={isLoading}
           setModal={setModal}
           setModalData={setModalData}
         />
@@ -49,7 +53,7 @@ const MoviesSummaryContainer = () => {
         <MovieModal
           movieData={modalData}
           setModal={setModal}
-          isLoading={isAppendLoading}
+          isLoading={isLoading}
         />
       )}
     </section>

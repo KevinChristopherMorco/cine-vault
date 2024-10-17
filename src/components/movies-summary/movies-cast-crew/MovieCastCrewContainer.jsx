@@ -8,7 +8,6 @@ const MovieCastCrewContainer = ({ appendDetails, isAppendLoading }) => {
   const {
     credits: { cast, crew },
   } = appendDetails;
-  console.log(cast);
 
   return (
     <div className="flex flex-col gap-8 lg:row-start-2">

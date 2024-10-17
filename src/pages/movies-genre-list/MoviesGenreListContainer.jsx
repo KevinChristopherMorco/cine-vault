@@ -17,12 +17,20 @@ const MoviesGenreListContainer = () => {
   const findGenre = genres.find((genre) => genre.id === parseInt(genreID));
   const { genreName, genreOverview } = findGenre;
 
-  const { movieData, isLoading, handleDiscoverEndpoint } = useMovieApi();
+  const {
+    movieData,
+    isLoading,
+    order,
+    filter,
+    handleDiscoverEndpoint,
+    setFilter,
+    setOrder,
+  } = useMovieApi();
   const { listType, setListType } = useListView();
 
   useEffect(() => {
     handleDiscoverEndpoint(genreID);
-  }, []);
+  }, [filter, order]);
 
   if (isLoading) return;
 
@@ -41,7 +49,7 @@ const MoviesGenreListContainer = () => {
     <section className="grid grid-cols-2 gap-y-6 p-4 lg:grid-cols-[3fr_1fr]">
       <MovieGenreHeader genreName={genreName} genreOverview={genreOverview} />
       <div className="col-span-2 grid grid-cols-2 items-center gap-y-4 lg:flex lg:gap-6">
-        <FilterCard />
+        <FilterCard order={order} setOrder={setOrder} setFilter={setFilter} />
         <CardViewToggle listType={listType} setListType={setListType} />
       </div>
       {renderView()}

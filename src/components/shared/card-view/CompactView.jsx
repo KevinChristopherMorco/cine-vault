@@ -15,6 +15,7 @@ const CompactView = ({ movieData, isLoading }) => {
     <div className="col-span-2 flex flex-col gap-4 lg:col-span-1 lg:col-start-1">
       {movieData.results.map((movie, index) => {
         const {
+          id,
           title,
           poster_path,
           release_date,
@@ -35,7 +36,10 @@ const CompactView = ({ movieData, isLoading }) => {
             </div>
             <div className="flex flex-col gap-4 px-2">
               <div className="flex flex-col gap-2">
-                <Link className="cursor-pointer text-sm font-bold transition-colors hover:text-[var(--brand-color-500)] md:text-base lg:text-lg">
+                <Link
+                  to={`/movies-summary/${id}`}
+                  className="cursor-pointer text-sm font-bold transition-colors hover:text-[var(--brand-color-500)] md:text-base lg:text-lg"
+                >
                   {title}
                 </Link>
                 <ul className="flex gap-2 text-[.8rem] text-gray-300 md:text-[.9rem] lg:text-base">

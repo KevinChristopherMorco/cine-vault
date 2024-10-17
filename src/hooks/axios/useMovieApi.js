@@ -4,6 +4,10 @@ import axios from "axios";
 const useMovieApi = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("");
+  const [order, setOrder] = useState("asc");
+
+  console.log(filter);
 
   const handleCommonEndpoint = async (endpoint) => {
     try {
@@ -34,7 +38,7 @@ const useMovieApi = () => {
   const handleDiscoverEndpoint = async (genreID) => {
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID}`,
+        `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID}&sort_by=${filter}.${order}`,
       );
       setMovieData(response.data);
       setLoading(false);
@@ -74,10 +78,14 @@ const useMovieApi = () => {
   return {
     movieData,
     isLoading,
+    order,
+    filter,
     handleCommonEndpoint,
     handleSpecificEndpoint,
     handleDiscoverEndpoint,
     handleSearchQueryEndpoint,
+    setFilter,
+    setOrder,
   };
 };
 

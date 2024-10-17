@@ -29,13 +29,11 @@ const MovieHero = ({ movieData, isLoading }) => {
     vote_count,
     popularity,
     images: { backdrops, logos, posters },
-
     credits,
     videos: { results: movieVideos },
   } = movieData;
 
   const { trailerKey } = getMovieTrailer(movieData, isLoading);
-
   const { acting: actor, director, writer } = getCastCrew(credits);
 
   return (

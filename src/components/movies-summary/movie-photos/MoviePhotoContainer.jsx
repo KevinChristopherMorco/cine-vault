@@ -4,12 +4,12 @@ import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRigh
 import useScreenResponsiveness from "../../../hooks/shared/useScreenResponsiveness";
 import MainHeading from "../../shared/headings/MainHeading";
 
-const MoviePhotoContainer = ({ appendDetails, isAppendLoading }) => {
-  if (isAppendLoading) return;
+const MoviePhotoContainer = ({ movieData, isLoading }) => {
+  if (isLoading) return;
   const {
     title,
     images: { backdrops },
-  } = appendDetails;
+  } = movieData;
   const {
     screenSize: { lg, xl, xxl },
   } = useScreenResponsiveness();

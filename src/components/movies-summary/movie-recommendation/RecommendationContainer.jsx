@@ -5,15 +5,15 @@ import MainHeading from "../../shared/headings/MainHeading";
 import MovieCard from "../../shared/movie/MovieCard";
 
 const RecommendationContainer = ({
-  appendDetails,
-  isAppendLoading,
+  movieData,
+  isLoading,
   setModal,
   setModalData,
 }) => {
-  if (isAppendLoading) return;
+  if (isLoading) return;
   const {
     recommendations: { results: recommendationResults },
-  } = appendDetails;
+  } = movieData;
 
   return (
     <div className="flex flex-col gap-8 lg:col-span-2 lg:row-start-3">

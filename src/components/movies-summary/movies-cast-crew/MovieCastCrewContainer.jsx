@@ -3,11 +3,11 @@ import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRigh
 import IconUserExclamation from "@tabler/icons-react/dist/esm/icons/IconUserExclamation.mjs";
 import MainHeading from "../../shared/headings/MainHeading";
 
-const MovieCastCrewContainer = ({ appendDetails, isAppendLoading }) => {
-  if (isAppendLoading) return;
+const MovieCastCrewContainer = ({ movieData, isLoading }) => {
+  if (isLoading) return;
   const {
     credits: { cast, crew },
-  } = appendDetails;
+  } = movieData;
 
   return (
     <div className="flex flex-col gap-8 lg:row-start-2">

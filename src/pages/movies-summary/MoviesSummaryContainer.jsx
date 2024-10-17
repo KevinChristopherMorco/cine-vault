@@ -19,9 +19,7 @@ const MoviesSummaryContainer = () => {
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
   useEffect(() => {
-    handleSpecificEndpoint(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images`,
-    );
+    handleSpecificEndpoint(id);
   }, [id]);
 
   useEffect(() => {
@@ -33,17 +31,11 @@ const MoviesSummaryContainer = () => {
     <section className="flex animate-fadeIn flex-col gap-8 px-4 lg:gap-12 lg:px-10">
       <MovieHero movieData={movieData} isLoading={isLoading} />
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[2fr_1fr] lg:gap-16">
-        <MoviePhotoContainer
-          appendDetails={movieData}
-          isAppendLoading={isLoading}
-        />
-        <MovieCastCrewContainer
-          appendDetails={movieData}
-          isAppendLoading={isLoading}
-        />
+        <MoviePhotoContainer movieData={movieData} isLoading={isLoading} />
+        <MovieCastCrewContainer movieData={movieData} isLoading={isLoading} />
         <RecommendationContainer
-          appendDetails={movieData}
-          isAppendLoading={isLoading}
+          movieData={movieData}
+          isLoading={isLoading}
           setModal={setModal}
           setModalData={setModalData}
         />

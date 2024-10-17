@@ -9,13 +9,13 @@ import Spinner from "../shared/loaders/Spinner";
 import VideoTitle from "./VideoTitle";
 import VideoGenre from "./VideoGenre";
 
-const VideoPlayer = ({ video, isAppendLoading, appendDetails }) => {
+const VideoPlayer = ({ video, movieData, isLoading }) => {
   const navigate = useNavigate();
-  const { title, release_date, overview, poster_path } = appendDetails;
+  const { title, release_date, overview, poster_path } = movieData;
 
   const { PH: phCertification, US: usCertification } = getMovieCertification(
-    appendDetails,
-    isAppendLoading,
+    movieData,
+    isLoading,
   );
 
   const {
@@ -24,7 +24,7 @@ const VideoPlayer = ({ video, isAppendLoading, appendDetails }) => {
 
   return (
     <div className="flex flex-col lg:col-span-2 lg:flex-row lg:px-8">
-      {!isAppendLoading ? (
+      {!isLoading ? (
         <div className="h-full lg:basis-[70%]">
           <div className="w-full bg-black px-4 py-2">
             <div
@@ -62,8 +62,8 @@ const VideoPlayer = ({ video, isAppendLoading, appendDetails }) => {
               <VideoGenre
                 usCertification={usCertification}
                 phCertification={phCertification}
-                appendDetails={appendDetails}
-                isAppendLoading={isAppendLoading}
+                movieData={movieData}
+                isLoading={isLoading}
               />
             </div>
           </div>
@@ -73,8 +73,8 @@ const VideoPlayer = ({ video, isAppendLoading, appendDetails }) => {
             <VideoGenre
               usCertification={usCertification}
               phCertification={phCertification}
-              appendDetails={appendDetails}
-              isAppendLoading={isAppendLoading}
+              movieData={movieData}
+              isLoading={isLoading}
             />
           </>
         )}

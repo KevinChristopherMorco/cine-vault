@@ -4,8 +4,8 @@ import getMovieGenre from "../../helpers/movie/getMovieGenre";
 const VideoGenre = ({
   usCertification,
   phCertification,
-  appendDetails,
-  isAppendLoading,
+  movieData,
+  isLoading,
 }) => {
   return (
     <div className="flex flex-wrap items-center gap-1 px-4 text-gray-300 lg:px-0">
@@ -25,15 +25,13 @@ const VideoGenre = ({
         </div>
       )}
       |
-      {!isAppendLoading &&
-        getMovieGenre(appendDetails).length > 1 &&
-        getMovieGenre(appendDetails).map((genre, index) => {
+      {!isLoading &&
+        getMovieGenre(movieData).length > 1 &&
+        getMovieGenre(movieData).map((genre, index) => {
           return (
             <p key={index} className="text-[.75rem] md:text-sm">
               {genre.name}
-              {index === getMovieGenre(appendDetails).length - 1
-                ? ""
-                : ","}{" "}
+              {index === getMovieGenre(movieData).length - 1 ? "" : ","}{" "}
             </p>
           );
         })}

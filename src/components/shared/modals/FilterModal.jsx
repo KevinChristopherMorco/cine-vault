@@ -10,12 +10,12 @@ import ModalHeading from "./heading/ModalHeading";
 const FilterModal = ({ setModal }) => {
   return (
     <div className="fixed left-0 top-0 z-[999] flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50">
-      <div className="flex h-full animate-modalScale flex-col gap-2 rounded-md bg-black p-6 md:w-[70%] xl:w-[45%]">
+      <div className="flex h-full animate-modalScale flex-col gap-2 rounded-md bg-black p-6 md:h-fit md:w-[70%] xl:w-[45%]">
         <div className="flex justify-end">
           <IconX className="cursor-pointer" onClick={() => setModal(false)} />
         </div>
         <ModalHeading title={"ADVANCED FILTER"} />
-        <div className="flex flex-col gap-8 overflow-y-scroll py-4">
+        <div className="flex flex-col gap-8 overflow-y-scroll py-4 md:h-[30rem]">
           <GenreListFilter />
           <DateFilter />
           <RatingFilter />

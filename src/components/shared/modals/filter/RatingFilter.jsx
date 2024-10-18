@@ -38,6 +38,7 @@ const RatingFilter = () => {
             onChange={handleChange}
             value={minRating}
             placeholder="0"
+            min={0}
           />
           <p>to</p>
           <input
@@ -48,6 +49,7 @@ const RatingFilter = () => {
             onChange={handleChange}
             value={maxRating}
             placeholder="10"
+            max={10}
           />
         </div>
       </div>
@@ -62,6 +64,7 @@ const RatingFilter = () => {
             onChange={handleChange}
             value={minVotes}
             placeholder="0"
+            min={0}
           />
           <p>to</p>
           <input

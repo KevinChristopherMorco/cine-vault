@@ -3,7 +3,7 @@ import IconAdjustmentsAlt from "@tabler/icons-react/dist/esm/icons/IconAdjustmen
 import IconArrowNarrowUp from "@tabler/icons-react/dist/esm/icons/IconArrowNarrowUp.mjs";
 import IconArrowNarrowDown from "@tabler/icons-react/dist/esm/icons/IconArrowNarrowDown.mjs";
 
-const FilterCard = ({ order, setOrder, setFilter }) => {
+const FilterCard = ({ order, setOrder, setFilter, setModal }) => {
   const handleChange = (event) => {
     const { value } = event.target;
     setFilter(value);
@@ -11,7 +11,10 @@ const FilterCard = ({ order, setOrder, setFilter }) => {
 
   return (
     <div className="col-span-2 flex w-full justify-between gap-6 lg:justify-end">
-      <div className="cursor-pointer rounded-md bg-[var(--brand-color-500)] p-2 transition-colors hover:bg-[var(--brand-color-600)]">
+      <div
+        className="cursor-pointer rounded-md bg-[var(--brand-color-500)] p-2 transition-colors hover:bg-[var(--brand-color-600)]"
+        onClick={() => setModal(true)}
+      >
         <IconAdjustmentsAlt />
       </div>
       <div className="flex items-center gap-6">
@@ -25,7 +28,8 @@ const FilterCard = ({ order, setOrder, setFilter }) => {
           >
             <option value="">Choose</option>
             <option value="title">Alphabetical</option>
-            <option value="">Date Added</option>
+            <option value="release_date">Date Added</option>
+            <option value="vote_average">Rating</option>
           </select>
         </div>
         <div

@@ -43,7 +43,7 @@ const Header = () => {
               onChange={handleInputChange}
             />
             <IconX
-              className="animate-iconScale"
+              className="animate-iconScale cursor-pointer"
               onClick={() => setSearch(() => ({ toggle: false, view: false }))}
             />
           </div>

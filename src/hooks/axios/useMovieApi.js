@@ -6,8 +6,10 @@ const useMovieApi = () => {
   const [isLoading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const [order, setOrder] = useState("asc");
+  const [filterGenre, setFilterGenre] = useState([]);
 
-  console.log(filter);
+  const formatGenre = filterGenre.map((genre) => genre.genreID).join(",");
+  console.log(formatGenre);
 
   const handleCommonEndpoint = async (endpoint) => {
     try {
@@ -38,9 +40,11 @@ const useMovieApi = () => {
   const handleDiscoverEndpoint = async (genreID) => {
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID}&sort_by=${filter}.${order}`,
+        `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID},${formatGenre}&sort_by=${filter}.${order}`,
       );
       setMovieData(response.data);
+      console.log(response.data);
+
       setLoading(false);
     } catch (error) {
       console.error();
@@ -80,12 +84,14 @@ const useMovieApi = () => {
     isLoading,
     order,
     filter,
+    filterGenre,
     handleCommonEndpoint,
     handleSpecificEndpoint,
     handleDiscoverEndpoint,
     handleSearchQueryEndpoint,
     setFilter,
     setOrder,
+    setFilterGenre,
   };
 };
 

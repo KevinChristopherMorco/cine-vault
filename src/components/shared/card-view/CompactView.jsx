@@ -9,7 +9,6 @@ import formatRuntime from "../../../helpers/format/formatRuntime";
 import formatYear from "../../../helpers/format/formatYear";
 
 const CompactView = ({ movieData, isLoading }) => {
-  console.log(movieData);
   if (isLoading) return;
   return (
     <div className="col-span-2 flex flex-col gap-4 lg:col-span-1 lg:col-start-1">

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { useFilterContext } from "../shared/FilterProvider";
+
 const useMovieApi = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const [filter, setFilter] = useState("");
-  const [order, setOrder] = useState("asc");
-  const [filterGenre, setFilterGenre] = useState([]);
 
-  const formatGenre = filterGenre.map((genre) => genre.genreID).join(",");
+  const { filter, order, formatGenre } = useFilterContext();
+
   console.log(formatGenre);
 
   const handleCommonEndpoint = async (endpoint) => {
@@ -82,16 +82,11 @@ const useMovieApi = () => {
   return {
     movieData,
     isLoading,
-    order,
-    filter,
-    filterGenre,
+
     handleCommonEndpoint,
     handleSpecificEndpoint,
     handleDiscoverEndpoint,
     handleSearchQueryEndpoint,
-    setFilter,
-    setOrder,
-    setFilterGenre,
   };
 };
 

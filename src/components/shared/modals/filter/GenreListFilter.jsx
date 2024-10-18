@@ -2,8 +2,10 @@ import React from "react";
 import genresList from "../../../../json/genresList.json";
 
 import ModalHeading from "../heading/ModalHeading";
+import { useFilterContext } from "../../../../hooks/shared/FilterProvider";
 
-const GenreListFilter = ({ filterGenre, setFilterGenre }) => {
+const GenreListFilter = () => {
+  const { filterGenre, setFilterGenre } = useFilterContext();
   const handleGenreChoice = (genreID, genreName) => {
     setFilterGenre((prev) => {
       const isChecked = prev.some((x) => x.genreID === genreID);

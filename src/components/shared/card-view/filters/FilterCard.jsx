@@ -2,8 +2,11 @@ import React from "react";
 import IconAdjustmentsAlt from "@tabler/icons-react/dist/esm/icons/IconAdjustmentsAlt.mjs";
 import IconArrowNarrowUp from "@tabler/icons-react/dist/esm/icons/IconArrowNarrowUp.mjs";
 import IconArrowNarrowDown from "@tabler/icons-react/dist/esm/icons/IconArrowNarrowDown.mjs";
+import { useFilterContext } from "../../../../hooks/shared/FilterProvider";
 
-const FilterCard = ({ order, setOrder, setFilter, setModal }) => {
+const FilterCard = ({ setModal }) => {
+  const { order, setFilter, setOrder } = useFilterContext();
+
   const handleChange = (event) => {
     const { value } = event.target;
     setFilter(value);

@@ -21,13 +21,14 @@ const GenreListFilter = () => {
     <div className="flex flex-col gap-4">
       <ModalHeading title={"Genre"} />
       <ul className="flex flex-wrap gap-x-6 gap-y-4">
-        {genresList.genres.map((x) => {
+        {genresList.genres.map((genre, index) => {
           return (
             <li
-              className={`${filterGenre.find((selectedGenre) => selectedGenre.genreName === x.genreName) ? "bg-red-500" : ""} shrink-0 rounded-full border border-gray-300 px-4 py-1 text-sm`}
-              onClick={() => handleGenreChoice(x.id, x.genreName)}
+              key={index}
+              className={`${filterGenre.find((selectedGenre) => selectedGenre.genreName === genre.genreName) ? "bg-[var(--brand-color-500)] transition-colors" : ""} shrink-0 rounded-full border border-gray-300 px-4 py-1 text-sm`}
+              onClick={() => handleGenreChoice(genre.id, genre.genreName)}
             >
-              {x.genreName}
+              {genre.genreName}
             </li>
           );
         })}

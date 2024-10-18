@@ -3,6 +3,7 @@ import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
 import GenreListFilter from "./filter/GenreListFilter";
 import RatingFilter from "./filter/RatingFilter";
 import DateFilter from "./filter/DateFilter";
+import ModalHeading from "./heading/ModalHeading";
 
 // import genresList from "../../../json/genresList.json";
 
@@ -13,6 +14,7 @@ const FilterModal = ({ setModal }) => {
         <div className="flex justify-end">
           <IconX className="cursor-pointer" onClick={() => setModal(false)} />
         </div>
+        <ModalHeading title={"ADVANCED FILTER"} />
         <div className="flex flex-col gap-8 overflow-y-scroll py-4">
           <GenreListFilter />
           <DateFilter />

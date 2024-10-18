@@ -3,41 +3,43 @@ import { createContext, useContext, useState } from "react";
 const FilterContext = createContext();
 
 const FilterProvider = ({ children }) => {
-  const [filter, setFilter] = useState("");
+  const [sort, setSort] = useState("");
   const [order, setOrder] = useState("asc");
   const [filterGenre, setFilterGenre] = useState([]);
+  const [filterDate, setFilterDate] = useState({ startDate: "", endDate: "" });
+  const [filterRating, setFilterRating] = useState({
+    minRating: "",
+    maxRating: "",
+  });
 
-  console.log(filter);
+  const [filterVotes, setFilterVotes] = useState({
+    minVotes: "",
+    maxVotes: "",
+  });
 
   const formatGenre = filterGenre.map((genre) => genre.genreID).join(",");
 
   return (
     <FilterContext.Provider
       value={{
-        filter,
+        sort,
         order,
         filterGenre,
-        setFilter,
+        filterDate,
+        filterRating,
+        filterVotes,
+        setSort,
         setOrder,
         setFilterGenre,
+        setFilterDate,
+        setFilterRating,
+        setFilterVotes,
         formatGenre,
       }}
     >
       {children}
     </FilterContext.Provider>
   );
-
-  //
-
-  //   return {
-  //     filter,
-  //     order,
-  //     filterGenre,
-  //     setFilter,
-  //     setOrder,
-  //     setFilterGenre,
-  //     formatGenre,
-  //   };
 };
 
 const useFilterContext = () => useContext(FilterContext);

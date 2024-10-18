@@ -7,9 +7,14 @@ const useMovieApi = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  const { filter, order, formatGenre } = useFilterContext();
-
-  console.log(formatGenre);
+  const {
+    sort,
+    order,
+    formatGenre,
+    filterDate: { startDate, endDate },
+    filterRating: { minRating, maxRating },
+    filterVotes: { minVotes, maxVotes },
+  } = useFilterContext();
 
   const handleCommonEndpoint = async (endpoint) => {
     try {
@@ -39,12 +44,35 @@ const useMovieApi = () => {
 
   const handleDiscoverEndpoint = async (genreID) => {
     try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID},${formatGenre}&sort_by=${filter}.${order}`,
-      );
-      setMovieData(response.data);
-      console.log(response.data);
+      let link = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID},${formatGenre}`;
 
+      if (sort && order) {
+        link += `&sort_by=${sort}.${order}`;
+      }
+
+      if (startDate) {
+        link += `&primary_release_date.gte=${startDate}`;
+      }
+      if (endDate) {
+        link += `&primary_release_date.lte=${endDate}`;
+      }
+
+      if (minRating) {
+        link += `&vote_average.gte=${minRating}`;
+      }
+      if (maxRating) {
+        link += `&vote_average.lte=${maxRating}`;
+      }
+
+      if (minVotes) {
+        link += `&vote_count.gte=${minVotes}`;
+      }
+      if (maxVotes) {
+        link += `&vote_count.lte=${maxVotes}`;
+      }
+
+      const response = await axios.get(link);
+      setMovieData(response.data);
       setLoading(false);
     } catch (error) {
       console.error();

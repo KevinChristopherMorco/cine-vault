@@ -4,12 +4,12 @@ import IconArrowNarrowUp from "@tabler/icons-react/dist/esm/icons/IconArrowNarro
 import IconArrowNarrowDown from "@tabler/icons-react/dist/esm/icons/IconArrowNarrowDown.mjs";
 import { useFilterContext } from "../../../../hooks/shared/FilterProvider";
 
-const FilterCard = ({ setModal }) => {
-  const { order, setFilter, setOrder } = useFilterContext();
+const SortCard = ({ setModal }) => {
+  const { sort, order, setSort, setOrder } = useFilterContext();
 
   const handleChange = (event) => {
     const { value } = event.target;
-    setFilter(value);
+    setSort(value);
   };
 
   return (
@@ -29,26 +29,30 @@ const FilterCard = ({ setModal }) => {
             className="cursor-pointer bg-[var(--bg-neutral)] p-2"
             onChange={handleChange}
           >
-            <option value="">Choose</option>
+            <option value="">Sort</option>
             <option value="title">Alphabetical</option>
             <option value="release_date">Date Added</option>
             <option value="vote_average">Rating</option>
           </select>
         </div>
-        <div
-          className="flex cursor-pointer items-center"
-          onClick={() => setOrder((prev) => (prev === "asc" ? "desc" : "asc"))}
-        >
-          <IconArrowNarrowDown
-            className={`${order === "desc" ? "text-[var(--brand-color-400)]" : ""} -mx-2 h-4 w-4`}
-          />
-          <IconArrowNarrowUp
-            className={`${order === "asc" ? "text-[var(--brand-color-400)]" : ""} -mx-4 h-4 w-4`}
-          />
-        </div>
+        {sort && (
+          <div
+            className="flex animate-fadeIn cursor-pointer items-center"
+            onClick={() =>
+              setOrder((prev) => (prev === "asc" ? "desc" : "asc"))
+            }
+          >
+            <IconArrowNarrowDown
+              className={`${order === "desc" ? "text-[var(--brand-color-400)]" : ""} -mx-2 h-4 w-4`}
+            />
+            <IconArrowNarrowUp
+              className={`${order === "asc" ? "text-[var(--brand-color-400)]" : ""} -mx-4 h-4 w-4`}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default FilterCard;
+export default SortCard;

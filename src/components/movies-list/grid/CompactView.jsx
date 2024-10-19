@@ -8,7 +8,6 @@ import formatRuntime from "../../../helpers/format/formatRuntime";
 import formatYear from "../../../helpers/format/formatYear";
 
 const CompactView = ({ allMovieList, isLoading }) => {
-  console.log(allMovieList);
   return (
     <div className="flex flex-col gap-4 px-4 pb-4">
       {allMovieList.map((movie, index) => {

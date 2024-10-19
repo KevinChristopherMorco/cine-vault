@@ -24,7 +24,6 @@ const Feautred = ({
     handleCommonEndpoint(link);
   }, []);
 
-  console.log(movieData);
 
   return (
     <section className="col-span-2 flex flex-col gap-6 bg-[var(--bg-neutral)] px-4 py-5">

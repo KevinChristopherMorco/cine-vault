@@ -27,8 +27,6 @@ const GridView = ({ movieData, isLoading }) => {
 
         const currentDate = getCurrentDate();
 
-        console.log(release_date, currentDate);
-
         return (
           <div
             key={index}

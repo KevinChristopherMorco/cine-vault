@@ -2,10 +2,21 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useFilterContext } from "../shared/FilterProvider";
+import usePagination from "../shared/usePagination";
 
 const useMovieApi = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+
+  const {
+    currentPage,
+    pageActive,
+    offset,
+    handlePreviousPage,
+    handleNextPage,
+    handleOffset,
+  } = usePagination();
+  console.log(currentPage);
 
   const {
     sort,
@@ -44,7 +55,7 @@ const useMovieApi = () => {
 
   const handleDiscoverEndpoint = async (genreID) => {
     try {
-      let link = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID},${formatGenre}`;
+      let link = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID},${formatGenre}&page=${currentPage}`;
 
       if (sort && order) {
         link += `&sort_by=${sort}.${order}`;
@@ -110,11 +121,16 @@ const useMovieApi = () => {
   return {
     movieData,
     isLoading,
+    currentPage,
 
     handleCommonEndpoint,
     handleSpecificEndpoint,
     handleDiscoverEndpoint,
     handleSearchQueryEndpoint,
+
+    handleNextPage,
+    handlePreviousPage,
+    handleOffset,
   };
 };
 

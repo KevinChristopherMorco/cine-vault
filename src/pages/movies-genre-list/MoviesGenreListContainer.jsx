@@ -14,6 +14,8 @@ import CardViewToggle from "../../components/shared/card-view/CardViewToggle";
 import SortCard from "../../components/shared/card-view/filters/SortCard";
 import FilterModal from "../../components/shared/modals/FilterModal";
 import Empty from "../../components/alerts/Empty";
+import ReactPaginate from "react-paginate";
+import PaginationList from "../../components/shared/pagination/PaginationList";
 
 const MoviesGenreListContainer = () => {
   const { genreID } = useParams();
@@ -21,18 +23,32 @@ const MoviesGenreListContainer = () => {
   const findGenre = genres.find((genre) => genre.id === parseInt(genreID));
   const { genreName, genreOverview } = findGenre;
 
-  const { movieData, isLoading, handleDiscoverEndpoint } = useMovieApi();
+  const {
+    movieData,
+    isLoading,
+    currentPage,
+    handleDiscoverEndpoint,
+    handleNextPage,
+    handlePreviousPage,
+    handleOffset,
+  } = useMovieApi();
   const { order, sort, filterGenre, filterDate, filterRating, filterVotes } =
     useFilterContext();
 
   const { listType, setListType } = useListView();
   const { isModalOpen, setModal } = useModalControls();
 
-  console.log(movieData);
-
   useEffect(() => {
     handleDiscoverEndpoint(genreID);
-  }, [order, sort, filterDate, filterGenre, filterRating, filterVotes]);
+  }, [
+    order,
+    sort,
+    filterDate,
+    filterGenre,
+    filterRating,
+    filterVotes,
+    currentPage,
+  ]);
 
   if (isLoading) return;
 
@@ -54,17 +70,23 @@ const MoviesGenreListContainer = () => {
         <SortCard setModal={setModal} />
         <CardViewToggle listType={listType} setListType={setListType} />
       </div>
-      {movieData.results.length > 0 ? (
-        renderView()
-      ) : (
-        <div className="col-span-2 flex items-center justify-center">
-          <Empty
-            title={"No Results Found"}
-            subtext={"Please adjust your filters and try again!"}
-          />
-        </div>
-      )}
-
+      <div>
+        {movieData.results.length > 0 ? (
+          renderView()
+        ) : (
+          <div className="col-span-2 flex items-center justify-center">
+            <Empty
+              title={"No Results Found"}
+              subtext={"Please adjust your filters and try again!"}
+            />
+          </div>
+        )}
+        <PaginationList
+          handlePreviousPage={handlePreviousPage}
+          handleNextPage={handleNextPage}
+          handleOffset={handleOffset}
+        />
+      </div>
       {isModalOpen && <FilterModal setModal={setModal} />}
     </section>
   );

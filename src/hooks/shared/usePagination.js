@@ -13,6 +13,10 @@ const usePagination = () => {
     setCurrentPage((prev) => prev - 1);
   };
 
+  const handleChoosePage = (page) => {
+    setCurrentPage(page);
+  };
+
   const handleOffset = (offset) => {
     setOffset(offset);
   };
@@ -20,9 +24,11 @@ const usePagination = () => {
   return {
     currentPage,
     pageActive,
+    offset,
     handlePreviousPage,
     handleNextPage,
     handleOffset,
+    handleChoosePage,
   };
 };
 

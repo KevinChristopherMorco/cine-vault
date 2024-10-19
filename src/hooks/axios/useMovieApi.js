@@ -14,6 +14,7 @@ const useMovieApi = () => {
     offset,
     handlePreviousPage,
     handleNextPage,
+    handleChoosePage,
     handleOffset,
   } = usePagination();
   console.log(currentPage);
@@ -122,6 +123,7 @@ const useMovieApi = () => {
     movieData,
     isLoading,
     currentPage,
+    offset,
 
     handleCommonEndpoint,
     handleSpecificEndpoint,
@@ -130,6 +132,7 @@ const useMovieApi = () => {
 
     handleNextPage,
     handlePreviousPage,
+    handleChoosePage,
     handleOffset,
   };
 };

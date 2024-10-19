@@ -25,11 +25,13 @@ const MoviesGenreListContainer = () => {
 
   const {
     movieData,
+    offset,
     isLoading,
     currentPage,
     handleDiscoverEndpoint,
     handleNextPage,
     handlePreviousPage,
+    handleChoosePage,
     handleOffset,
   } = useMovieApi();
   const { order, sort, filterGenre, filterDate, filterRating, filterVotes } =
@@ -82,8 +84,12 @@ const MoviesGenreListContainer = () => {
           </div>
         )}
         <PaginationList
+          movieData={movieData}
+          offset={offset}
+          currentPage={currentPage}
           handlePreviousPage={handlePreviousPage}
           handleNextPage={handleNextPage}
+          handleChoosePage={handleChoosePage}
           handleOffset={handleOffset}
         />
       </div>

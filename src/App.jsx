@@ -3,7 +3,7 @@ import "typeface-inter";
 
 import Layout from "./pages/Layout";
 import HomeContainer from "./pages/home/HomeContainer";
-import VideoContainer from "./pages/videos/VideoContainer";
+import VideoContainer from "./pages/video-page/VideoContainer";
 import MoviesListContainer from "./pages/movies-list/MoviesListContainer";
 import MoviesSummaryContainer from "./pages/movies-summary/MoviesSummaryContainer";
 import GenreContainer from "./pages/genre/GenreContainer";

@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
 
-import getMovieCertification from "../../helpers/movie/getMovieCertification";
-import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
+import getMovieCertification from "../../../helpers/movie/getMovieCertification";
+import useScreenResponsiveness from "../../../hooks/shared/useScreenResponsiveness";
 
-import Spinner from "../shared/loaders/Spinner";
-import VideoTitle from "./VideoTitle";
-import VideoGenre from "./VideoGenre";
+import Spinner from "../../shared/loaders/Spinner";
+import VideoTitle from "../VideoTitle";
+import VideoGenre from "../VideoGenre";
 
 const VideoPlayer = ({ video, movieData, isLoading }) => {
   const navigate = useNavigate();

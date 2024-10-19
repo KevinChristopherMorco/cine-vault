@@ -9,7 +9,7 @@ const VideoGenre = ({
 }) => {
   return (
     <div className="flex flex-wrap items-center gap-1 px-4 text-gray-300 lg:px-0">
-      {(usCertification || phCertification) && (
+      {usCertification || phCertification ? (
         <div className="flex items-center gap-1">
           <img
             src={
@@ -23,6 +23,8 @@ const VideoGenre = ({
             {usCertification || phCertification}
           </p>
         </div>
+      ) : (
+        <p className="text-[.75rem] md:text-sm">Not Rated</p>
       )}
       |
       {!isLoading &&

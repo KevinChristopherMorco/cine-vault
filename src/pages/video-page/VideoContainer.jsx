@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import useMovieApi from "../../hooks/axios/useMovieApi";
 import useChangeVideo from "../../hooks/shared/useChangeVideo";
 
-import VideoPlayer from "../../components/videos/VideoPlayer";
-import VideoRecommended from "../../components/videos/VideoRecommended";
+import VideoPlayer from "../../components/video-page/containers/VideoPlayer";
+import VideoRecommended from "../../components/video-page/containers/VideoRecommended";
 
 const VideoContainer = () => {
   const { movieID } = useParams();

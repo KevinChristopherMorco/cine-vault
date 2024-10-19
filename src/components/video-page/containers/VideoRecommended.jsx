@@ -3,15 +3,14 @@ import IconPlayerPlayFilled from "@tabler/icons-react/dist/esm/icons/IconPlayerP
 import IconChevronLeft from "@tabler/icons-react/dist/esm/icons/IconChevronLeft.mjs";
 import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
 
-import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
+import useScreenResponsiveness from "../../../hooks/shared/useScreenResponsiveness";
 
-import MainHeading from "../shared/headings/MainHeading";
+import MainHeading from "../../shared/headings/MainHeading";
 
 const VideoRecommended = ({ videoList, isLoading, setVideo }) => {
   const {
     screenSize: { sm, md },
   } = useScreenResponsiveness();
-  console.log(sm);
   return (
     <div className="relative flex w-full flex-col gap-6 bg-[var(--bg-neutral)] py-4 lg:h-[100vh] lg:basis-[50%] lg:px-0 xl:basis-[40%]">
       {(sm || md) && (

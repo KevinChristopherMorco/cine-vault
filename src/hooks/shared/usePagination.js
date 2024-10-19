@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const usePagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageActive, setPageActive] = useState("1");
   const [offset, setOffset] = useState("10");
 
   const handleNextPage = () => {
@@ -23,7 +22,6 @@ const usePagination = () => {
 
   return {
     currentPage,
-    pageActive,
     offset,
     handlePreviousPage,
     handleNextPage,

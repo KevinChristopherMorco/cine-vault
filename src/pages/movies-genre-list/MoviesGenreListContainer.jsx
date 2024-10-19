@@ -14,7 +14,6 @@ import CardViewToggle from "../../components/shared/card-view/CardViewToggle";
 import SortCard from "../../components/shared/card-view/filters/SortCard";
 import FilterModal from "../../components/shared/modals/FilterModal";
 import Empty from "../../components/alerts/Empty";
-import ReactPaginate from "react-paginate";
 import PaginationList from "../../components/shared/pagination/PaginationList";
 
 const MoviesGenreListContainer = () => {
@@ -71,8 +70,17 @@ const MoviesGenreListContainer = () => {
       <div className="col-span-2 grid grid-cols-2 items-center gap-y-4 lg:flex lg:gap-6">
         <SortCard setModal={setModal} />
         <CardViewToggle listType={listType} setListType={setListType} />
+        <PaginationList
+          movieData={movieData}
+          offset={offset}
+          currentPage={currentPage}
+          handlePreviousPage={handlePreviousPage}
+          handleNextPage={handleNextPage}
+          handleChoosePage={handleChoosePage}
+          handleOffset={handleOffset}
+        />
       </div>
-      <div>
+      <div className="relative col-span-2">
         {movieData.results.length > 0 ? (
           renderView()
         ) : (

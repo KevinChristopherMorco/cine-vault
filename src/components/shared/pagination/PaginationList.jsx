@@ -1,4 +1,6 @@
 import React from "react";
+import IconChevronLeft from "@tabler/icons-react/dist/esm/icons/IconChevronLeft.mjs";
+import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
 
 import formatPagination from "../../../helpers/pagination/formatPagination";
 
@@ -12,28 +14,30 @@ const PaginationList = ({
   handleOffset,
 }) => {
   return (
-    <div className="flex items-center gap-4">
+    <div className="col-span-2 flex w-full items-center gap-4 bg-[var(--brand-color-900)]">
       <button
         className="cursor-pointer"
         onClick={() => {
           handlePreviousPage();
         }}
       >
-        Previous
+        <IconChevronLeft />
       </button>
-      <ul className="flex w-fit gap-2 py-2">
+      <ul className="flex w-fit flex-wrap items-center gap-2 py-2">
         {formatPagination(
           currentPage,
           Math.ceil(movieData.total_results / parseInt(offset)),
-          2,
+          1,
         ).map((paginateNumber) => {
           if (paginateNumber === "...") {
-            return <li>{paginateNumber}</li>;
+            return (
+              <li className="p-4 text-sm md:text-base">{paginateNumber}</li>
+            );
           }
 
           return (
             <li
-              className="cursor-pointer"
+              className={`${currentPage === paginateNumber ? "rounded-full bg-[var(--brand-color-500)]" : ""} flex h-10 w-10 cursor-pointer items-center justify-center p-2 text-sm md:text-base`}
               onClick={() => handleChoosePage(paginateNumber)}
             >
               {paginateNumber}
@@ -47,7 +51,7 @@ const PaginationList = ({
           handleNextPage();
         }}
       >
-        Next
+        <IconChevronRight />
       </button>
     </div>
   );

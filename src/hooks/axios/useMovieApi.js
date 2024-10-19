@@ -124,6 +124,7 @@ const useMovieApi = () => {
     isLoading,
     currentPage,
     offset,
+    pageActive,
 
     handleCommonEndpoint,
     handleSpecificEndpoint,

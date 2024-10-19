@@ -24,14 +24,12 @@ const MoviesGenreListContainer = () => {
 
   const {
     movieData,
-    offset,
     isLoading,
     currentPage,
     handleDiscoverEndpoint,
     handleNextPage,
     handlePreviousPage,
     handleChoosePage,
-    handleOffset,
   } = useMovieApi();
   const { order, sort, filterGenre, filterDate, filterRating, filterVotes } =
     useFilterContext();
@@ -70,15 +68,15 @@ const MoviesGenreListContainer = () => {
       <div className="col-span-2 grid grid-cols-2 items-center gap-y-4 lg:flex lg:gap-6">
         <SortCard setModal={setModal} />
         <CardViewToggle listType={listType} setListType={setListType} />
-        <PaginationList
-          movieData={movieData}
-          offset={offset}
-          currentPage={currentPage}
-          handlePreviousPage={handlePreviousPage}
-          handleNextPage={handleNextPage}
-          handleChoosePage={handleChoosePage}
-          handleOffset={handleOffset}
-        />
+        {movieData.results.length > 1 && (
+          <PaginationList
+            movieData={movieData}
+            currentPage={currentPage}
+            handlePreviousPage={handlePreviousPage}
+            handleNextPage={handleNextPage}
+            handleChoosePage={handleChoosePage}
+          />
+        )}
       </div>
       <div className="relative col-span-2">
         {movieData.results.length > 0 ? (
@@ -91,15 +89,15 @@ const MoviesGenreListContainer = () => {
             />
           </div>
         )}
-        <PaginationList
-          movieData={movieData}
-          offset={offset}
-          currentPage={currentPage}
-          handlePreviousPage={handlePreviousPage}
-          handleNextPage={handleNextPage}
-          handleChoosePage={handleChoosePage}
-          handleOffset={handleOffset}
-        />
+        {movieData.results.length > 1 && (
+          <PaginationList
+            movieData={movieData}
+            currentPage={currentPage}
+            handlePreviousPage={handlePreviousPage}
+            handleNextPage={handleNextPage}
+            handleChoosePage={handleChoosePage}
+          />
+        )}
       </div>
       {isModalOpen && <FilterModal setModal={setModal} />}
     </section>

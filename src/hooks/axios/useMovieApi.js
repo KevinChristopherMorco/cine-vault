@@ -11,13 +11,10 @@ const useMovieApi = () => {
   const {
     currentPage,
     pageActive,
-    offset,
     handlePreviousPage,
     handleNextPage,
     handleChoosePage,
-    handleOffset,
   } = usePagination();
-  console.log(currentPage);
 
   const {
     sort,
@@ -123,7 +120,6 @@ const useMovieApi = () => {
     movieData,
     isLoading,
     currentPage,
-    offset,
     pageActive,
 
     handleCommonEndpoint,
@@ -134,7 +130,6 @@ const useMovieApi = () => {
     handleNextPage,
     handlePreviousPage,
     handleChoosePage,
-    handleOffset,
   };
 };
 

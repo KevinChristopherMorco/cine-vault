@@ -23,9 +23,9 @@ const VideoPlayer = ({ video, movieData, isLoading }) => {
   } = useScreenResponsiveness();
 
   return (
-    <div className="flex flex-col lg:col-span-2 lg:flex-row lg:px-8">
+    <div className="flex flex-col lg:basis-[90%]">
       {!isLoading ? (
-        <div className="h-full lg:basis-[70%]">
+        <div className="h-full lg:basis-[40%] xl:basis-[60%]">
           <div className="w-full bg-black px-4 py-2">
             <div
               onClick={() => navigate(-1)}
@@ -36,7 +36,7 @@ const VideoPlayer = ({ video, movieData, isLoading }) => {
             </div>
           </div>
           <iframe
-            className="h-[20rem] w-full bg-black md:h-[25rem] lg:h-[90%] xl:h-[90%]"
+            className="h-[20rem] w-full bg-black md:h-[25rem] lg:h-[90%] xl:h-[30rem]"
             src={`https://www.youtube.com/embed/${video}`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -49,12 +49,12 @@ const VideoPlayer = ({ video, movieData, isLoading }) => {
         </div>
       )}
 
-      <div className="flex h-full flex-col gap-1 bg-[var(--bg-neutral)] py-4 md:gap-6 lg:basis-[30%]">
+      <div className="flex h-full w-full flex-col gap-1 rounded-md bg-[var(--bg-neutral)] py-4 md:gap-6 lg:h-fit lg:py-10">
         {lg || xl || xxl ? (
           <div className="flex gap-4 px-4">
             <img
               src={`http://image.tmdb.org/t/p/w500${poster_path}`}
-              className="w-[25%] rounded-md"
+              className="w-[25%] rounded-md lg:w-[18%] xl:w-[15%]"
               alt=""
             />
             <div className="flex flex-col gap-2">

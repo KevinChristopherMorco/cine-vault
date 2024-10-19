@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import useModalControls from "../../hooks/shared/useModalControls";
 import falsy from "../../json/falsy.json";
 
-import MovieHero from "../../components/movies-summary/MovieHero";
-import RecommendationContainer from "../../components/movies-summary/movie-recommendation/RecommendationContainer";
-import MoviePhotoContainer from "../../components/movies-summary/movie-photos/MoviePhotoContainer";
-import MovieCastCrewContainer from "../../components/movies-summary/movies-cast-crew/MovieCastCrewContainer";
+import MovieHero from "../../components/movies-summary-page/movie-hero/MovieHeroContainer";
+import RecommendationContainer from "../../components/movies-summary-page/movie-recommendation/RecommendationContainer";
+import MoviePhotoContainer from "../../components/movies-summary-page/movie-photos/MoviePhotoContainer";
+import MovieCastCrewContainer from "../../components/movies-summary-page/movies-cast-crew/MovieCastCrewContainer";
 
 import MovieModal from "../../components/shared/modals/MovieModal";
 import useMovieApi from "../../hooks/axios/useMovieApi";

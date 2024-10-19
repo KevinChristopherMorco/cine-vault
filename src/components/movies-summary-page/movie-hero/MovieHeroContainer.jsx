@@ -1,15 +1,15 @@
 import React from "react";
 
-import getMovieCertification from "../../helpers/movie/getMovieCertification";
-import getMovieTrailer from "../../helpers/movie/getMovieTrailer";
-import getCastCrew from "../../helpers/movie/getCastCrew";
+import getMovieCertification from "../../../helpers/movie/getMovieCertification";
+import getMovieTrailer from "../../../helpers/movie/getMovieTrailer";
+import getCastCrew from "../../../helpers/movie/getCastCrew";
 
-import HeroHeading from "./movie-hero/HeroHeading";
-import HeroTrailer from "./movie-hero/HeroTrailer";
-import HeroPoster from "./movie-hero/HeroPoster";
-import HeroOverview from "./movie-hero/HeroOverview";
-import HeroStatCount from "./movie-hero/HeroStatCount";
-import HeroCastCrew from "./movie-hero/HeroCastCrew";
+import HeroHeading from "./HeroHeading";
+import HeroTrailer from "./HeroTrailer";
+import HeroPoster from "./HeroPoster";
+import HeroOverview from "./HeroOverview";
+import HeroStatCount from "./HeroStatCount";
+import HeroCastCrew from "./HeroCastCrew";
 
 const MovieHero = ({ movieData, isLoading }) => {
   const { PH: phCertification, US: usCertification } = getMovieCertification(

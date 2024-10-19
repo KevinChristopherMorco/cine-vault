@@ -1,11 +1,11 @@
 import React from "react";
 
 import useMoviePages from "../../hooks/axios/useMoviePages";
-import usePageData from "../../hooks/movies-list/usePageData";
+import usePageData from "../../hooks/featured-movies-page/usePageData";
 
-import ListView from "../../components/movies-list/ListView";
+import ListView from "../../components/featured-movies-page/ListView";
 import Spinner from "../../components/shared/loaders/Spinner";
-import RecommendPage from "../../components/movies-list/recommended-pages/RecommendPage";
+import RecommendPage from "../../components/featured-movies-page/recommended-pages/RecommendPage";
 
 const MoviesListContainer = () => {
   const { isLoading, allMovieList, handleEndpoint } = useMoviePages();

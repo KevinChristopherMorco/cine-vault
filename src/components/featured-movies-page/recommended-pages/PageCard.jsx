@@ -6,7 +6,7 @@ const PageCard = ({ title, subtext, link }) => {
   return (
     <div className="flex flex-col gap-1">
       <Link
-        to={`/movies-list/${link}`}
+        to={`/featured-movies-page/${link}`}
         className="group flex w-fit cursor-pointer items-center gap-1 transition-colors"
       >
         <p className="text-xl font-bold">{title}</p>

@@ -4,7 +4,7 @@ import IconList from "@tabler/icons-react/dist/esm/icons/IconList.mjs";
 import IconGridDots from "@tabler/icons-react/dist/esm/icons/IconGridDots.mjs";
 import IconMenu2 from "@tabler/icons-react/dist/esm/icons/IconMenu2.mjs";
 
-import useActiveState from "../../hooks/movies-list/useActiveState";
+import useActiveState from "../../hooks/featured-movies-page/useActiveState";
 
 import CompactView from "./grid/CompactView";
 import GridView from "./grid/GridView";

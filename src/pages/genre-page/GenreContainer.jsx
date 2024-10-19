@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import useMovieApi from "../../hooks/axios/useMovieApi";
 import genresList from "../../json/genresList.json";
 
-import Featured from "../../components/home/Featured";
-import OverviewSection from "../../components/genre/OverviewSection";
-import GenreImage from "../../components/genre/GenreImage";
-import GenreDescription from "../../components/genre/GenreDescription";
+import Featured from "../../components/home-page/Featured";
+import OverviewSection from "../../components/genre-page/OverviewSection";
+import GenreImage from "../../components/genre-page/GenreImage";
+import GenreDescription from "../../components/genre-page/GenreDescription";
 
 const GenreContainer = () => {
   const { genreID } = useParams();

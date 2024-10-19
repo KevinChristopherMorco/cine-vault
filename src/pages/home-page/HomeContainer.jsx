@@ -1,8 +1,8 @@
 import React from "react";
 
-import HomeHero from "../../components/home/HomeHero";
-import Featured from "../../components/home/Featured";
-import FAQ from "../../components/home/FAQ";
+import HomeHero from "../../components/home-page/HomeHero";
+import Featured from "../../components/home-page/Featured";
+import FAQ from "../../components/home-page/FAQ";
 import getCommonLink from "../../helpers/link/getCommonLink";
 
 const Home = () => {

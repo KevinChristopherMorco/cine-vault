@@ -6,6 +6,7 @@ import usePageData from "../../hooks/featured-movies-page/usePageData";
 import ListView from "../../components/featured-movies-page/ListView";
 import Spinner from "../../components/shared/loaders/Spinner";
 import RecommendPage from "../../components/featured-movies-page/recommended-pages/RecommendPage";
+import OverlayContainer from "../../components/shared/containers/OverlayContainer";
 
 const MoviesListContainer = () => {
   const { isLoading, allMovieList, handleEndpoint } = useMoviePages();
@@ -15,11 +16,11 @@ const MoviesListContainer = () => {
 
   return (
     <section className="flex animate-fadeIn flex-col gap-8">
-      <div className="flex flex-col gap-4 px-4 pt-4">
+      <OverlayContainer>
         <div>
           <p className="text-2xl font-bold">TMDB Charts</p>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-5">
           <div className="border-l-4 border-[var(--brand-color-500)]">
             <p className="px-2 text-4xl font-light">{title}</p>
           </div>
@@ -27,7 +28,7 @@ const MoviesListContainer = () => {
             <p>As determined by TMDB users</p>
           </div>
         </div>
-      </div>
+      </OverlayContainer>
       <div>
         {!isLoading ? (
           <ListView isLoading={isLoading} movieData={allMovieList} />

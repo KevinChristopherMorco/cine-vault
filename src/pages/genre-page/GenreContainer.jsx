@@ -44,9 +44,9 @@ const GenreContainer = () => {
         subtext={"You don't want to miss this out."}
         link={trendingLink}
         endpoint={"trending-movies"}
+        cardType={"poster"}
         isNumbering={true}
         isRated={true}
-        isDetailed={true}
       />
 
       <Featured
@@ -54,9 +54,9 @@ const GenreContainer = () => {
         subtext={"Showtimes near you"}
         link={nowShowingLink}
         endpoint={"in-theaters-movies"}
+        cardType={"poster"}
         isNumbering={false}
         isRated={false}
-        isDetailed={true}
       />
     </div>
   );

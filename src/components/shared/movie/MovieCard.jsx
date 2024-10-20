@@ -19,7 +19,6 @@ const MovieCard = ({
   data,
   numbering,
   cardType,
-
   isNumbering,
   isRated,
   setModal,
@@ -121,13 +120,21 @@ const MovieCard = ({
 
       {cardType === "compact" && (
         <div className="flex animate-fadeIn gap-2">
-          <div className="relative w-fit cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15">
+          <Link
+            to={`/movies-summary/${data.id}`}
+            className="relative w-fit cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15"
+          >
             <img
               src={`http://image.tmdb.org/t/p/w500${data.poster_path}`}
               alt={data.title}
               className="h-[6rem] w-[5rem] rounded-md md:h-[8rem] md:w-[5rem] lg:h-[9rem] lg:w-[6rem]"
             />
-          </div>
+            {isNumbering && (
+              <p className="text-stroke absolute bottom-0 left-1 text-2xl font-bold text-black md:text-4xl lg:text-3xl">
+                {numbering + 1}
+              </p>
+            )}
+          </Link>
           <div className="flex flex-col gap-4 px-2">
             <div className="flex flex-col gap-2">
               <Link
@@ -169,6 +176,11 @@ const MovieCard = ({
                 <p className="text-sm">No poster available</p>
               </div>
             )}
+            {isNumbering && (
+              <p className="text-stroke absolute bottom-0 left-2 text-6xl font-bold text-black">
+                {numbering + 1}
+              </p>
+            )}
           </div>
           <div className="p-2">
             <div className="flex h-[7rem] flex-col gap-2 lg:h-[10rem]">
@@ -209,21 +221,29 @@ const MovieCard = ({
       {cardType === "detailed" && (
         <div className="flex animate-fadeIn flex-col gap-4 border-b border-[var(--brand-color-500)] py-6">
           <div className="flex gap-2">
-            <div className="relative w-fit cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15">
+            <Link
+              to={`/movies-summary/${data.id}`}
+              className="relative w-fit cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15"
+            >
               <img
                 src={`http://image.tmdb.org/t/p/w500${data.poster_path}`}
                 alt=""
                 className="h-[6rem] w-[5rem] rounded-md md:h-[7rem] md:w-[5rem]"
               />
-              <p className="text-stroke absolute bottom-0 right-0 text-2xl font-bold text-black md:text-4xl">
-                {/* {index + 1} */}
-              </p>
-            </div>
+              {isNumbering && (
+                <p className="text-stroke absolute bottom-0 left-1 text-2xl font-bold text-black md:text-4xl lg:text-4xl">
+                  {numbering + 1}
+                </p>
+              )}
+            </Link>
             <div className="flex flex-col gap-4 px-2">
               <div className="flex flex-col gap-2">
-                <p className="cursor-pointer text-sm font-bold transition-colors hover:text-[var(--brand-color-500)] md:text-base">
+                <Link
+                  to={`/movies-summary/${data.id}`}
+                  className="cursor-pointer text-sm font-bold transition-colors hover:text-[var(--brand-color-500)] md:text-base"
+                >
                   {data.title}
-                </p>
+                </Link>
                 <ul className="flex gap-2 text-[.8rem] text-gray-300 md:text-[.9rem]">
                   <li>{formatYear(data.release_date)}</li>
                   <li>{formatRuntime(data.runtime)}</li>

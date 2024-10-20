@@ -7,6 +7,7 @@ import Spinner from "../shared/loaders/Spinner";
 import MainHeading from "../shared/headings/MainHeading";
 import MovieCard from "../shared/movie/MovieCard";
 import useMovieApi from "../../hooks/axios/useMovieApi";
+import OverlayContainer from "../shared/containers/OverlayContainer";
 
 const Feautred = ({
   title,
@@ -25,7 +26,8 @@ const Feautred = ({
   }, []);
 
   return (
-    <section className="col-span-2 flex flex-col gap-6 bg-[var(--bg-neutral)] px-4 py-5">
+    // <section className="flex flex-col gap-6 bg-[var(--bg-neutral)] px-4 py-5">
+    <OverlayContainer>
       <MainHeading
         title={title}
         endpoint={endpoint}
@@ -60,7 +62,8 @@ const Feautred = ({
           isLoading={isLoading}
         />
       )}
-    </section>
+    </OverlayContainer>
+    // </section>
   );
 };
 

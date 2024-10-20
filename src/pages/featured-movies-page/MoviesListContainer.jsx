@@ -29,7 +29,7 @@ const MoviesListContainer = () => {
           </div>
         </div>
       </OverlayContainer>
-      <div>
+      <div className="px-4">
         {!isLoading ? (
           <ListView isLoading={isLoading} movieData={allMovieList} />
         ) : (

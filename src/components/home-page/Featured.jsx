@@ -26,7 +26,6 @@ const Feautred = ({
   }, []);
 
   return (
-    // <section className="flex flex-col gap-6 bg-[var(--bg-neutral)] px-4 py-5">
     <OverlayContainer>
       <MainHeading
         title={title}
@@ -35,7 +34,7 @@ const Feautred = ({
         isLink={true}
         hasSubtext={true}
       />
-      <div className="scrollable-content -mx-4 flex gap-x-6 overflow-x-scroll px-4 py-2">
+      <div className="scrollable-content -mx-4 flex gap-x-6 overflow-x-scroll px-4 py-2 lg:-mx-8">
         {!isLoading ? (
           movieData.results.map((movie, index) => {
             return (
@@ -63,7 +62,6 @@ const Feautred = ({
         />
       )}
     </OverlayContainer>
-    // </section>
   );
 };
 

@@ -5,6 +5,9 @@ import IconPlayerPlayFilled from "@tabler/icons-react/dist/esm/icons/IconPlayerP
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
 import IconCalendarFilled from "@tabler/icons-react/dist/esm/icons/IconCalendarFilled.mjs";
 import IconStarFilled from "@tabler/icons-react/dist/esm/icons/IconStarFilled.mjs";
+import IconMoodHappyFilled from "@tabler/icons-react/dist/esm/icons/IconMoodHappyFilled.mjs";
+import IconMoodEmptyFilled from "@tabler/icons-react/dist/esm/icons/IconMoodEmptyFilled.mjs";
+import IconMoodSadFilled from "@tabler/icons-react/dist/esm/icons/IconMoodSadFilled.mjs";
 
 import getMovieCertification from "../../../helpers/movie/getMovieCertification";
 
@@ -14,6 +17,7 @@ import twoDecimal from "../../../helpers/format/formatTwoDecimal";
 import LoadingButton from "../loaders/LoadingButton";
 import Spinner from "../loaders/Spinner";
 import useMovieApi from "../../../hooks/axios/useMovieApi";
+import formatPercentage from "../../../helpers/format/formatPercentage";
 
 const MovieModal = ({ movieData, setModal }) => {
   const navigate = useNavigate();
@@ -39,6 +43,9 @@ const MovieModal = ({ movieData, setModal }) => {
   useEffect(() => {
     handleSpecificEndpoint(id);
   }, [id]);
+
+  const percentageProperty = formatPercentage(vote_average);
+  const { overallVerdict } = percentageProperty;
 
   return (
     <div className="fixed left-0 top-0 z-[999] flex h-screen w-full flex-col items-center justify-center bg-black bg-opacity-50">
@@ -71,7 +78,7 @@ const MovieModal = ({ movieData, setModal }) => {
                     <IconStarFilled className="h-3 w-3" />
                     <p className="text-[.75rem]">{twoDecimal(vote_average)}</p>
                   </div>
-                  {(usCertification || phCertification) && (
+                  {/* {(usCertification || phCertification) && (
                     <div className="flex items-center gap-1 rounded-full bg-gray-900 px-2 py-1">
                       <img
                         src={
@@ -84,6 +91,21 @@ const MovieModal = ({ movieData, setModal }) => {
                       <p className="text-[.75rem]">
                         {usCertification || phCertification}
                       </p>
+                    </div>
+                  )} */}
+                  {overallVerdict && (
+                    <div className="flex items-center gap-1 rounded-full bg-gray-900 px-2 py-1">
+                      {overallVerdict === "Must-Watch" && (
+                        <IconMoodHappyFilled className="h-4 w-4 text-green-500" />
+                      )}
+                      {overallVerdict === "Average" && (
+                        <IconMoodEmptyFilled className="h-4 w-4 text-yellow-500" />
+                      )}
+                      {overallVerdict === "Could be better" && (
+                        <IconMoodSadFilled className="h-4 w-4 text-red-500" />
+                      )}
+
+                      <p className="text-[.75rem]">{overallVerdict}</p>
                     </div>
                   )}
                 </div>

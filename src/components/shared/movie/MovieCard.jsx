@@ -47,7 +47,7 @@ const MovieCard = ({
             )}
             {isRated && (
               <div className="absolute bottom-0 right-1">
-                <RatingProgress />
+                <RatingProgress vote={data.vote_average} />
               </div>
             )}
           </div>

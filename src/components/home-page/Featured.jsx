@@ -13,9 +13,9 @@ const Feautred = ({
   subtext,
   link,
   endpoint,
+  cardType,
   isNumbering,
   isRated,
-  isDetailed,
 }) => {
   const { movieData, isLoading, handleCommonEndpoint } = useMovieApi();
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
@@ -23,7 +23,6 @@ const Feautred = ({
   useEffect(() => {
     handleCommonEndpoint(link);
   }, []);
-
 
   return (
     <section className="col-span-2 flex flex-col gap-6 bg-[var(--bg-neutral)] px-4 py-5">
@@ -44,7 +43,7 @@ const Feautred = ({
                 numbering={index}
                 isNumbering={isNumbering}
                 isRated={isRated}
-                isDetailed={isDetailed}
+                cardType={cardType}
                 setModal={setModal}
                 setModalData={setModalData}
               />

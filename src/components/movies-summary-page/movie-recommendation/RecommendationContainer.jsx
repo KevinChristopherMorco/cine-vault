@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RecommendationCard from "./RecommendationCard";
+
 import MainHeading from "../../shared/headings/MainHeading";
 import MovieCard from "../../shared/movie/MovieCard";
 
@@ -23,7 +23,7 @@ const RecommendationContainer = ({
           <MovieCard
             key={index}
             data={movie}
-            isDetailed={true}
+            cardType={"carousel"}
             setModal={setModal}
             setModalData={setModalData}
           />

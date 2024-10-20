@@ -16,27 +16,27 @@ const Home = () => {
         subtext={"You don't want to miss this out."}
         link={trendingLink}
         endpoint={"trending-movies"}
+        cardType={"poster"}
         isNumbering={true}
         isRated={true}
-        isDetailed={false}
       />
       <Featured
         title={"All-Time Highest Rated Movie"}
         subtext={"The pinnacle of cinematic artistry."}
         link={highestRatingLink}
         endpoint={"highest-rated-movies"}
+        cardType={"poster"}
         isNumbering={true}
         isRated={true}
-        isDetailed={false}
       />
       <Featured
         title={"In theaters"}
         subtext={"Showtimes near you"}
         link={nowShowingLink}
         endpoint={"in-theaters-movies"}
+        cardType={"poster"}
         isNumbering={false}
         isRated={false}
-        isDetailed={false}
       />
       <FAQ />
     </div>

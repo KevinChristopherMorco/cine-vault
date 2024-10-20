@@ -13,7 +13,7 @@ const SortCard = ({ setModal }) => {
   };
 
   return (
-    <div className="col-span-2 flex w-full justify-between gap-6 lg:justify-end">
+    <div className="col-span-2 row-start-2 flex w-full items-center justify-between">
       <div
         className="cursor-pointer rounded-md bg-[var(--brand-color-500)] p-2 transition-colors hover:bg-[var(--brand-color-600)]"
         onClick={() => setModal(true)}

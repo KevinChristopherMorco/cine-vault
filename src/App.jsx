@@ -7,7 +7,7 @@ import VideoContainer from "./pages/video-page/VideoContainer";
 import MoviesListContainer from "./pages/featured-movies-page/MoviesListContainer";
 import MoviesSummaryContainer from "./pages/movies-summary-page/MoviesSummaryContainer";
 import GenreContainer from "./pages/genre-page/GenreContainer";
-import MoviesGenreListContainer from "./pages/movies-genre-list-page/MoviesGenreListContainer";
+import MoviesGenreListContainer from "./pages/movies-genre-page/MoviesGenreListContainer";
 import FilterProvider from "./hooks/shared/FilterProvider";
 
 function App() {

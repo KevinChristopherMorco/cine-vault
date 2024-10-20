@@ -5,7 +5,7 @@ import IconMenu2 from "@tabler/icons-react/dist/esm/icons/IconMenu2.mjs";
 
 const CardViewToggle = ({ listType, setListType }) => {
   return (
-    <div className="col-start-2 row-start-1 flex w-fit gap-2 justify-self-end px-2 lg:col-start-1 lg:row-start-2">
+    <div className="col-start-2 row-start-1 flex items-center justify-end gap-2">
       <IconList
         title={"Detailed View"}
         className={`cursor-pointer ${listType === "detailedView" ? "text-[var(--brand-color-300)]" : ""} `}

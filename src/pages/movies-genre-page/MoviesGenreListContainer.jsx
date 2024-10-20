@@ -7,7 +7,7 @@ import useListView from "../../hooks/shared/useListView";
 import useModalControls from "../../hooks/shared/useModalControls";
 import genresList from "../../json/genresList.json";
 
-import MovieGenreHeader from "../../components/movies-genre-list/MovieGenreHeader";
+import MovieGenreHeader from "../../components/movies-genre-page/MovieGenreHeader";
 import CompactView from "../../components/shared/card-view/CompactView";
 import GridView from "../../components/shared/card-view/GridView";
 import CardViewToggle from "../../components/shared/card-view/CardViewToggle";
@@ -65,7 +65,7 @@ const MoviesGenreListContainer = () => {
   return (
     <section className="grid grid-cols-2 gap-y-6 p-4 lg:grid-cols-[3fr_1fr]">
       <MovieGenreHeader genreName={genreName} genreOverview={genreOverview} />
-      <div className="col-span-2 grid grid-cols-2 items-center gap-y-4 lg:flex lg:gap-6">
+      <div className="col-span-2 grid gap-y-4">
         <SortCard setModal={setModal} />
         <CardViewToggle listType={listType} setListType={setListType} />
         {movieData.results.length > 1 && (

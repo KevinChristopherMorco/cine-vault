@@ -17,17 +17,15 @@ const GenreListFilter = () => {
     });
   };
 
-  console.log(filterGenre);
-
-  // useEffect(() => {
-  //   const { id, genreName } = genresList.genres.find(
-  //     (genre) => genre.id === parseInt(genreID),
-  //   );
-  //   setFilterGenre((prev) => [
-  //     ...prev,
-  //     { genreID: genreID, genreName: genreName },
-  //   ]);
-  // }, []);
+  useEffect(() => {
+    const { id, genreName } = genresList.genres.find(
+      (genre) => genre.id === parseInt(genreID),
+    );
+    setFilterGenre((prev) => [
+      ...prev,
+      { genreID: genreID, genreName: genreName },
+    ]);
+  }, []);
 
   return (
     <div className="flex flex-col gap-4">

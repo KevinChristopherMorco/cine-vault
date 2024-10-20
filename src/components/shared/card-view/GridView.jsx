@@ -9,7 +9,8 @@ const GridView = ({ movieData, isLoading }) => {
   return (
     <GridContainer>
       {movieData.map((movie, index) => {
-        return <MovieCard key={index} data={movie.data} cardType={"grid"} />;
+        const data = movie.data || movie;
+        return <MovieCard key={index} data={data} cardType={"grid"} />;
       })}
     </GridContainer>
   );

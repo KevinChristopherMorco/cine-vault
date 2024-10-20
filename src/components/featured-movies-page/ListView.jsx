@@ -7,10 +7,6 @@ import IconMenu2 from "@tabler/icons-react/dist/esm/icons/IconMenu2.mjs";
 import useActiveState from "../../hooks/featured-movies-page/useActiveState";
 import renderMovielistView from "../../helpers/renderMovielistView";
 
-import CompactView from "./grid/CompactView";
-import GridView from "./grid/GridView";
-import DetailedView from "./grid/DetailedView";
-
 const ListView = ({ movieData, isLoading }) => {
   const { viewType, activeType, handleActiveState } = useActiveState();
 

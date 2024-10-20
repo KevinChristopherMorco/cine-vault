@@ -6,6 +6,7 @@ import useMovieApi from "../../hooks/axios/useMovieApi";
 import useListView from "../../hooks/shared/useListView";
 import useModalControls from "../../hooks/shared/useModalControls";
 import genresList from "../../json/genresList.json";
+import renderMovielistView from "../../helpers/renderMovielistView";
 
 import MovieGenreHeader from "../../components/movies-genre-page/MovieGenreHeader";
 import CardViewToggle from "../../components/shared/card-view/CardViewToggle";
@@ -13,9 +14,6 @@ import SortCard from "../../components/shared/card-view/filters/SortCard";
 import FilterModal from "../../components/shared/modals/FilterModal";
 import Empty from "../../components/alerts/Empty";
 import PaginationList from "../../components/shared/pagination/PaginationList";
-import CompactView from "../../components/shared/card-view/CompactView";
-import GridView from "../../components/shared/card-view/GridView";
-import DetailedView from "../../components/shared/card-view/DetailedView";
 
 const MoviesGenreListContainer = () => {
   const { genreID } = useParams();
@@ -52,19 +50,6 @@ const MoviesGenreListContainer = () => {
 
   if (isLoading) return;
 
-  const renderView = () => {
-    switch (listType) {
-      case "compactView":
-        return <CompactView movieData={movieData} isLoading={isLoading} />;
-      case "gridView":
-        return <GridView movieData={movieData} isLoading={isLoading} />;
-      case "detailedView":
-        return <DetailedView movieData={movieData} isLoading={isLoading} />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <section className="grid grid-cols-2 gap-y-6 p-4 lg:grid-cols-[3fr_1fr]">
       <MovieGenreHeader genreName={genreName} genreOverview={genreOverview} />
@@ -83,7 +68,7 @@ const MoviesGenreListContainer = () => {
       </div>
       <div className="relative col-span-2">
         {movieData.results.length > 0 ? (
-          renderView()
+          renderMovielistView(movieData.results, isLoading, listType)
         ) : (
           <div className="col-span-2 flex items-center justify-center">
             <Empty

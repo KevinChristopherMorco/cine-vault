@@ -4,13 +4,11 @@ import DetailedContainer from "../containers/card-view/DetailedContainer";
 import MovieCard from "../movie/MovieCard";
 
 const DetailedView = ({ movieData, isLoading }) => {
-  console.log(movieData);
   return (
     <DetailedContainer>
       {movieData.map((movie, index) => {
-        return (
-          <MovieCard key={index} data={movie.data} cardType={"detailed"} />
-        );
+        const data = movie.data || movie;
+        return <MovieCard key={index} data={data} cardType={"detailed"} />;
       })}
     </DetailedContainer>
   );

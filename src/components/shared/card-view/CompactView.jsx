@@ -8,7 +8,8 @@ const CompactView = ({ movieData, isLoading }) => {
   return (
     <CompactContainer>
       {movieData.map((movie, index) => {
-        return <MovieCard key={index} data={movie.data} cardType={"compact"} />;
+        const data = movie.data || movie;
+        return <MovieCard key={index} data={data} cardType={"compact"} />;
       })}
     </CompactContainer>
   );

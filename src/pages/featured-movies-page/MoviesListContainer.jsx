@@ -30,7 +30,7 @@ const MoviesListContainer = () => {
       </div>
       <div>
         {!isLoading ? (
-          <ListView isLoading={isLoading} allMovieList={allMovieList} />
+          <ListView isLoading={isLoading} movieData={allMovieList} />
         ) : (
           <div className="flex flex-col items-center">
             <Spinner />

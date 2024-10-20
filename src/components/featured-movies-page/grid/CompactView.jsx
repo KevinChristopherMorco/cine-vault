@@ -3,10 +3,10 @@ import React from "react";
 import MovieCard from "../../shared/movie/MovieCard";
 import CompactContainer from "../../shared/containers/card-view/CompactContainer";
 
-const CompactView = ({ allMovieList }) => {
+const CompactView = ({ movieData }) => {
   return (
     <CompactContainer>
-      {allMovieList.map((movie, index) => {
+      {movieData.map((movie, index) => {
         return <MovieCard key={index} data={movie.data} cardType={"compact"} />;
       })}
     </CompactContainer>

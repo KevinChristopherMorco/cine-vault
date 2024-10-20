@@ -1,14 +1,15 @@
 import React from "react";
 
 import MovieCard from "../../shared/movie/MovieCard";
+import GridContainer from "../../shared/containers/card-view/GridContainer";
 
 const GridView = ({ allMovieList, isLoading }) => {
   return (
-    <div className="grid grid-cols-2 gap-x-3 gap-y-10 px-4 md:grid-cols-4">
+    <GridContainer>
       {allMovieList.map((movie, index) => {
         return <MovieCard key={index} data={movie.data} cardType={"grid"} />;
       })}
-    </div>
+    </GridContainer>
   );
 };
 

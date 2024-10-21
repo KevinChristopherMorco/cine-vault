@@ -40,7 +40,7 @@ const useMovieApi = () => {
   const handleSpecificEndpoint = async (id) => {
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images`,
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images,reviews`,
       );
       setMovieData(response.data);
       setLoading(false);

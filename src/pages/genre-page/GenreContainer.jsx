@@ -39,25 +39,27 @@ const GenreContainer = () => {
         genreOverview={genreOverview}
         movieData={movieData}
       />
-      <Featured
-        title={"Trending this week"}
-        subtext={"You don't want to miss this out."}
-        link={trendingLink}
-        endpoint={"/featured-movies-page/trending-movies"}
-        cardType={"carousel"}
-        isNumbering={true}
-        isRated={true}
-      />
+      <div className="md:col-span-2">
+        <Featured
+          title={"Trending this week"}
+          subtext={"You don't want to miss this out."}
+          link={trendingLink}
+          endpoint={"/featured-movies-page/trending-movies"}
+          cardType={"carousel"}
+          isNumbering={true}
+          isRated={true}
+        />
 
-      <Featured
-        title={"In theaters"}
-        subtext={"Showtimes near you"}
-        link={nowShowingLink}
-        endpoint={"/featured-movies-page/in-theaters-movies"}
-        cardType={"carousel"}
-        isNumbering={false}
-        isRated={false}
-      />
+        <Featured
+          title={"In theaters"}
+          subtext={"Showtimes near you"}
+          link={nowShowingLink}
+          endpoint={"/featured-movies-page/in-theaters-movies"}
+          cardType={"carousel"}
+          isNumbering={false}
+          isRated={false}
+        />
+      </div>
     </div>
   );
 };

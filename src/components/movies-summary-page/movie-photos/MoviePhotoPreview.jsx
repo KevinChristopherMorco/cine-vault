@@ -47,9 +47,9 @@ const MoviePhotoPreview = ({ movieData, isLoading }) => {
         isLink={true}
       />
       <div className="grid grid-cols-2 gap-1 md:auto-rows-auto md:gap-2 lg:auto-rows-auto lg:grid-cols-3">
-        {photoSlice().map((image) => {
+        {photoSlice().map((image, index) => {
           return (
-            <div onClick={() => handleLinkClick(image.file_path)}>
+            <div key={index} onClick={() => handleLinkClick(image.file_path)}>
               <img
                 src={`http://image.tmdb.org/t/p/w500${image.file_path}`}
                 alt={title}

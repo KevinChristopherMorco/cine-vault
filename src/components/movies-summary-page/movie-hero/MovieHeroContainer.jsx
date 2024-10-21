@@ -34,7 +34,7 @@ const MovieHero = ({ movieData, isLoading }) => {
   } = movieData;
 
   const { trailerKey } = getMovieTrailer(movieData, isLoading);
-  const { acting: actor, director, writer } = getCastCrew(credits);
+  const { acting: actor, director, writing: writer } = getCastCrew(credits);
 
   return (
     <div className="flex flex-col gap-8 md:px-5 xl:px-8">

@@ -15,7 +15,7 @@ const Home = () => {
         title={"Trending this week"}
         subtext={"You don't want to miss this out."}
         link={trendingLink}
-        endpoint={"trending-movies"}
+        endpoint={"/featured-movies-page/trending-movies"}
         cardType={"poster"}
         isNumbering={true}
         isRated={true}
@@ -24,7 +24,7 @@ const Home = () => {
         title={"All-Time Highest Rated Movie"}
         subtext={"The pinnacle of cinematic artistry."}
         link={highestRatingLink}
-        endpoint={"highest-rated-movies"}
+        endpoint={"/featured-movies-page/highest-rated-movies"}
         cardType={"poster"}
         isNumbering={true}
         isRated={true}
@@ -33,7 +33,7 @@ const Home = () => {
         title={"In theaters"}
         subtext={"Showtimes near you"}
         link={nowShowingLink}
-        endpoint={"in-theaters-movies"}
+        endpoint={"/featured-movies-page/in-theaters-movies"}
         cardType={"poster"}
         isNumbering={false}
         isRated={false}

@@ -49,7 +49,7 @@ const HeroTrailer = ({
         {backdrops.length > 0 || logos.length > 0 || posters.length > 0 ? (
           <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--neutral-hover)] lg:flex-col lg:rounded-md">
             <IconLibraryPhoto className="h-5 w-5" />
-            photos
+            {backdrops.length + logos.length + posters.length} photos
           </div>
         ) : (
           <div className="flex basis-[50%] cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--bg-neutral)] p-3 text-center text-[.75rem] transition-all hover:bg-[var(--neutral-hover)] lg:flex-col lg:rounded-md">

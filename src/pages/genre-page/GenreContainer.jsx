@@ -43,8 +43,8 @@ const GenreContainer = () => {
         title={"Trending this week"}
         subtext={"You don't want to miss this out."}
         link={trendingLink}
-        endpoint={"trending-movies"}
-        cardType={"poster"}
+        endpoint={"/featured-movies-page/trending-movies"}
+        cardType={"carousel"}
         isNumbering={true}
         isRated={true}
       />
@@ -53,8 +53,8 @@ const GenreContainer = () => {
         title={"In theaters"}
         subtext={"Showtimes near you"}
         link={nowShowingLink}
-        endpoint={"in-theaters-movies"}
-        cardType={"poster"}
+        endpoint={"/featured-movies-page/in-theaters-movies"}
+        cardType={"carousel"}
         isNumbering={false}
         isRated={false}
       />

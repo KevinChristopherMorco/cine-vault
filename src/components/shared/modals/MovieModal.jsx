@@ -93,6 +93,7 @@ const MovieModal = ({ movieData, setModal }) => {
                       </p>
                     </div>
                   )} */}
+                  
                   {overallVerdict && (
                     <div className="flex items-center gap-1 rounded-full bg-gray-900 px-2 py-1">
                       {overallVerdict === "Must-Watch" && (

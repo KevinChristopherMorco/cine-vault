@@ -9,6 +9,7 @@ import MoviesSummaryContainer from "./pages/movies-summary-page/MoviesSummaryCon
 import GenreContainer from "./pages/genre-page/GenreContainer";
 import MoviesGenreListContainer from "./pages/movies-genre-page/MoviesGenreListContainer";
 import FilterProvider from "./hooks/shared/FilterProvider";
+import MoviePhotoContainer from "./components/movies-summary-page/movie-photos/MoviePhotoContainer";
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
             <Route
               path="/list-of-movies/:genreID"
               element={<MoviesGenreListContainer />}
+            />
+            <Route path="/view-photo/" element={<MoviePhotoContainer />} />
+            <Route
+              path="/view-photo/:movieID/:photoPath"
+              element={<MoviePhotoContainer />}
             />
           </Route>
         </Routes>

@@ -14,7 +14,7 @@ const MoviePhotoContainer = () => {
   }, [photoPath]);
 
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between gap-5 lg:gap-10">
       <MoviePhotoCarousel movieData={movieData} isLoading={isLoading} />
       <MoviePhotoDescription movieData={movieData} />
     </div>

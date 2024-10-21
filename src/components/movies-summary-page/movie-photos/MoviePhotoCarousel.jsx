@@ -61,11 +61,11 @@ const MoviePhotoCarousel = ({ movieData, isLoading }) => {
             />
           )}
         </div>
-        <div className="flex h-[35rem] w-full items-center lg:h-[40rem]">
+        <div className="flex h-[35rem] w-full items-center lg:justify-center">
           <img
             src={`http://image.tmdb.org/t/p/w500/${photoPath}`}
             alt=""
-            className="w-full"
+            className="w-full lg:h-[80%] lg:w-[50%]"
           />
         </div>
       </div>

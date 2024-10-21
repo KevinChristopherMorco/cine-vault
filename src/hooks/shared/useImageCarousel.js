@@ -1,25 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-const useImageCarousel = () => {
-  const [imageCount, setImageCount] = useState(0);
+import useImageCount from "./useImageCount";
+import getMovieImage from "../../helpers/movie/getMovieImage";
 
-  const handleImageCount = (event) => {
-    const { id } = event.target;
-    if (id === "arrow-asc") setImageCount((prev) => prev + 1);
-    if (id === "arrow-desc") setImageCount((prev) => prev - 1);
+const useImageCarousel = (
+  imageCount,
+  movieData,
+  isLoading,
+  handleFindImage,
+) => {
+  const navigate = useNavigate();
+
+  const { movieID, photoPath } = useParams();
+
+  const getImages = () => {
+    if (isLoading) return;
+
+    const {
+      images: { backdrops, posters, logos },
+    } = movieData;
+
+    return getMovieImage(backdrops, posters, logos);
   };
 
-  const handleFirstImage = () => {
-    setImageCount(0);
-  };
+  useEffect(() => {
+    const images = getImages();
+    if (!images) return;
 
-  const handleFindImage = (imageAr, path) => {
-    const imageIndex = imageAr.findIndex((image) => image.file_path === path);
-    setImageCount(imageIndex);
-    return imageIndex;
-  };
+    navigate(`/view-photo/${movieID}${images[imageCount].file_path}`);
+  }, [imageCount]);
 
-  return { imageCount, handleImageCount, handleFirstImage, handleFindImage };
+  useEffect(() => {
+    const images = getImages();
+    if (!images) return;
+
+    handleFindImage(images, photoPath);
+  }, [isLoading]);
+
+  return { getImages };
 };
 
 export default useImageCarousel;

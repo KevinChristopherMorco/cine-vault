@@ -7,20 +7,20 @@ import formatYear from "../../../helpers/format/formatYear";
 import formatRuntime from "../../../helpers/format/formatRuntime";
 import formatTwoDecimal from "../../../helpers/format/formatTwoDecimal";
 import useScreenResponsiveness from "../../../hooks/shared/useScreenResponsiveness";
+import getMovieCertification from "../../../helpers/movie/getMovieCertification";
 
-const HeroHeading = ({
-  title,
-  release_date,
-  runtime,
-  usCertification,
-  phCertification,
-  vote_average,
-  vote_count,
-  popularity,
-}) => {
+const HeroHeading = ({ movieData, isLoading }) => {
   const {
-    screenSize: { sm, md, lg, xl, xxl },
+    screenSize: { lg, xl, xxl },
   } = useScreenResponsiveness();
+
+  const { title, release_date, runtime, vote_average, vote_count, popularity } =
+    movieData;
+
+  const { PH: phCertification, US: usCertification } = getMovieCertification(
+    movieData,
+    isLoading,
+  );
   return (
     <div className="col-span-2 md:row-start-1 lg:col-span-3 lg:flex lg:items-center lg:justify-between">
       <div className="flex flex-col gap-1 px-4 pb-4">

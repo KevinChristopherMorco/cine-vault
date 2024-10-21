@@ -7,10 +7,12 @@ import useScreenResponsiveness from "../../../hooks/shared/useScreenResponsivene
 
 import formatTwoDecimal from "../../../helpers/format/formatTwoDecimal";
 
-const HeroStatCount = ({ vote_average, vote_count, popularity }) => {
+const HeroStatCount = ({ movieData, isLoading }) => {
   const {
     screenSize: { sm, md },
   } = useScreenResponsiveness();
+
+  const { vote_average, vote_count, popularity } = movieData;
 
   return (
     (sm || md) && (

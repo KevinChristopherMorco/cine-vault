@@ -1,7 +1,8 @@
 import React from "react";
 import IconPhotoOff from "@tabler/icons-react/dist/esm/icons/IconPhotoOff.mjs";
 
-const HeroPoster = ({ poster_path }) => {
+const HeroPoster = ({ movieData, isLoading }) => {
+  const { poster_path } = movieData;
   return (
     <div className="px-4 py-6 md:col-start-1 md:row-start-2 md:px-0 md:py-0">
       {poster_path ? (

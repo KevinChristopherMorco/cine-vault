@@ -5,15 +5,17 @@ import IconLibraryPhoto from "@tabler/icons-react/dist/esm/icons/IconLibraryPhot
 import IconPhotoOff from "@tabler/icons-react/dist/esm/icons/IconPhotoOff.mjs";
 import IconVideoOff from "@tabler/icons-react/dist/esm/icons/IconVideoOff.mjs";
 
+import getMovieTrailer from "../../../helpers/movie/getMovieTrailer";
+
 import Empty from "../../alerts/Empty";
 
-const HeroTrailer = ({
-  trailerKey,
-  movieVideos,
-  backdrops,
-  logos,
-  posters,
-}) => {
+const HeroTrailer = ({ movieData, isLoading }) => {
+  const {
+    images: { backdrops, logos, posters },
+    videos: { results: movieVideos },
+  } = movieData;
+
+  const { trailerKey } = getMovieTrailer(movieData, isLoading);
   return (
     <>
       {trailerKey ? (

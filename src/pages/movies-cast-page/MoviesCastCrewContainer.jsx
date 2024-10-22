@@ -27,7 +27,7 @@ const MoviesCastCrewContainer = () => {
   } = getCastCrew(credits);
 
   return (
-    <div>
+    <div className="px-4">
       {director && director.length > 0 && (
         <MovieCast
           department={director}

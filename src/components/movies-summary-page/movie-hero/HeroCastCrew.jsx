@@ -4,7 +4,7 @@ import getCastCrew from "../../../helpers/movie/getCastCrew";
 
 const HeroCastCrew = ({ movieData, isLoading }) => {
   const { credits } = movieData;
-  const { acting: actor, director, writing: writer } = getCastCrew(credits);
+  const { acting: actor, director, writer } = getCastCrew(credits);
 
   return (
     <div className="col-span-2 flex flex-col px-4 py-6 text-sm md:px-0 lg:row-start-4">

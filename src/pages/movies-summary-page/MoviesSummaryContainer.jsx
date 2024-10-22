@@ -9,7 +9,7 @@ import MovieHero from "../../components/movies-summary-page/movie-hero/MovieHero
 import RecommendationContainer from "../../components/movies-summary-page/movie-recommendation/RecommendationContainer";
 import MoviePhotoPreview from "../../components/movies-summary-page/movie-photos/MoviePhotoPreview";
 import MovieCastCrewContainer from "../../components/movies-summary-page/movies-cast-crew/MovieCastCrewContainer";
-import MovieReviewContainer from "../../components/movies-summary-page/movie-reviews/MovieReviewContainer";
+import MovieReviewPreview from "../../components/movies-summary-page/movie-reviews/MovieReviewPreview";
 
 import MovieModal from "../../components/shared/modals/MovieModal";
 
@@ -33,7 +33,7 @@ const MoviesSummaryContainer = () => {
       <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[2fr_1fr] lg:gap-16">
         <MoviePhotoPreview movieData={movieData} isLoading={isLoading} />
         <MovieCastCrewContainer movieData={movieData} isLoading={isLoading} />
-        <MovieReviewContainer movieData={movieData} isLoading={isLoading} />
+        <MovieReviewPreview movieData={movieData} isLoading={isLoading} />
         <RecommendationContainer
           movieData={movieData}
           isLoading={isLoading}

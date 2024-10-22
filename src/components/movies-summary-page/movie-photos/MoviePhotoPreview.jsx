@@ -44,9 +44,11 @@ const MoviePhotoPreview = ({ movieData, isLoading }) => {
       <MainHeading
         title={"Photos"}
         endpoint={`/view-photo/${id}${imageList[0].file_path}`}
+        number={imageList.length}
+        isNumbered={true}
         isLink={true}
       />
-      <div className="grid grid-cols-2 gap-1 md:auto-rows-auto md:gap-2 lg:auto-rows-auto lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
         {photoSlice().map((image, index) => {
           return (
             <div key={index} onClick={() => handleLinkClick(image.file_path)}>

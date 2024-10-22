@@ -9,7 +9,7 @@ const MovieCastCrewContainer = ({ movieData, isLoading }) => {
   if (isLoading) return;
   const { credits } = movieData;
 
-  const { acting: actor, writing: writer, director } = getCastCrew(credits);
+  const { acting: actor, writer, director } = getCastCrew(credits);
   console.log(getCastCrew(credits));
 
   return (
@@ -50,33 +50,6 @@ const MovieCastCrewContainer = ({ movieData, isLoading }) => {
       )}
 
       <div className="col-span-2 flex flex-col">
-        {/* <div className="flex border-b border-t py-4">
-          <p className="w-[30%] font-bold md:w-[15%]">Director:</p>
-          <ul className="flex w-full flex-wrap gap-2">
-            {crew
-              .filter((crew) => crew.job === "Director")
-              .map((crew, index) => (
-                <li key={index}>
-                  {crew.name} {index !== 1 && <span>,</span>}
-                </li>
-              ))}
-          </ul>
-        </div>
-        <div className="flex border-b py-4">
-          <p className="w-[30%] font-bold md:w-[15%]">Writer:</p>
-          <ul className="flex w-full flex-wrap gap-2">
-            {crew
-              .filter((crew) => crew.known_for_department === "Writing")
-              .slice(0, 2)
-              .map((crew, index) => (
-                <li key={index}>
-                  {crew.name}
-                  {index !== 1 && <span>,</span>}
-                </li>
-              ))}
-          </ul>
-        </div> */}
-
         {director && director.length > 0 && (
           <div className="flex gap-4 border-b border-t py-4">
             <p className="w-[30%] font-bold md:w-[15%]">

@@ -11,6 +11,7 @@ import MoviesGenreListContainer from "./pages/movies-genre-page/MoviesGenreListC
 import FilterProvider from "./hooks/shared/FilterProvider";
 import MoviePhotoContainer from "./components/movies-summary-page/movie-photos/MoviePhotoContainer";
 import MovieReviewContainer from "./components/movies-summary-page/movie-reviews/MovieReviewContainer";
+import MoviesCastCrewContainer from "./pages/movies-cast-page/MoviesCastCrewContainer";
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
             <Route
               path="/view-photo/:movieID/:photoPath"
               element={<MoviePhotoContainer />}
+            />
+
+            <Route
+              path="/list-cast-crew/:movieID"
+              element={<MoviesCastCrewContainer />}
             />
 
             <Route

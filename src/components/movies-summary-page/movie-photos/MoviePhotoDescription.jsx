@@ -7,7 +7,7 @@ const MoviePhotoDescription = ({ movieData }) => {
   console.log(movieData);
 
   const { acting: actor, director, writer } = getCastCrew(credits);
-  console.log(actor);
+  
   return (
     <div className="flex w-full flex-col gap-4 bg-[var(--bg-neutral)] px-2 py-4">
       <div className="flex items-center gap-2">

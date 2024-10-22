@@ -1,13 +1,19 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
+
 import IconUserExclamation from "@tabler/icons-react/dist/esm/icons/IconUserExclamation.mjs";
 
 import getCastCrew from "../../../helpers/movie/getCastCrew";
 
 import MainHeading from "../../shared/headings/MainHeading";
+import MovieCast from "../../shared/movie/MovieCast";
 
 const MovieCastCrewContainer = ({ movieData, isLoading }) => {
+  const { movieID } = useParams();
+
   if (isLoading) return;
-  const { credits } = movieData;
+
+  const { id, credits } = movieData;
 
   const { acting: actor, writer, director } = getCastCrew(credits);
   console.log(getCastCrew(credits));
@@ -51,54 +57,51 @@ const MovieCastCrewContainer = ({ movieData, isLoading }) => {
 
       <div className="col-span-2 flex flex-col">
         {director && director.length > 0 && (
-          <div className="flex gap-4 border-b border-t py-4">
-            <p className="w-[30%] font-bold md:w-[15%]">
-              {director.length > 1 ? "Directors:" : "Director:"}
-            </p>
-            <ul className="flex w-full flex-wrap gap-2">
-              {director.map((crew, index) => (
-                <li key={index}>
-                  {crew.name} {index !== director.length - 1 && <span>,</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
+          // <div className="flex gap-4 border-b border-t py-4">
+          //   <p className="w-[30%] font-bold md:w-[15%]">
+          //     {director.length > 1 ? "Directors:" : "Director:"}
+          //   </p>
+          //   <ul className="flex w-full flex-wrap gap-2">
+          //     {director.map((crew, index) => (
+          //       <li key={index}>
+          //         {crew.name} {index !== director.length - 1 && <span>,</span>}
+          //       </li>
+          //     ))}
+          //   </ul>
+          // </div>
+          <MovieCast
+            department={director}
+            singularText={"Director"}
+            pluralText={"Directors"}
+            isPreview={true}
+          />
         )}
         {writer && writer.length > 0 && (
-          <div className="flex gap-4 border-b border-t py-4">
-            <p className="w-[30%] font-bold md:w-[15%]">
-              {writer.length > 1 ? "Writers:" : "Writer:"}
-            </p>
-            <ul className="flex w-full flex-wrap gap-2">
-              {writer.map((crew, index) => (
-                <li key={index}>
-                  {crew.name}
-                  {index !== writer.length - 1 && <span>,</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <MovieCast
+            department={writer}
+            singularText={"Writer"}
+            pluralText={"Writers"}
+            isPreview={true}
+          />
         )}
 
         {actor && actor.length > 0 && (
-          <div className="flex gap-4 border-b border-t py-4">
-            <p className="w-[30%] font-bold md:w-[15%]">
-              {actor.length > 1 ? "Stars:" : "Star:"}
-            </p>
-            <ul className="flex w-full flex-wrap gap-2">
-              {actor.slice(0, 10).map((cast, index) => (
-                <li key={index}>
-                  {cast.name}
-                  {index < 9 && <span>,</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <MovieCast
+            department={actor}
+            singularText={"Actor"}
+            pluralText={"Actors"}
+            isPreview={true}
+            slice={actor.slice(0, 9)}
+          />
         )}
+
         <div className="flex border-b py-4">
-          <p className="w-fit font-bold text-[var(--brand-color-400)]">
+          <Link
+            to={`/list-cast-crew/${id}`}
+            className="w-fit font-bold text-[var(--brand-color-400)] transition-colors hover:text-[var(--brand-color-300)]"
+          >
             See all cast & crew
-          </p>
+          </Link>
         </div>
       </div>
     </div>

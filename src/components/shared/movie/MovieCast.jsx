@@ -1,4 +1,5 @@
 import React from "react";
+import IconUser from "@tabler/icons-react/dist/esm/icons/IconUser.mjs";
 
 const MovieCast = ({
   department,
@@ -18,11 +19,31 @@ const MovieCast = ({
         {department.length > 1 ? pluralText : singularText}
       </p>
       <ul
-        className={`${isPreview ? "flex flex-wrap gap-2" : department.length > 8 ? "grid grid-cols-2 gap-y-2" : "flex flex-col gap-2"} w-full`}
+        className={`${isPreview ? "flex flex-wrap gap-2" : department.length > 8 ? "grid gap-y-5 md:grid-cols-2" : "flex flex-col gap-2"} w-full`}
       >
         {handleSlice().map((people, index) => (
           <li key={index}>
-            {people.name}
+            {isPreview ? (
+              <p>{people.name}</p>
+            ) : (
+              <div className="flex items-center gap-2">
+                {people.profile_path ? (
+                  <div
+                    className="h-10 w-10 rounded-full bg-white bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url(http://image.tmdb.org/t/p/w500${people.profile_path})`,
+                    }}
+                  ></div>
+                ) : (
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--bg-neutral)]">
+                    <IconUser />
+                  </div>
+                )}
+
+                <p>{people.name}</p>
+              </div>
+            )}
+
             {isPreview && index !== department.length - 1 && <span>,</span>}
           </li>
         ))}

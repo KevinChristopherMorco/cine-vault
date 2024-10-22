@@ -26,13 +26,15 @@ const ReviewCard = ({ reviewData }) => {
           </div>
         )}
 
-        {rating && (
+        {rating ? (
           <div className="flex items-center gap-1">
             <IconStarFilled className="h-5 w-5 text-yellow-500" />
             <p className="text-sm font-light">
               <span className="text-2xl font-medium">{rating}</span>/10
             </p>
           </div>
+        ) : (
+          <p className="text-gray-400">No Rating</p>
         )}
       </div>
 

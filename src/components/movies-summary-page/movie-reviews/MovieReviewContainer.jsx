@@ -47,24 +47,25 @@ const MovieReviewContainer = () => {
   };
 
   return (
-    <div className="flex flex-col gap-10 px-4 py-2">
-      <div className="flex gap-2">
-        <div className="w-[20%]">
+    <div className="flex w-full flex-col gap-10 px-4 py-2 lg:grid lg:grid-cols-[2fr_1fr]">
+      <div className="flex gap-2 rounded-lg bg-[var(--bg-neutral)]">
+        <div className="w-[25%] md:w-[12%]">
           <img
             src={`http://image.tmdb.org/t/p/w500/${poster_path}`}
             alt=""
             className="w-full"
           />
         </div>
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-4 py-2">
+          <p className="text-xl font-bold">User Reviews</p>
+
+          <div className="flex flex-col gap-1">
             <p className="font-medium">{title}</p>
             <p className="text-[.75rem]">({formatYear(release_date)})</p>
           </div>
-          <p className="text-xl font-bold">User Reviews</p>
         </div>
       </div>
-      <div className="grid grid-cols-[1fr_1.5fr] gap-y-4">
+      <div className="grid grid-cols-[1fr_1.5fr] gap-y-4 lg:row-start-2">
         <p>Filter by rating</p>
         <select
           name=""
@@ -113,11 +114,10 @@ const MovieReviewContainer = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 lg:row-start-3">
         {movieReviews
           .filter((x) => filter === 0 || x.author_details.rating === filter)
           .sort((a, b) => handleSort(a, b))
-          //   .sort((a, b) => b.author_details.rating - a.author_details.rating)
           .map((review, index) => {
             return <ReviewCard key={index} reviewData={review} />;
           })}

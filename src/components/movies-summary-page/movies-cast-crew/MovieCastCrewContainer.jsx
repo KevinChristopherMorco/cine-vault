@@ -9,8 +9,6 @@ import MainHeading from "../../shared/headings/MainHeading";
 import MovieCast from "../../shared/movie/MovieCast";
 
 const MovieCastCrewContainer = ({ movieData, isLoading }) => {
-  const { movieID } = useParams();
-
   if (isLoading) return;
 
   const { id, credits } = movieData;
@@ -57,18 +55,6 @@ const MovieCastCrewContainer = ({ movieData, isLoading }) => {
 
       <div className="col-span-2 flex flex-col">
         {director && director.length > 0 && (
-          // <div className="flex gap-4 border-b border-t py-4">
-          //   <p className="w-[30%] font-bold md:w-[15%]">
-          //     {director.length > 1 ? "Directors:" : "Director:"}
-          //   </p>
-          //   <ul className="flex w-full flex-wrap gap-2">
-          //     {director.map((crew, index) => (
-          //       <li key={index}>
-          //         {crew.name} {index !== director.length - 1 && <span>,</span>}
-          //       </li>
-          //     ))}
-          //   </ul>
-          // </div>
           <MovieCast
             department={director}
             singularText={"Director"}
@@ -91,7 +77,7 @@ const MovieCastCrewContainer = ({ movieData, isLoading }) => {
             singularText={"Actor"}
             pluralText={"Actors"}
             isPreview={true}
-            slice={actor.slice(0, 9)}
+            slice={actor.slice(0, 10)}
           />
         )}
 

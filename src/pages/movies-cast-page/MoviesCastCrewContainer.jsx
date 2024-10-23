@@ -31,7 +31,7 @@ const MoviesCastCrewContainer = () => {
   return (
     <div className="px-4">
       <div className="flex gap-2 rounded-lg bg-[var(--bg-neutral)]">
-        <div className="w-[25%] md:w-[12%] xl:w-[15%]">
+        <div className="w-[25%] md:w-[12%] xl:w-[8%]">
           <img
             src={`http://image.tmdb.org/t/p/w500/${poster_path}`}
             alt=""
@@ -39,10 +39,10 @@ const MoviesCastCrewContainer = () => {
           />
         </div>
         <div className="flex flex-col gap-4 py-2">
-          <p className="text-xl font-bold">Meet the Casts and Crews</p>
+          <p className="text-xl font-light xl:text-2xl">Full Cast & Crew</p>
 
-          <div className="flex flex-col gap-1">
-            <p className="font-medium lg:text-lg">{title}</p>
+          <div className="flex flex-col gap-1 font-medium">
+            <p className="lg:text-lg xl:text-xl">{title}</p>
             <p className="text-[.75rem] lg:text-sm">
               ({formatYear(release_date)})
             </p>
@@ -90,7 +90,7 @@ const MoviesCastCrewContainer = () => {
           return value.some(
             (people) =>
               people.known_for_department !== "Acting" &&
-              people.job !== "Director" &&
+              people.known_for_department !== "Directing" &&
               people.job !== "Writer" &&
               people.job !== "Executive Producer" &&
               people.job !== "Producer",
@@ -98,20 +98,21 @@ const MoviesCastCrewContainer = () => {
         })
         .sort()
         .map(([key, value]) => {
+          console.log(value);
           return (
             <div>
               <p>
-                {key
-                  .split(/(?=[A-Z])/)
-                  .join(" ")
-                  .replace(/(^\w)/, (first) => first.toUpperCase())}
-              </p>
-              <p>
-                <MovieCast department={value} />
-
-                {/* {value.map((x) => {
-                return x.name;
-              })} */}
+                <MovieCast
+                  department={value}
+                  singularText={`${key
+                    .split(/(?=[A-Z])/)
+                    .join(" ")
+                    .replace(/(^\w)/, (first) => first.toUpperCase())}`}
+                  pluralText={`${key
+                    .split(/(?=[A-Z])/)
+                    .join(" ")
+                    .replace(/(^\w)/, (first) => first.toUpperCase())}s`}
+                />
               </p>
             </div>
           );

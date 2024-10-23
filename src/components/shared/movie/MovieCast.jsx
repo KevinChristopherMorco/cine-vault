@@ -24,7 +24,10 @@ const MovieCast = ({
         {handleSlice().map((people, index) => (
           <li key={index}>
             {isPreview ? (
-              <p>{people.name}</p>
+              <div className="flex">
+                <p>{people.name}</p>
+                {isPreview && index !== department.length - 1 && <span>,</span>}
+              </div>
             ) : (
               <div className="flex items-center gap-2">
                 {people.profile_path ? (
@@ -43,8 +46,6 @@ const MovieCast = ({
                 <p>{people.name}</p>
               </div>
             )}
-
-            {isPreview && index !== department.length - 1 && <span>,</span>}
           </li>
         ))}
       </ul>

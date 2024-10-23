@@ -19,7 +19,7 @@ import Spinner from "../loaders/Spinner";
 import useMovieApi from "../../../hooks/axios/useMovieApi";
 import formatPercentage from "../../../helpers/format/formatPercentage";
 
-const MovieModal = ({ movieData, setModal }) => {
+const MovieModal = ({ movieData, setModal, isPreview }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -93,7 +93,7 @@ const MovieModal = ({ movieData, setModal }) => {
                       </p>
                     </div>
                   )} */}
-                  
+
                   {overallVerdict && (
                     <div className="flex items-center gap-1 rounded-full bg-gray-900 px-2 py-1">
                       {overallVerdict === "Must-Watch" && (
@@ -111,7 +111,11 @@ const MovieModal = ({ movieData, setModal }) => {
                   )}
                 </div>
 
-                <p className="line-clamp-2">{overview}</p>
+                <p
+                  className={`${isPreview ? "line-clamp-2" : "line-clamp-[8]"}`}
+                >
+                  {overview}
+                </p>
               </div>
               {pathname === "/" && (
                 <div className="flex justify-between">

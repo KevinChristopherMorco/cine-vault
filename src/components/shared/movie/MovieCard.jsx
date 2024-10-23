@@ -58,7 +58,7 @@ const MovieCard = ({
       )}
 
       {cardType === "carousel" && (
-        <div className="flex w-[50%] shrink-0 flex-col gap-2 rounded-lg bg-[var(--bg-neutral-light)] md:w-[25%] lg:w-[20%] xl:w-[15%]">
+        <div className="flex w-[50%] shrink-0 flex-col gap-2 rounded-lg bg-[var(--bg-neutral)] md:w-[25%] lg:w-[20%] xl:w-[15%]">
           {data.poster_path ? (
             <div>
               <img
@@ -94,7 +94,7 @@ const MovieCard = ({
             <div className="flex flex-col gap-4">
               <Link
                 to={`/movies-summary/${data.id}`}
-                className="rounded-full bg-[var(--brand-color-700)] p-2 text-center font-medium transition-colors hover:bg-[var(--brand-color-600)]"
+                className="rounded-full bg-[var(--bg-neutral-light)] p-2 text-center font-medium transition-colors hover:bg-[var(--brand-color-600)]"
               >
                 Details
               </Link>
@@ -162,7 +162,7 @@ const MovieCard = ({
       )}
 
       {cardType === "grid" && (
-        <div className="flex animate-fadeIn flex-col gap-2 rounded-md border border-[var(--bg-neutral)] bg-[var(--bg-neutral-light)]">
+        <div className="flex animate-fadeIn flex-col gap-2 rounded-md border border-[var(--bg-neutral)] bg-[var(--bg-neutral)]">
           <div className="relative w-full before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black before:bg-opacity-15">
             {data.poster_path ? (
               <img
@@ -210,7 +210,7 @@ const MovieCard = ({
               </ul>
               <Link
                 to={`/movies-summary/${data.id}`}
-                className="rounded-full bg-[var(--brand-color-700)] p-2 text-center font-medium transition-colors hover:bg-[var(--brand-color-600)]"
+                className="rounded-full bg-[var(--bg-neutral-light)] p-2 text-center font-medium transition-colors hover:bg-[var(--brand-color-600)]"
               >
                 Details
               </Link>

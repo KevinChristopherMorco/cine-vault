@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --bg-neutral: #150e1f;
-  --bg-neutral-light: #221a2e;
+  --bg-neutral: #0b0611;
+  /* --bg-neutral: #150e1f; */
+  --bg-neutral-light: #201a2b;
+  /* --bg-neutral-light: #221a2e; */
+
   --neutral-hover: #2d233b;
 
   --brand-color-100: #e6d6f2;
@@ -15,7 +18,8 @@
   --brand-color-600: #5f3383;
   --brand-color-700: #4a2460;
   --brand-color-800: #371940;
-  --brand-color-900: #08050c;
+  --brand-color-900: #050308;
+  /* --brand-color-900: #08050c; */
 
   /* Icons */
 
@@ -39,7 +43,7 @@
   }
 
   #root {
-    @apply relative flex grow flex-col bg-[var(--brand-color-900)] text-white;
+    @apply relative flex grow flex-col bg-[var(--brand-color-900)] text-white dark:bg-white;
   }
 }
 

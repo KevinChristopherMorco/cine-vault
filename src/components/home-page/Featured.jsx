@@ -59,6 +59,7 @@ const Feautred = ({
           movieData={modalData}
           setModal={setModal}
           isLoading={isLoading}
+          isPreview={true}
         />
       )}
     </OverlayContainer>

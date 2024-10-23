@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import IconSearch from "@tabler/icons-react/dist/esm/icons/IconSearch.mjs";
 import IconMenu2 from "@tabler/icons-react/dist/esm/icons/IconMenu2.mjs";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
+import IconBrightness2 from "@tabler/icons-react/dist/esm/icons/IconBrightness2.mjs";
+import IconMoonStars from "@tabler/icons-react/dist/esm/icons/IconMoonStars.mjs";
 
+import { useThemeContext } from "../../hooks/shared/ThemeProvider";
 import useMovieApi from "../../hooks/axios/useMovieApi";
 import useSearch from "../../hooks/search/useSearch";
 import formatYear from "../../helpers/format/formatYear";
@@ -32,7 +35,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="fixed z-[999] flex h-[4rem] w-full items-center justify-between border-b border-b-[var(--brand-color-600)] bg-[var(--bg-neutral)] p-4 lg:h-[4.5rem]">
+    <nav className="fixed z-[999] flex h-[4rem] w-full items-center justify-between border-b border-b-[var(--brand-color-600)] bg-[var(--bg-neutral)] p-4 lg:h-[4.5rem] dark:bg-[var(--brand-color-900)]">
       {toggle ? (
         <div className="w-full">
           <div className="flex w-full items-center justify-between">
@@ -42,10 +45,7 @@ const Header = () => {
               placeholder="Search for a movie"
               onChange={handleInputChange}
             />
-            <IconX
-              className="animate-iconScale cursor-pointer"
-              onClick={() => setSearch(() => ({ toggle: false, view: false }))}
-            />
+            <IconX className="animate-iconScale cursor-pointer" />
           </div>
           {view && (
             <div className="fixed left-0 top-[4.5rem] h-screen w-full animate-fadeIn overflow-y-scroll bg-[var(--bg-neutral)] px-3 py-4 pb-[5rem]">
@@ -100,11 +100,14 @@ const Header = () => {
           )}
         </div>
       ) : (
-        <>
-          <Link to={"/"} className="flex w-fit items-center font-bold">
-            <p className="text-5xl text-[var(--brand-color-500)]">C</p>
-            <p className="text-white">INEVAULT</p>
-          </Link>
+        <div className="flex w-full items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link to={"/"} className="flex w-fit items-center font-bold">
+              <p className="text-5xl text-[var(--brand-color-500)]">C</p>
+              <p className="text-white">INEVAULT</p>
+            </Link>
+          </div>
+
           <div className="flex gap-4">
             <div>
               <IconSearch
@@ -115,8 +118,21 @@ const Header = () => {
             <div>
               <IconMenu2 className="h-6 w-6 animate-iconScale cursor-pointer" />
             </div>
+            {/* <div>
+              {theme === "light" ? (
+                <IconMoonStars
+                  className="h-6 w-6 animate-iconScale cursor-pointer transition-colors hover:text-yellow-500"
+                  onClick={() => handleChangeTheme()}
+                />
+              ) : (
+                <IconBrightness2
+                  className="h-6 w-6 animate-iconScale cursor-pointer transition-colors hover:text-yellow-500"
+                  onClick={() => handleChangeTheme()}
+                />
+              )}
+            </div> */}
           </div>
-        </>
+        </div>
       )}
     </nav>
   );

@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "typeface-inter";
 
+import ThemeProvider from "./hooks/shared/ThemeProvider";
+import FilterProvider from "./hooks/shared/FilterProvider";
+
 import Layout from "./pages/Layout";
 import HomeContainer from "./pages/home-page/HomeContainer";
 import VideoContainer from "./pages/video-page/VideoContainer";
@@ -8,7 +11,6 @@ import MoviesListContainer from "./pages/featured-movies-page/MoviesListContaine
 import MoviesSummaryContainer from "./pages/movies-summary-page/MoviesSummaryContainer";
 import GenreContainer from "./pages/genre-page/GenreContainer";
 import MoviesGenreListContainer from "./pages/movies-genre-page/MoviesGenreListContainer";
-import FilterProvider from "./hooks/shared/FilterProvider";
 import MoviePhotoContainer from "./components/movies-summary-page/movie-photos/MoviePhotoContainer";
 import MovieReviewContainer from "./components/movies-summary-page/movie-reviews/MovieReviewContainer";
 import MoviesCastCrewContainer from "./pages/movies-cast-page/MoviesCastCrewContainer";

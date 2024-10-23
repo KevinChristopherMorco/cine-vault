@@ -38,7 +38,7 @@ const Home = () => {
         isNumbering={false}
         isRated={false}
       />
-      <FAQ />
+      {/* <FAQ /> */}
     </div>
   );
 };

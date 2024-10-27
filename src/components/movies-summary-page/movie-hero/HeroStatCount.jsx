@@ -16,7 +16,7 @@ const HeroStatCount = ({ movieData, isLoading }) => {
 
   return (
     (sm || md) && (
-      <div className="col-span-2 flex items-center gap-6 px-4 text-[.8rem] md:px-0 lg:row-start-3">
+      <div className="relative col-span-2 flex items-center gap-6 px-4 text-[.8rem] md:px-0 lg:row-start-3">
         <div className="flex items-center gap-2">
           <IconStarFilled className="h-5 w-5 text-[var(--brand-color-500)]" />
           <div className="flex items-center gap-2">

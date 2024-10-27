@@ -9,7 +9,7 @@ const HeroCastCrew = ({ movieData, isLoading }) => {
   const { acting: actor, director, writer } = getCastCrew(credits);
 
   return (
-    <div className="col-span-2 flex flex-col px-4 py-6 text-sm md:px-0 lg:row-start-4">
+    <div className="relative col-span-2 flex flex-col px-4 py-6 text-sm md:px-0 lg:row-start-4">
       {director && director.length > 0 && (
         <MovieCast
           department={director}

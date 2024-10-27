@@ -4,7 +4,6 @@ import formatYear from "../../../helpers/format/formatYear";
 
 const MoviePhotoDescription = ({ movieData }) => {
   const { title, credits, release_date } = movieData;
-  console.log(movieData);
 
   const { acting: actor, director, writer } = getCastCrew(credits);
   

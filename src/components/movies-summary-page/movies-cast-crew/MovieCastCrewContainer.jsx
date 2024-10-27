@@ -14,7 +14,6 @@ const MovieCastCrewContainer = ({ movieData, isLoading }) => {
   const { id, credits } = movieData;
 
   const { acting: actor, writer, director } = getCastCrew(credits);
-  console.log(getCastCrew(credits));
 
   return (
     <div className="flex flex-col gap-8 lg:row-start-2">

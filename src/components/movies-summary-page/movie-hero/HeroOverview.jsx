@@ -6,7 +6,7 @@ import getMovieGenre from "../../../helpers/movie/getMovieGenre";
 const HeroOverview = ({ isLoading, movieData }) => {
   const { overview } = movieData;
   return (
-    <div className="flex flex-col gap-4 py-6 pr-4 md:col-span-2 md:px-0 md:py-4 md:pr-0 lg:col-span-3 lg:row-start-3">
+    <div className="relative flex flex-col gap-4 py-6 pr-4 md:col-span-2 md:px-0 md:py-4 md:pr-0 lg:col-span-3 lg:row-start-3">
       {!isLoading && (
         <ul className="scrollable-content flex w-full gap-2 overflow-x-scroll py-1">
           {getMovieGenre(movieData).map((genre, index) => (

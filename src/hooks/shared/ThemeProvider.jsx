@@ -8,7 +8,6 @@ const ThemeProvider = ({ children }) => {
   );
 
   const { theme } = currentTheme;
-  console.log(theme);
 
   const handleChangeTheme = () => {
     if (theme === "light") {

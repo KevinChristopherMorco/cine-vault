@@ -22,7 +22,7 @@ const HeroHeading = ({ movieData, isLoading }) => {
     isLoading,
   );
   return (
-    <div className="col-span-2 md:row-start-1 lg:col-span-3 lg:flex lg:items-center lg:justify-between">
+    <div className="relative col-span-2 md:row-start-1 lg:col-span-3 lg:flex lg:items-center lg:justify-between">
       <div className="flex flex-col gap-1 px-4 pb-4">
         <p className="text-2xl font-bold lg:text-2xl">
           {title || "Title not available"}

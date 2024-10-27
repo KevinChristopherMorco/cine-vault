@@ -10,7 +10,6 @@ import MovieCast from "../../components/shared/movie/MovieCast";
 const MoviesCastCrewContainer = () => {
   const { movieID } = useParams();
   const { movieData, isLoading, handleSpecificEndpoint } = useMovieApi();
-  console.log(movieData);
 
   useEffect(() => {
     handleSpecificEndpoint(movieID);
@@ -98,7 +97,6 @@ const MoviesCastCrewContainer = () => {
         })
         .sort()
         .map(([key, value]) => {
-          console.log(value);
           return (
             <div>
               <p>

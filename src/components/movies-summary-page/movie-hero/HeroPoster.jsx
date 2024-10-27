@@ -4,7 +4,7 @@ import IconPhotoOff from "@tabler/icons-react/dist/esm/icons/IconPhotoOff.mjs";
 const HeroPoster = ({ movieData, isLoading }) => {
   const { poster_path } = movieData;
   return (
-    <div className="px-4 py-6 md:col-start-1 md:row-start-2 md:px-0 md:py-0">
+    <div className="relative px-4 py-6 md:col-start-1 md:row-start-2 md:px-0 md:py-0">
       {poster_path ? (
         <img
           src={`http://image.tmdb.org/t/p/w500${poster_path}`}

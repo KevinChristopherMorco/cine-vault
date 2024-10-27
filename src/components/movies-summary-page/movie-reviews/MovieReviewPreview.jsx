@@ -10,7 +10,6 @@ const MovieReviewPreview = ({ movieData, isLoading }) => {
     reviews: { results: movieReviews },
   } = movieData;
 
-  console.log(movieReviews);
   {
     return (
       movieReviews.length > 0 && (

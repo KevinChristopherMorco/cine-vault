@@ -52,7 +52,12 @@ const Header = () => {
                   placeholder="Search for a movie"
                   onChange={handleInputChange}
                 />
-                <IconX className="animate-iconScale cursor-pointer" />
+                <IconX
+                  className="animate-iconScale cursor-pointer"
+                  onClick={() =>
+                    setSearch(() => ({ toggle: false, view: false }))
+                  }
+                />
               </div>
               {view && (
                 <div className="fixed left-0 h-screen w-full animate-fadeIn overflow-y-scroll bg-[var(--bg-neutral)] px-3 py-4 pb-[5rem]">

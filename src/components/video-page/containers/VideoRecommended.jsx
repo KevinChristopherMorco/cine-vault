@@ -1,34 +1,39 @@
 import React from "react";
 import IconPlayerPlayFilled from "@tabler/icons-react/dist/esm/icons/IconPlayerPlayFilled.mjs";
-import IconChevronLeft from "@tabler/icons-react/dist/esm/icons/IconChevronLeft.mjs";
-import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
 
 import useScreenResponsiveness from "../../../hooks/shared/useScreenResponsiveness";
+import useCardSlider from "../../../hooks/shared/useCardSlider";
 
 import MainHeading from "../../shared/headings/MainHeading";
+import ArrowScroll from "../../shared/arrow-scroll/ArrowScroll";
 
 const VideoRecommended = ({ videoList, isLoading, setVideo }) => {
   const {
     screenSize: { sm, md },
   } = useScreenResponsiveness();
+
+  const {
+    arrows: { hideRightArrow, hideLeftArrow },
+    sliderRef,
+    handleScroll,
+  } = useCardSlider();
+
   return (
     <div className="relative flex w-full flex-col gap-6 bg-[var(--bg-neutral)] py-4 lg:h-[100vh] lg:basis-[50%] lg:px-0 xl:basis-[40%]">
-      {(sm || md) && (
-        <>
-          <div className="absolute left-2 top-[50%] z-[999] flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-md border-2 border-white p-2">
-            <IconChevronLeft className="font-bold" />
-          </div>
-          <div className="absolute right-2 top-[50%] z-[999] flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-md border-2 border-white p-2">
-            <IconChevronRight className="font-bold" />
-          </div>
-        </>
-      )}
+      <ArrowScroll
+        hideRightArrow={hideRightArrow}
+        hideLeftArrow={hideLeftArrow}
+        handleScroll={handleScroll}
+      />
 
       <div className="px-4">
         <MainHeading title={"Related Videos"} isLink={false} />
       </div>
       {!isLoading && (
-        <div className="scrollable-content flex overflow-x-scroll lg:flex-col">
+        <div
+          ref={sliderRef}
+          className="scrollable-content flex overflow-x-scroll lg:flex-col"
+        >
           {videoList.map((video) => {
             return (
               <div

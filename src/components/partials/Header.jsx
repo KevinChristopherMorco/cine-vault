@@ -11,7 +11,7 @@ import useSearch from "../../hooks/search/useSearch";
 import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
 import formatYear from "../../helpers/format/formatYear";
 
-const Header = () => {
+const Header = ({ handleToggle }) => {
   const {
     search: { toggle, view },
     setSearch,
@@ -130,7 +130,10 @@ const Header = () => {
                     setSearch((prev) => ({ ...prev, toggle: true }))
                   }
                 />
-                <IconMenu2 className="h-6 w-6 animate-iconScale cursor-pointer" />
+                <IconMenu2
+                  className="h-6 w-6 animate-iconScale cursor-pointer"
+                  onClick={handleToggle}
+                />
               </div>
             </div>
           )}
@@ -146,7 +149,7 @@ const Header = () => {
                 <p className="text-white">INEVAULT</p>
               </Link>
             </div>
-            <div className="flex gap-1">
+            <div className="flex cursor-pointer gap-1" onClick={handleToggle}>
               <IconMenu2 className="h-6 w-6 animate-iconScale cursor-pointer" />
               <p className="font-medium">Menu</p>
             </div>

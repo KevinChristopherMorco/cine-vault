@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 const useImageCount = () => {
   const [imageCount, setImageCount] = useState(0);

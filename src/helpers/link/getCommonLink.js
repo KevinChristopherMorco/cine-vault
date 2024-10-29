@@ -1,6 +1,4 @@
-import React from "react";
-
-const getCommonLink = () => {
+const getCommonLink = (toggle) => {
   const trendingLink = `https://api.themoviedb.org/3/trending/movie/week?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=credits,release_dates&language=en-US&page=1
     `;
 

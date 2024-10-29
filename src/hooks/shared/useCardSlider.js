@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const useCardSlider = () => {
   const [arrows, setArrows] = useState({
@@ -15,30 +15,48 @@ const useCardSlider = () => {
     });
   };
 
+  const updateArrowsVisibility = () => {
+    if (sliderRef.current) {
+      const maxScrollLeft =
+        sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+      const currentScrollLeft = sliderRef.current.scrollLeft;
+
+      setArrows({
+        hideLeftArrow: currentScrollLeft <= 0,
+        hideRightArrow: currentScrollLeft >= maxScrollLeft,
+      });
+    }
+  };
+
   const handleScroll = (event) => {
     const { id } = event.target;
-    let maxScrollLeft =
-      sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
+
     if (id === "scrollRight") {
       scroll(370);
-      if (sliderRef.current.scrollLeft >= maxScrollLeft - 370) {
-        setArrows(() => ({ ...prev, hideRightArrow: true }));
-        return;
-      } else {
-        setArrows(() => ({ hideLeftArrow: false, hideRightArrow: false }));
-      }
     }
     if (id === "scrollLeft") {
       scroll(-370);
-
-      if (sliderRef.current.scrollLeft - 370 === 0) {
-        setArrows(() => ({ hideLeftArrow: true, hideRightArrow: false }));
-        return;
-      } else {
-        setArrows(() => ({ hideLeftArrow: false, hideRightArrow: false }));
-      }
     }
+
+    updateArrowsVisibility();
   };
+
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      updateArrowsVisibility();
+    };
+
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener("scroll", handleScrollEvent);
+    }
+
+    return () => {
+      if (slider) {
+        slider.removeEventListener("scroll", handleScrollEvent);
+      }
+    };
+  }, []);
 
   return { arrows, sliderRef, handleScroll };
 };

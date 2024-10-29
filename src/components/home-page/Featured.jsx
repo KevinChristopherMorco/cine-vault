@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import IconChevronLeft from "@tabler/icons-react/dist/esm/icons/IconChevronLeft.mjs";
-import IconChevronRight from "@tabler/icons-react/dist/esm/icons/IconChevronRight.mjs";
+import React, { useEffect, useState } from "react";
 
 import useModalControls from "../../hooks/shared/useModalControls";
 
@@ -11,6 +9,7 @@ import MovieCard from "../shared/movie/MovieCard";
 import useMovieApi from "../../hooks/axios/useMovieApi";
 import OverlayContainer from "../shared/containers/OverlayContainer";
 import useCardSlider from "../../hooks/shared/useCardSlider";
+import ArrowScroll from "../shared/arrow-scroll/ArrowScroll";
 
 const Feautred = ({
   title,
@@ -18,21 +17,22 @@ const Feautred = ({
   link,
   endpoint,
   cardType,
+  toggle,
   isNumbering,
   isRated,
 }) => {
   const { movieData, isLoading, handleCommonEndpoint } = useMovieApi();
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
-  useEffect(() => {
-    handleCommonEndpoint(link);
-  }, []);
-
   const {
     arrows: { hideRightArrow, hideLeftArrow },
     sliderRef,
     handleScroll,
   } = useCardSlider();
+
+  useEffect(() => {
+    handleCommonEndpoint(link);
+  }, []);
 
   return (
     <OverlayContainer>
@@ -43,26 +43,13 @@ const Feautred = ({
         isLink={true}
         hasSubtext={true}
       />
-      <div className="scroll relative">
-        {!hideLeftArrow && (
-          <div
-            id="scrollLeft"
-            onClick={handleScroll}
-            className="absolute -left-4 top-[50%] z-[99] flex h-[50%] -translate-y-[50%] items-center rounded-xl bg-[var(--bg-neutral-light)]"
-          >
-            <IconChevronLeft />
-          </div>
-        )}
 
-        {!hideRightArrow && (
-          <div
-            id="scrollRight"
-            onClick={handleScroll}
-            className="absolute -right-4 top-[50%] z-[99] flex h-[50%] -translate-y-[50%] items-center rounded-xl bg-[var(--bg-neutral-light)]"
-          >
-            <IconChevronRight />
-          </div>
-        )}
+      <div className="scroll relative">
+        <ArrowScroll
+          hideRightArrow={hideRightArrow}
+          hideLeftArrow={hideLeftArrow}
+          handleScroll={handleScroll}
+        />
 
         <div
           ref={sliderRef}

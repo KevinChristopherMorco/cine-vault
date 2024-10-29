@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import getCommonLink from "../../helpers/link/getCommonLink";
 
 import HomeHero from "../../components/home-page/HomeHero";
 import Featured from "../../components/home-page/Featured";
 import FAQ from "../../components/home-page/FAQ";
-import getCommonLink from "../../helpers/link/getCommonLink";
 
 const Home = () => {
   const { trendingLink, highestRatingLink, nowShowingLink } = getCommonLink();
@@ -20,6 +21,7 @@ const Home = () => {
         isNumbering={true}
         isRated={true}
       />
+
       <Featured
         title={"All-Time Highest Rated Movie"}
         subtext={"The pinnacle of cinematic artistry."}

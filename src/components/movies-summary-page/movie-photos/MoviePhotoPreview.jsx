@@ -39,30 +39,32 @@ const MoviePhotoPreview = ({ movieData, isLoading }) => {
     }, 0);
   };
 
-  return (
-    <div className="flex flex-col gap-8 lg:row-start-1">
-      <MainHeading
-        title={"Photos"}
-        endpoint={`/view-photo/${id}${imageList[0].file_path}`}
-        number={imageList.length}
-        isNumbered={true}
-        isLink={true}
-      />
-      <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
-        {photoSlice().map((image, index) => {
-          return (
-            <div key={index} onClick={() => handleLinkClick(image.file_path)}>
-              <img
-                src={`http://image.tmdb.org/t/p/w500${image.file_path}`}
-                alt={title}
-                className="w-full cursor-pointer md:h-[10rem] lg:h-[12rem]"
-              />
-            </div>
-          );
-        })}
+  if (backdrops.length > 0 || posters.length > 0 || logos.length > 0) {
+    return (
+      <div className="flex flex-col gap-8 lg:row-start-1">
+        <MainHeading
+          title={"Photos"}
+          endpoint={`/view-photo/${id}${imageList[0]?.file_path}`}
+          number={imageList.length}
+          isNumbered={true}
+          isLink={true}
+        />
+        <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
+          {photoSlice().map((image, index) => {
+            return (
+              <div key={index} onClick={() => handleLinkClick(image.file_path)}>
+                <img
+                  src={`http://image.tmdb.org/t/p/w500${image.file_path}`}
+                  alt={title}
+                  className="w-full cursor-pointer md:h-[10rem] lg:h-[12rem]"
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default MoviePhotoPreview;

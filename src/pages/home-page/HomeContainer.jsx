@@ -8,8 +8,6 @@ import FAQ from "../../components/home-page/FAQ";
 
 const Home = () => {
   const { trendingLink, highestRatingLink, nowShowingLink } = getCommonLink();
-  console.log(import.meta.env);
-
   return (
     <div className="flex flex-col gap-6">
       <HomeHero />

@@ -13,7 +13,7 @@ const MoviePhotoPreview = ({ movieData, isLoading }) => {
     screenSize: { lg, xl, xxl },
   } = useScreenResponsiveness();
 
-  const { imageCount, handleFindImage, handleFirstImage } = useImageCount();
+  const { handleFindImage } = useImageCount();
 
   if (isLoading) return;
 

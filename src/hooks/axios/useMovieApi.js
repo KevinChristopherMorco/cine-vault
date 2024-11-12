@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 
 import { useFilterContext } from "../shared/FilterProvider";
 import usePagination from "../shared/usePagination";
@@ -7,6 +7,7 @@ import usePagination from "../shared/usePagination";
 const useMovieApi = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [status, setStatus] = useState("");
 
   const {
     currentPage,
@@ -31,6 +32,8 @@ const useMovieApi = () => {
       setMovieData(response.data);
       setLoading(false);
     } catch (error) {
+      setStatus(error.status);
+
       console.error();
     } finally {
       setLoading(false);
@@ -43,8 +46,10 @@ const useMovieApi = () => {
         `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos,credits,certifications,recommendations,release_dates,images,reviews`,
       );
       setMovieData(response.data);
+      console.log(response);
       setLoading(false);
     } catch (error) {
+      setStatus(error.status);
       console.error();
     } finally {
       setLoading(false);
@@ -53,6 +58,8 @@ const useMovieApi = () => {
 
   const handleDiscoverEndpoint = async (genreID) => {
     try {
+      setLoading(true);
+
       let link = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=${genreID},${formatGenre}&page=${currentPage}`;
 
       if (sort && order) {
@@ -84,7 +91,9 @@ const useMovieApi = () => {
       setMovieData(response.data);
       setLoading(false);
     } catch (error) {
-      console.error();
+      console.log(error.status);
+      setStatus(error.status);
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -119,6 +128,7 @@ const useMovieApi = () => {
 
   return {
     movieData,
+    status,
     isLoading,
     currentPage,
     pageActive,

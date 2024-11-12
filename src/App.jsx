@@ -15,6 +15,7 @@ import MoviePhotoContainer from "./components/movies-summary-page/movie-photos/M
 import MovieReviewContainer from "./components/movies-summary-page/movie-reviews/MovieReviewContainer";
 import MoviesCastCrewContainer from "./pages/movies-cast-page/MoviesCastCrewContainer";
 import GenreListContainer from "./pages/genre-list/GenreListContainer";
+import NotFound from "./components/https/NotFound";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
               element={<MovieReviewContainer />}
             />
             <Route path="/genre-list/" element={<GenreListContainer />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

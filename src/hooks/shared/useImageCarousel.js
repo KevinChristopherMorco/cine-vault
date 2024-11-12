@@ -28,7 +28,7 @@ const useImageCarousel = (
     const images = getImages();
     if (!images) return;
 
-    navigate(`/view-photo/${movieID}${images[imageCount].file_path}`);
+    navigate(`/view-photo/${movieID}${images[imageCount]?.file_path}`);
   }, [imageCount]);
 
   useEffect(() => {

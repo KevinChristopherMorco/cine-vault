@@ -12,10 +12,12 @@ import MovieCastCrewContainer from "../../components/movies-summary-page/movies-
 import MovieReviewPreview from "../../components/movies-summary-page/movie-reviews/MovieReviewPreview";
 
 import MovieModal from "../../components/shared/modals/MovieModal";
+import NotFound from "../../components/https/NotFound";
 
 const MoviesSummaryContainer = () => {
   const { id } = useParams();
-  const { movieData, isLoading, handleSpecificEndpoint } = useMovieApi();
+  const { movieData, status, isLoading, handleSpecificEndpoint } =
+    useMovieApi();
   const { isModalOpen, setModal, modalData, setModalData } = useModalControls();
 
   useEffect(() => {
@@ -26,6 +28,8 @@ const MoviesSummaryContainer = () => {
     window.scrollTo({ top: 0 });
     document.body.classList.remove("overflow-hidden");
   }, [id]);
+
+  if (status === 404) return <NotFound />;
 
   return (
     <section className="flex animate-fadeIn flex-col gap-8 px-4 lg:gap-12 lg:px-10">

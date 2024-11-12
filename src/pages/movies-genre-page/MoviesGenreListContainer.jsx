@@ -14,12 +14,11 @@ import SortCard from "../../components/shared/card-view/filters/SortCard";
 import FilterModal from "../../components/shared/modals/FilterModal";
 import Empty from "../../components/alerts/Empty";
 import PaginationList from "../../components/shared/pagination/PaginationList";
+import NotFound from "../../components/https/NotFound";
 
 const MoviesGenreListContainer = () => {
   const { genreID } = useParams();
   const { genres } = genresList;
-  const findGenre = genres.find((genre) => genre.id === parseInt(genreID));
-  const { genreName, genreOverview } = findGenre;
 
   const {
     movieData,
@@ -49,6 +48,12 @@ const MoviesGenreListContainer = () => {
   ]);
 
   if (isLoading) return;
+
+  if ((!movieData.results || movieData.results.length === 0) && !isLoading)
+    return <NotFound />;
+
+  const findGenre = genres.find((genre) => genre.id === parseInt(genreID));
+  const { genreName, genreOverview } = findGenre;
 
   return (
     <section className="grid grid-cols-2 gap-y-6 p-4 lg:grid-cols-[3fr_1fr]">

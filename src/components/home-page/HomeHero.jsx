@@ -19,10 +19,10 @@ const HomeHero = () => {
             Dive into detailed information, watch trailers, and keep track of
             your must-see list.
           </p>
-          <button className="flex w-fit cursor-pointer items-center justify-center gap-1 rounded-md bg-[var(--brand-color-500)] p-3 font-medium md:text-base">
+          {/* <button className="flex w-fit cursor-pointer items-center justify-center gap-1 rounded-md bg-[var(--brand-color-500)] p-3 font-medium md:text-base">
             <p>Get Started</p>
             <IconChevronRight className="h-6 w-6" />
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

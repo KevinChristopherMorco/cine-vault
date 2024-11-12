@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import IconSearch from "@tabler/icons-react/dist/esm/icons/IconSearch.mjs";
 import IconMenu2 from "@tabler/icons-react/dist/esm/icons/IconMenu2.mjs";
+import IconSearch from "@tabler/icons-react/dist/esm/icons/IconSearch.mjs";
 import IconX from "@tabler/icons-react/dist/esm/icons/IconX.mjs";
-import IconBrightness2 from "@tabler/icons-react/dist/esm/icons/IconBrightness2.mjs";
-import IconMoonStars from "@tabler/icons-react/dist/esm/icons/IconMoonStars.mjs";
 
+import formatYear from "../../helpers/format/formatYear";
 import useMovieApi from "../../hooks/axios/useMovieApi";
 import useSearch from "../../hooks/search/useSearch";
 import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
-import formatYear from "../../helpers/format/formatYear";
+
+import Empty from "../alerts/Empty";
+import Spinner from "../shared/loaders/Spinner";
 
 const Header = ({ handleToggle }) => {
   const {
@@ -18,6 +19,7 @@ const Header = ({ handleToggle }) => {
   } = useSearch();
   const [query, setQuery] = useState("");
   const { movieData, isLoading, handleSearchQueryEndpoint } = useMovieApi();
+  console.log(movieData);
 
   useEffect(() => {
     const timeout = setTimeout(() => handleSearchQueryEndpoint(query), 150);
@@ -163,6 +165,11 @@ const Header = ({ handleToggle }) => {
 
               {view && (
                 <div className="absolute h-[85vh] w-full animate-fadeIn overflow-y-scroll bg-[var(--bg-neutral)] px-3 py-4 pb-[5rem]">
+                  {isLoading && (
+                    <div className="flex h-full flex-col items-center justify-center">
+                      <Spinner />
+                    </div>
+                  )}
                   {!isLoading &&
                     movieData.map((search) => {
                       const {
@@ -213,6 +220,14 @@ const Header = ({ handleToggle }) => {
                         </Link>
                       );
                     })}
+                  {movieData.length === 0 && (
+                    <div className="flex h-full flex-col items-center justify-center">
+                      <Empty
+                        title={"No results were found"}
+                        subtext={"Try another search."}
+                      />
+                    </div>
+                  )}
                 </div>
               )}
             </div>

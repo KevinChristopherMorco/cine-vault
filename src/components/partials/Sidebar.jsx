@@ -6,6 +6,7 @@ import IconDeviceTvOld from "@tabler/icons-react/dist/esm/icons/IconDeviceTvOld.
 import IconMoodCrazyHappy from "@tabler/icons-react/dist/esm/icons/IconMoodCrazyHappy.mjs";
 
 import useScreenResponsiveness from "../../hooks/shared/useScreenResponsiveness";
+import genreList from "../../json/genresList.json";
 
 const Sidebar = ({ isToggle, handleToggle }) => {
   const {
@@ -31,13 +32,20 @@ const Sidebar = ({ isToggle, handleToggle }) => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-3 items-start justify-center gap-x-20">
+          <div className="grid grid-cols-[2.5fr_5fr_2fr] items-start justify-center gap-x-20">
             <div className="flex flex-col gap-10">
               <p className="flex items-center gap-3 text-2xl font-medium">
                 <IconMovie className="h-10 w-10 text-[var(--brand-color-500)]" />
                 Movies
               </p>
-              <List />
+              <FeaturedMoviesList />
+            </div>
+            <div className="flex flex-col gap-10">
+              <p className="flex items-center gap-3 text-2xl font-medium">
+                <IconMoodCrazyHappy className="h-10 w-10 text-[var(--brand-color-500)]" />
+                All Movie Genres
+              </p>
+              <GenreList />
             </div>
             <div>
               <div className="flex flex-col gap-10">
@@ -47,12 +55,6 @@ const Sidebar = ({ isToggle, handleToggle }) => {
                 </p>
                 <p>(Coming Soon)</p>
               </div>
-            </div>
-            <div className="flex gap-2 text-2xl font-medium">
-              <p className="flex items-center gap-3 text-2xl font-medium">
-                <IconMoodCrazyHappy className="h-10 w-10 text-[var(--brand-color-500)]" />
-                All Movie Genres
-              </p>
             </div>
           </div>
         </div>
@@ -85,7 +87,7 @@ const Sidebar = ({ isToggle, handleToggle }) => {
   );
 };
 
-const List = () => {
+const FeaturedMoviesList = () => {
   return (
     <ul className="flex flex-col gap-6">
       <li className="cursor-pointer font-medium transition-colors hover:text-[var(--brand-color-400)]">
@@ -104,6 +106,22 @@ const List = () => {
       <li className="cursor-pointer font-medium transition-colors hover:text-[var(--brand-color-400)]">
         <Link to={"/featured-movies-page/in-theaters-movies"}>In theaters</Link>
       </li>
+    </ul>
+  );
+};
+
+const GenreList = () => {
+  return (
+    <ul className="flex h-[20rem] flex-col flex-wrap gap-x-10 gap-y-4">
+      {genreList.genres.map((genre) => {
+        return (
+          <li className="cursor-pointer font-medium transition-colors hover:text-[var(--brand-color-400)]">
+            <Link to={genre.link}>
+              <p>{genre.genreName}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 };

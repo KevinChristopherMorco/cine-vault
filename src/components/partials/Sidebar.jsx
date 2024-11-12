@@ -61,9 +61,9 @@ const Sidebar = ({ isToggle, handleToggle }) => {
       )}
 
       {(sm || md) && (
-        <div className="fixed z-[999] h-screen w-full bg-black bg-opacity-50">
+        <div className="fixed z-[999] h-screen w-full overflow-y-scroll bg-black bg-opacity-50">
           <div
-            className={`absolute right-0 flex h-full w-[70%] flex-col gap-10 bg-[var(--bg-neutral-light)] p-6 ${
+            className={`absolute right-0 flex w-full flex-col gap-10 bg-[var(--bg-neutral-light)] p-6 ${
               isToggle ? "animate-slideIn" : "animate-slideOut"
             }`}
           >
@@ -79,7 +79,20 @@ const Sidebar = ({ isToggle, handleToggle }) => {
                 />
               </div>
             </div>
-            <List />
+            <div className="flex flex-col gap-10">
+              <p className="flex items-center gap-3 text-xl font-medium">
+                <IconMovie className="h-8 w-8 text-[var(--brand-color-500)]" />
+                Movies
+              </p>
+              <FeaturedMoviesList />
+            </div>
+            <div className="flex flex-col gap-10">
+              <p className="flex items-center gap-3 text-xl font-medium">
+                <IconMoodCrazyHappy className="h-8 w-8 text-[var(--brand-color-500)]" />
+                All Movie Genres
+              </p>
+              <GenreList />
+            </div>
           </div>
         </div>
       )}
@@ -112,7 +125,7 @@ const FeaturedMoviesList = () => {
 
 const GenreList = () => {
   return (
-    <ul className="flex h-[20rem] flex-col flex-wrap gap-x-10 gap-y-4">
+    <ul className="flex h-[20rem] flex-col flex-wrap gap-x-6 gap-y-4 lg:gap-x-10">
       {genreList.genres.map((genre) => {
         return (
           <li className="cursor-pointer font-medium transition-colors hover:text-[var(--brand-color-400)]">
